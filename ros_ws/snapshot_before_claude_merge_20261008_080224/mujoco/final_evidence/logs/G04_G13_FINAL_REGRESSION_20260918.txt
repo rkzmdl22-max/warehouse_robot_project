@@ -1,0 +1,7 @@
+DATE/TIME: 2026-09-18 Asia/Seoul
+COMMAND: .venv_mujoco360 Scripts python kiro_g04_g13.py; output captured by final autonomous run
+RESULT: G04-G12 PASS; G13 FAIL on current frozen official XML
+MEASUREMENTS: carry_bottle local position was 0.04 0 0.115; tool/finger center X was 0.06 while bottle X was 0.0998.
+MEASUREMENTS: after 600 steps left_contact=False right_contact=True; bottle was not between fingers.
+IMPACT: Current checkout does not reproduce historical G13 evidence; G14-G18 cannot be attempted honestly on frozen official asset.
+REGRESSION: 9 of executed G04-G13 checks passed; no XML/world mutation was made.

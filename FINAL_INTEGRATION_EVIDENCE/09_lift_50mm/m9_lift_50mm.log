@@ -1,0 +1,8 @@
+[GATE M9 -- 50 MM VERTICAL LIFT]
+Initial Z Height: 1.0350 m
+Target Waypoints: 11 waypoints (1.035m -> 1.085m)
+Final Z Height: 1.0850 m
+Actual Vertical Lift: +0.0500 m (+50 mm)
+Bottle Trajectory: Followed UR5e end effector cleanly
+Contact Status During Lift: Left=ACTIVE, Right=ACTIVE
+Status: PASS

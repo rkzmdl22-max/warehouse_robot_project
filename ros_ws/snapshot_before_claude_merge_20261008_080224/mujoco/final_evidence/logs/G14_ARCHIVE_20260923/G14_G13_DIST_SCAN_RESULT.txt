@@ -1,0 +1,4 @@
+G14 G13 DIST SCAN
+XML MODIFIED = NO
+candidates=0
+G14 = FAIL

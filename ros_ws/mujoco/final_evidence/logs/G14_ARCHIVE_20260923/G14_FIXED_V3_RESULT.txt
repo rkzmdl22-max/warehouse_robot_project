@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\work\warehouse_robot_project\ros_ws\mujoco\final_evidence\logs\G14_FIXED_V3.py", line 19, in <module>
+    print("G14 TRON1-FIXED V3 \u2014 wrist scan for stable bilateral contact")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'cp949' codec can't encode character '\u2014' in position 19: illegal multibyte sequence
+Exit: 1 

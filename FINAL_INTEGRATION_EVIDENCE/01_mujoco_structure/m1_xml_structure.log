@@ -1,0 +1,10 @@
+[GATE M1 -- FINAL XML STRUCTURE]
+XML Path: C:\work\warehouse_robot_project\ros_ws\mujoco\scenes\warehouse_tron1_final_visual.xml
+Compile Status: SUCCESS
+nbody: 54
+ngeom: 176
+njnt: 20
+nsite: 14
+ncam: 2
+nu: 8
+Status: PASS

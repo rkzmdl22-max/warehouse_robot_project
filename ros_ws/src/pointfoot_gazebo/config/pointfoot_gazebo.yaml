@@ -1,0 +1,62 @@
+/tron1a/controller_manager:
+  ros__parameters:
+    update_rate: 500
+
+    pointfoot_controller:
+      type: robot_controllers/PointfootController
+
+/tron1a/pointfoot_controller:
+  ros__parameters:
+    robot_controllers_policy_file: /ros_ws/install/robot_controllers/share/robot_controllers/config/pointfoot/PF_TRON1A/policy/isaacgym/policy.onnx
+    robot_controllers_encoder_file: /ros_ws/install/robot_controllers/share/robot_controllers/config/pointfoot/PF_TRON1A/policy/isaacgym/encoder.onnx
+    robot_hw.loop_frequency: 500.0
+    ControllerCfg.joint_names_gym:
+      - "abad_L_Joint"
+      - "hip_L_Joint"
+      - "knee_L_Joint"
+      - "abad_R_Joint"
+      - "hip_R_Joint"
+      - "knee_R_Joint"
+
+    ControllerCfg.joint_names_lab:
+      - "abad_L_Joint"
+      - "abad_R_Joint"
+      - "hip_L_Joint"
+      - "hip_R_Joint"
+      - "knee_L_Joint"
+      - "knee_R_Joint"
+
+    ControllerCfg.init_state.default_joint_angle.abad_L_Joint: 0.0
+    ControllerCfg.init_state.default_joint_angle.hip_L_Joint: 0.0
+    ControllerCfg.init_state.default_joint_angle.knee_L_Joint: 0.0
+    ControllerCfg.init_state.default_joint_angle.abad_R_Joint: 0.0
+    ControllerCfg.init_state.default_joint_angle.hip_R_Joint: 0.0
+    ControllerCfg.init_state.default_joint_angle.knee_R_Joint: 0.0
+
+    ControllerCfg.stand_mode.stand_duration: 1.0
+
+    ControllerCfg.control.stiffness: 42.0
+    ControllerCfg.control.damping: 3.5
+    ControllerCfg.control.action_scale_pos: 0.25
+    ControllerCfg.control.decimation: 10
+    ControllerCfg.control.user_torque_limit: 80.0
+
+    ControllerCfg.normalization.clip_scales.clip_observations: 100.0
+    ControllerCfg.normalization.clip_scales.clip_actions: 100.0
+    ControllerCfg.normalization.obs_scales.lin_vel: 2.0
+    ControllerCfg.normalization.obs_scales.ang_vel: 0.25
+    ControllerCfg.normalization.obs_scales.dof_pos: 1.0
+    ControllerCfg.normalization.obs_scales.dof_vel: 0.05
+
+    ControllerCfg.size.actions_size: 6
+    ControllerCfg.size.observations_size: 30
+    ControllerCfg.size.obs_history_length: 10
+    ControllerCfg.size.encoder_output_size: 3
+
+    ControllerCfg.imu_orientation_offset.yaw: 0.0
+    ControllerCfg.imu_orientation_offset.pitch: 0.0
+    ControllerCfg.imu_orientation_offset.roll: 0.0
+
+    ControllerCfg.user_cmd_scales.lin_vel_x: 1.5
+    ControllerCfg.user_cmd_scales.lin_vel_y: 1.0
+    ControllerCfg.user_cmd_scales.ang_vel_yaw: 0.5

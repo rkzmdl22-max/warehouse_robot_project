@@ -1,0 +1,444 @@
+G14 FINGER PD + ARM GRAVITY FF
+XML MODIFIED = NO
+G14 = FAIL
+[
+  {
+    "tag": "kp=100 kv=0 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=100 kv=0 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=100 kv=20 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=100 kv=20 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=100 kv=100 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=100 kv=100 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 1,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      -0.010781247956902747,
+      -0.0001055396088068693
+    ],
+    "dist_end": {
+      "L": null,
+      "R": -0.010909101223827627
+    },
+    "finger_kp": 100,
+    "finger_kv": 100.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 1,
+      "lc": false,
+      "rc": true,
+      "lq": -0.009805813366707156,
+      "rq": -0.000427597183219598,
+      "dist": {
+        "L": null,
+        "R": -0.011780586226153184
+      },
+      "extra": [],
+      "arm_q": [
+        -1.0348158926182567,
+        1.3985565724614757,
+        0.32015625802837455,
+        -0.20269841933705476,
+        -0.9722392771925731,
+        -0.001322141771408925
+      ]
+    }
+  },
+  {
+    "tag": "kp=500 kv=0 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=500 kv=0 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 2,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      -0.007835652462380454,
+      -1.2442820201124282e-05
+    ],
+    "dist_end": {
+      "L": null,
+      "R": -0.014027044648880419
+    },
+    "finger_kp": 500,
+    "finger_kv": 0.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 2,
+      "lc": false,
+      "rc": true,
+      "lq": -0.008692847173931595,
+      "rq": -4.331145342185882e-05,
+      "dist": {
+        "L": null,
+        "R": -0.0133434164215162
+      },
+      "extra": [],
+      "arm_q": [
+        -1.0318542616196908,
+        1.4044527238099418,
+        0.3234223616633823,
+        -0.2052487586643889,
+        -0.9688415336916029,
+        0.002877840640771724
+      ]
+    }
+  },
+  {
+    "tag": "kp=500 kv=20 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=500 kv=20 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=500 kv=100 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=500 kv=100 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=2000 kv=0 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=2000 kv=0 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 3,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      -0.0028769284164386773,
+      1.189970553211587e-05
+    ],
+    "dist_end": {
+      "L": -0.0007514875284030219,
+      "R": -0.017684052144528988
+    },
+    "finger_kp": 2000,
+    "finger_kv": 0.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 3,
+      "lc": false,
+      "rc": true,
+      "lq": -0.005201065583118356,
+      "rq": 1.71680912733489e-05,
+      "dist": {
+        "L": null,
+        "R": -0.01675997632001522
+      },
+      "extra": [],
+      "arm_q": [
+        -1.027466935884861,
+        1.409937196967401,
+        0.3239530693985368,
+        -0.21178830743727517,
+        -0.9606360077133529,
+        0.005254201536449599
+      ]
+    }
+  },
+  {
+    "tag": "kp=2000 kv=20 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=2000 kv=20 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=2000 kv=100 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=2000 kv=100 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=10000 kv=0 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=10000 kv=0 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=10000 kv=20 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=10000 kv=20 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 2,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      -0.0007702814627920665,
+      -1.9749141974140408e-05
+    ],
+    "dist_end": {
+      "L": -0.0009908732488999714,
+      "R": -0.01974963968070228
+    },
+    "finger_kp": 10000,
+    "finger_kv": 20.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 2,
+      "lc": false,
+      "rc": true,
+      "lq": -0.0019701458338418614,
+      "rq": -0.0001382128986983835,
+      "dist": {
+        "L": null,
+        "R": -0.019727137180747284
+      },
+      "extra": [],
+      "arm_q": [
+        -1.024176653476452,
+        1.4222934298114756,
+        0.3270186504098763,
+        -0.22392094768802698,
+        -0.9482715862522506,
+        0.004957969266711243
+      ]
+    }
+  },
+  {
+    "tag": "kp=10000 kv=100 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=10000 kv=100 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 1,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      -0.0013511488781963188,
+      -5.740137948272122e-05
+    ],
+    "dist_end": {
+      "L": -0.0004078101039367456,
+      "R": -0.020170847708620158
+    },
+    "finger_kp": 10000,
+    "finger_kv": 100.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 1,
+      "lc": false,
+      "rc": true,
+      "lq": -0.0010106734444641067,
+      "rq": -0.0002973289314817119,
+      "dist": {
+        "L": null,
+        "R": -0.02007408624581839
+      },
+      "extra": [],
+      "arm_q": [
+        -1.022120789994301,
+        1.4152921479400535,
+        0.32522168570018156,
+        -0.21849410740738867,
+        -0.9522832025047617,
+        0.002745219010984549
+      ]
+    }
+  },
+  {
+    "tag": "kp=50000 kv=0 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=50000 kv=0 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 2,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      0.0006861472094835774,
+      -0.00023616806245118342
+    ],
+    "dist_end": {
+      "L": null,
+      "R": -0.019156236850029727
+    },
+    "finger_kp": 50000,
+    "finger_kv": 0.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 2,
+      "lc": false,
+      "rc": true,
+      "lq": -0.001871911492700649,
+      "rq": -2.5481473828674697e-05,
+      "dist": {
+        "L": null,
+        "R": -0.019504350840443694
+      },
+      "extra": [],
+      "arm_q": [
+        -1.022014138158279,
+        1.4213231701953317,
+        0.3308140237201317,
+        -0.21654973716792358,
+        -0.9516421384995409,
+        0.0021792636902368593
+      ]
+    }
+  },
+  {
+    "tag": "kp=50000 kv=20 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=50000 kv=20 qf=0.0000 FF",
+    "g13": true,
+    "pass": false,
+    "contact_loss": 3,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "hold_fail": false,
+    "finger_end": [
+      0.0017158669861353044,
+      -8.096241993389426e-05
+    ],
+    "dist_end": {
+      "L": -0.002306547962783986,
+      "R": -0.01982943147444585
+    },
+    "finger_kp": 50000,
+    "finger_kv": 20.0,
+    "lf": 0.0,
+    "rf": 0.0,
+    "arm_ff": true,
+    "loss_detail": {
+      "step": 3,
+      "lc": false,
+      "rc": true,
+      "lq": 0.0009180237638693688,
+      "rq": -0.0003188310154941302,
+      "dist": {
+        "L": null,
+        "R": -0.019606243681956296
+      },
+      "extra": [],
+      "arm_q": [
+        -1.0221046333115293,
+        1.4166090133164084,
+        0.32833275345458973,
+        -0.2217046570136813,
+        -0.9543667470079278,
+        -0.001849400757363975
+      ]
+    }
+  },
+  {
+    "tag": "kp=50000 kv=100 qf=-0.0105 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  },
+  {
+    "tag": "kp=50000 kv=100 qf=0.0000 FF",
+    "g13": false,
+    "pass": false,
+    "loss_detail": null
+  }
+]

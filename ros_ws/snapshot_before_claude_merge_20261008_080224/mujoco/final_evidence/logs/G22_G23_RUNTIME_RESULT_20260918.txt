@@ -1,0 +1,9 @@
+DATE/TIME: 2026-09-18 Asia/Seoul
+ENVIRONMENT: Docker warehouse_robot_dev; ROS 2 Humble
+COMMAND: ros2 run warehouse_robot fleet_manager; ros2 run warehouse_robot mission_manager
+RESULT: G22/G23 partial runtime evidence, not full PASS
+MEASUREMENTS: Mission BOX-001 assigned to AMMR-01 /tb3_2.
+MEASUREMENTS: Mission then reported Nav2 NavigateToPose action server unavailable.
+FIX: Removed duplicate use_sim_time declaration that crashed mission startup; colcon build --packages-select warehouse_robot --symlink-install passed.
+FAILURE CAUSE: /tb3_2/navigate_to_pose absent because no spawned robot/Nav2 runtime exists.
+REGRESSION: No protected XML/world changed.

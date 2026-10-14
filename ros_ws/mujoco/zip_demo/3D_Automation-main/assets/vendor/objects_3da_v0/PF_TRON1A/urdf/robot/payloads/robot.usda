@@ -1,0 +1,195 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.3"
+    }
+    defaultPrim = "point_foot"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp7sh9eeon/point_foot.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_robot_jkmi6dcl/usdex_robot/point_foot.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_robot_jkmi6dcl/temp_robot/robot.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "point_foot" (
+    prepend apiSchemas = ["IsaacRobotAPI"]
+)
+{
+    prepend rel isaac:physics:robotJoints = [
+        </point_foot/Physics/root_joint>,
+        </point_foot/Physics/limx_imu_joint>,
+        </point_foot/Physics/abad_L_Joint>,
+        </point_foot/Physics/abad_R_Joint>,
+        </point_foot/Physics/hip_L_Joint>,
+        </point_foot/Physics/knee_L_Joint>,
+        </point_foot/Physics/foot_L_Joint>,
+        </point_foot/Physics/contact_L_Joint>,
+        </point_foot/Physics/hip_R_Joint>,
+        </point_foot/Physics/knee_R_Joint>,
+        </point_foot/Physics/foot_R_Joint>,
+        </point_foot/Physics/contact_R_Joint>,
+    ]
+    prepend rel isaac:physics:robotLinks = [
+        </point_foot/Geometry/base_Link>,
+        </point_foot/Geometry/base_Link/limx_imu>,
+        </point_foot/Geometry/base_Link/abad_L_Link>,
+        </point_foot/Geometry/base_Link/abad_L_Link/hip_L_Link>,
+        </point_foot/Geometry/base_Link/abad_L_Link/hip_L_Link/knee_L_Link>,
+        </point_foot/Geometry/base_Link/abad_L_Link/hip_L_Link/knee_L_Link/foot_L_Link>,
+        </point_foot/Geometry/base_Link/abad_L_Link/hip_L_Link/knee_L_Link/foot_L_Link/contact_L_Link>,
+        </point_foot/Geometry/base_Link/abad_R_Link>,
+        </point_foot/Geometry/base_Link/abad_R_Link/hip_R_Link>,
+        </point_foot/Geometry/base_Link/abad_R_Link/hip_R_Link/knee_R_Link>,
+        </point_foot/Geometry/base_Link/abad_R_Link/hip_R_Link/knee_R_Link/foot_R_Link>,
+        </point_foot/Geometry/base_Link/abad_R_Link/hip_R_Link/knee_R_Link/foot_R_Link/contact_R_Link>,
+    ]
+    token isaac:robotType = "Default"
+
+    over "Geometry"
+    {
+        over "base_Link" (
+            prepend apiSchemas = ["IsaacLinkAPI"]
+        )
+        {
+            over "abad_L_Link" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "hip_L_Link" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "knee_L_Link" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "foot_L_Link" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "contact_L_Link" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+
+            over "abad_R_Link" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "hip_R_Link" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "knee_R_Link" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "foot_R_Link" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "contact_R_Link" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+
+            over "limx_imu" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        over "root_joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "limx_imu_joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "abad_L_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "hip_L_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "knee_L_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "foot_L_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "contact_L_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "abad_R_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "hip_R_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "knee_R_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "foot_R_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "contact_R_Joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+    }
+}
+

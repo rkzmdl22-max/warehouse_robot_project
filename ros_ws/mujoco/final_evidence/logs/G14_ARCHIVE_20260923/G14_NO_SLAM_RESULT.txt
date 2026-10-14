@@ -1,0 +1,257 @@
+G14 NO SLAM
+XML MODIFIED = NO
+G14=FAIL
+[
+  {
+    "tag": "sym qf=-0.0105 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 2,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.0005528983897636547
+    },
+    "finger_end": [
+      -0.01080812424773823,
+      -0.010541599490929015
+    ]
+  },
+  {
+    "tag": "sym qf=-0.0080 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 5,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.003747330034950439
+    },
+    "finger_end": [
+      -0.010000168942779566,
+      -0.008034212466287206
+    ]
+  },
+  {
+    "tag": "sym qf=-0.0060 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 6,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -7.68686279744282e-06,
+      "R": -0.006231045224031169
+    },
+    "finger_end": [
+      -0.009715265131818328,
+      -0.006031159790113785
+    ]
+  },
+  {
+    "tag": "sym qf=-0.0040 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 8,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.008511680354572823
+    },
+    "finger_end": [
+      -0.00924834173429893,
+      -0.004027613247789952
+    ]
+  },
+  {
+    "tag": "sym qf=-0.0020 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 9,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.010507708074821816
+    },
+    "finger_end": [
+      -0.009103546397666633,
+      -0.0020252733714794502
+    ]
+  },
+  {
+    "tag": "sym qf=0.0000 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 10,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.012323644752179097
+    },
+    "finger_end": [
+      -0.009225157283817445,
+      -2.052014313897246e-05
+    ]
+  },
+  {
+    "tag": "sym qf=0.0020 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 11,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.013858719603812105
+    },
+    "finger_end": [
+      -0.009427330416148036,
+      0.0019420726420756192
+    ]
+  },
+  {
+    "tag": "sym qf=0.0050 kp400 kv80",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 13,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -8.344959474862927e-05,
+      "R": -0.02006318296319988
+    },
+    "finger_end": [
+      -0.006279623644414346,
+      0.004774259263572817
+    ]
+  },
+  {
+    "tag": "L=0.000 R=-0.0105",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 10,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.0033316736022037685
+    },
+    "finger_end": [
+      -0.007786838907214285,
+      -0.010522918548313599
+    ]
+  },
+  {
+    "tag": "L=0.002 R=-0.0105",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 11,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.003885030382237823
+    },
+    "finger_end": [
+      -0.007278564559523031,
+      -0.010519028073484078
+    ]
+  },
+  {
+    "tag": "L=0.005 R=-0.0105",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 13,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -1.64299240208832e-05,
+      "R": -0.004784090648237185
+    },
+    "finger_end": [
+      -0.006757129522003233,
+      -0.01051857470161784
+    ]
+  },
+  {
+    "tag": "L=0.008 R=-0.0105",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 14,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.005822850141760197
+    },
+    "finger_end": [
+      -0.0053009394500988065,
+      -0.010512870748252788
+    ]
+  },
+  {
+    "tag": "L0 R-0.0105 m1mm",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 11,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.006232472821966278
+    },
+    "finger_end": [
+      -0.005805132617819267,
+      -0.01050534081568191
+    ]
+  },
+  {
+    "tag": "sym-0.006 m1mm",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 7,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": 0.0006719967640473846,
+      "R": -0.007088227707955075
+    },
+    "finger_end": [
+      -0.009662283966434732,
+      -0.006009052299044022
+    ]
+  }
+]

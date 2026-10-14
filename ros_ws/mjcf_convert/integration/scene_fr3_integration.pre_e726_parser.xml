@@ -1,0 +1,128 @@
+<mujoco model="tiago">
+
+    <size
+        memory="512M"
+    />
+
+
+    <compiler
+        angle="radian"
+        meshdir="meshes"
+        autolimits="true"
+    />
+
+
+    <option
+        timestep="0.001"
+        gravity="0 0 -9.81"
+        iterations="50"
+    />
+
+
+    <default>
+
+        <joint
+            limited="true"
+            damping="0.01"
+            armature="0.01"
+            frictionloss="0.01"
+        />
+
+        <geom
+            condim="4"
+            contype="1"
+            conaffinity="15"
+        />
+
+        <motor
+            ctrllimited="true"
+        />
+
+        <default class="visualgeom">
+
+            <geom
+                contype="0"
+                conaffinity="0"
+            />
+
+        </default>
+
+    </default>
+
+
+    <asset>
+  <mesh name="base_collision" file="base_collision.stl"/>
+  <mesh name="base_dock_link" file="base_dock_link.stl"/>
+  <mesh name="torso_lift_collision_core" file="torso_lift_collision_core.stl"/>
+    
+  <mesh name="torso_lift_collision_shoulder" file="torso_lift_collision_shoulder.stl"/>
+  
+    
+  <mesh name="torso_lift_collision_neck" file="torso_lift_collision_neck.stl"/>
+  
+    
+  <mesh name="arm_1_collision" file="arm_1_collision.stl"/>
+  
+    
+  <mesh name="arm_2_collision" file="arm_2_collision.stl"/>
+  
+    
+  <mesh name="arm_3_collision" file="arm_3_collision.stl"/>
+  
+    
+  <mesh name="arm_4_collision" file="arm_4_collision.stl"/>
+  
+    
+  <mesh name="arm_5_collision-wrist-2017" file="arm_5_collision-wrist-2017.stl"/>
+  
+    
+  <mesh name="arm_6_collision-wrist-2017" file="arm_6_collision-wrist-2017.stl"/>
+  
+    
+  <mesh name="palm_collision" file="palm_collision.stl"/>
+  
+    
+  <mesh name="thumb_abd_collision" file="thumb_abd_collision.stl"/>
+  
+    
+  <mesh name="finger_flex_collision" file="finger_flex_collision.stl"/>
+  
+    
+  <mesh name="finger_flex_tip_collision" file="finger_flex_tip_collision.stl"/>
+  
+    
+  <mesh name="finger_abd_collision" file="finger_abd_collision.stl"/>
+  
+  <mesh name="head_1_collision" file="head_1_collision.stl"/>
+  
+    
+  <mesh name="head_2_collision" file="head_2_collision.stl"/>
+  
+    
+  <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100"/>
+  
+    
+  <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true"/>
+  
+    
+  <material name="visualgeom" rgba="0.5 0.9 0.2 1"/>
+  
+  
+
+
+    </asset>
+
+
+    <worldbody>
+        <include file="bodies.xml"/>
+    </worldbody>
+
+
+<actuator>
+    <include file="actuators.xml"/>
+</actuator>
+
+
+
+
+</mujoco>

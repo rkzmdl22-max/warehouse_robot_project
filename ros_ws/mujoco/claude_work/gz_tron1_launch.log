@@ -1,0 +1,208 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-13-01-03-13-638736-hkit-desktop-1045
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [1048]
+[INFO] [gzclient-2]: process started with pid [1050]
+[INFO] [spawn_entity.py-3]: process started with pid [1052]
+[INFO] [robot_state_publisher-4]: process started with pid [1054]
+[INFO] [pointfoot_node-5]: process started with pid [1056]
+[pointfoot_node-5] [WARN] [1791853394.674735793] [PointfootHardwareNode]: Controller Name: PointfootController
+[pointfoot_node-5] INFO: RobotIPAddress - "127.0.0.1"
+[robot_state_publisher-4] [WARN] [1791853394.780023687] [kdl_parser]: The root link base_Link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[robot_state_publisher-4] [INFO] [1791853394.781017510] [robot_state_publisher]: got segment abad_L_Link
+[robot_state_publisher-4] [INFO] [1791853394.781081041] [robot_state_publisher]: got segment abad_R_Link
+[robot_state_publisher-4] [INFO] [1791853394.781087842] [robot_state_publisher]: got segment base_Link
+[robot_state_publisher-4] [INFO] [1791853394.781092463] [robot_state_publisher]: got segment contact_L_Link
+[robot_state_publisher-4] [INFO] [1791853394.781096847] [robot_state_publisher]: got segment contact_R_Link
+[robot_state_publisher-4] [INFO] [1791853394.781101122] [robot_state_publisher]: got segment foot_L_Link
+[robot_state_publisher-4] [INFO] [1791853394.781105457] [robot_state_publisher]: got segment foot_R_Link
+[robot_state_publisher-4] [INFO] [1791853394.781109744] [robot_state_publisher]: got segment hip_L_Link
+[robot_state_publisher-4] [INFO] [1791853394.781114012] [robot_state_publisher]: got segment hip_R_Link
+[robot_state_publisher-4] [INFO] [1791853394.781118558] [robot_state_publisher]: got segment imu_Link
+[robot_state_publisher-4] [INFO] [1791853394.781122786] [robot_state_publisher]: got segment knee_L_Link
+[robot_state_publisher-4] [INFO] [1791853394.781127042] [robot_state_publisher]: got segment knee_R_Link
+[spawn_entity.py-3] [INFO] [1791853394.992132983] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-3] [INFO] [1791853394.992507933] [spawn_entity]: Loading entity published on topic robot_description
+[spawn_entity.py-3] [INFO] [1791853395.001764684] [spawn_entity]: Waiting for entity xml on robot_description
+[spawn_entity.py-3] [INFO] [1791853395.098971301] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-3] [INFO] [1791853395.100407010] [spawn_entity]: Waiting for service /spawn_entity
+[pointfoot_node-5] [WARN] [1791853395.182654221] [PointfootHardwareNode]: Connected to the robot: 127.0.0.1
+[pointfoot_node-5] [WARN] [1791853395.257939355] [robot_hw_node]: 'update_rate' parameter not set, using default value.
+[pointfoot_node-5] [INFO] [1791853395.258014847] [robot_hw_node]: Subscribing to '~/robot_description' topic for robot description file.
+[pointfoot_node-5] [WARN] [1791853395.260099022] [HardwareLoop]: jointNames: [abad_L_Joint, hip_L_Joint, knee_L_Joint, abad_R_Joint, hip_R_Joint, knee_R_Joint, ]
+[pointfoot_node-5] [INFO] [1791853395.260116347] [resource_manager]: Initialize hardware '' 
+[pointfoot_node-5] [INFO] [1791853395.260139379] [resource_manager]: Successful initialization of hardware ''
+[pointfoot_node-5] [INFO] [1791853395.260197056] [resource_manager]: 'configure' hardware 'HardwareBase' 
+[pointfoot_node-5] [INFO] [1791853395.260204076] [resource_manager]: Successful 'configure' of hardware 'HardwareBase'
+[pointfoot_node-5] [INFO] [1791853395.260214554] [resource_manager]: 'activate' hardware 'HardwareBase' 
+[pointfoot_node-5] [INFO] [1791853395.260218924] [resource_manager]: Successful 'activate' of hardware 'HardwareBase'
+[pointfoot_node-5] [INFO] [1791853395.260229252] [robot_hw_node]: Loading controller 'PointfootController'
+[pointfoot_node-5] [WARN] [1791853395.294914163] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[pointfoot_node-5] [INFO] [1791853395.309330402] [ControllerBase]: Set RL_TYPE to isaacgym
+[pointfoot_node-5] isaacgym
+[pointfoot_node-5] [WARN] [1791853395.309481247] [ControllerBase]: jointNames: [abad_L_Joint, hip_L_Joint, knee_L_Joint, abad_R_Joint, hip_R_Joint, knee_R_Joint, ]
+[pointfoot_node-5] [INFO] [1791853395.309606810] [PointfootController]: All parameters retrieved successfully.
+[pointfoot_node-5] [INFO] [1791853395.309621499] [RobotCfg]: =======start ObsScales========
+[pointfoot_node-5] [INFO] [1791853395.309625693] [RobotCfg]: linVel: 2.000000
+[pointfoot_node-5] [INFO] [1791853395.309631458] [RobotCfg]: angVel: 0.250000
+[pointfoot_node-5] [INFO] [1791853395.309640317] [RobotCfg]: dofPos: 1.000000
+[pointfoot_node-5] [INFO] [1791853395.309643961] [RobotCfg]: dofVel: 0.050000
+[pointfoot_node-5] [INFO] [1791853395.309647945] [RobotCfg]: =======end ObsScales========
+[pointfoot_node-5] 
+[pointfoot_node-5] [INFO] [1791853395.309652751] [RobotCfg]: =======start ControlCfg========
+[pointfoot_node-5] [INFO] [1791853395.309656212] [RobotCfg]: stiffness: 42.000000
+[pointfoot_node-5] [INFO] [1791853395.309660658] [RobotCfg]: damping: 3.500000
+[pointfoot_node-5] [INFO] [1791853395.309664240] [RobotCfg]: action_scale_pos: 0.250000
+[pointfoot_node-5] [INFO] [1791853395.309667922] [RobotCfg]: action_scale_vel: 0.000000
+[pointfoot_node-5] [INFO] [1791853395.309671418] [RobotCfg]: decimation: 10
+[pointfoot_node-5] [INFO] [1791853395.309674881] [RobotCfg]: user_torque_limit: 80.000000
+[pointfoot_node-5] [INFO] [1791853395.309678688] [RobotCfg]: =======end ControlCfg========
+[pointfoot_node-5] 
+[pointfoot_node-5] [INFO] [1791853395.309683174] [RobotCfg]: ======= Start User Cmd Scales========
+[pointfoot_node-5] [INFO] [1791853395.309686732] [RobotCfg]: lin_vel_x: 1.500000
+[pointfoot_node-5] [INFO] [1791853395.309690380] [RobotCfg]: lin_vel_y: 1.000000
+[pointfoot_node-5] [INFO] [1791853395.309693828] [RobotCfg]: ang_vel_yaw: 0.500000
+[pointfoot_node-5] [INFO] [1791853395.309697454] [RobotCfg]: =======End User Cmd Scales========
+[pointfoot_node-5] 
+[pointfoot_node-5] [INFO] [1791853395.309701841] [RobotCfg]: =======Start GaitCfg========
+[pointfoot_node-5] [INFO] [1791853395.309705211] [RobotCfg]: frequencies: 0.000000
+[pointfoot_node-5] [INFO] [1791853395.309708707] [RobotCfg]: swing_height: 0.000000
+[pointfoot_node-5] [INFO] [1791853395.309712214] [RobotCfg]: =======end GaitCfg========
+[pointfoot_node-5] 
+[pointfoot_node-5] [INFO] [1791853395.309715496] [RobotCfg]: clipActions: 100.000000
+[pointfoot_node-5] [INFO] [1791853395.309719461] [RobotCfg]: clipObs: 100.000000
+[pointfoot_node-5] [INFO] [1791853395.326234483] [PointfootController]: Loading policy from: /ros_ws/install/robot_controllers/share/robot_controllers/config/pointfoot/PF_TRON1A/policy/isaacgym/policy.onnx
+[pointfoot_node-5] [INFO] [1791853395.359704059] [PointfootController]: GetInputName: mlp_input
+[pointfoot_node-5] [INFO] [1791853395.359737347] [PointfootController]: Shape: [36]
+[pointfoot_node-5] [INFO] [1791853395.359750795] [PointfootController]: GetOutputName: mlp_output
+[pointfoot_node-5] [INFO] [1791853395.359759430] [PointfootController]: Shape: [6]
+[pointfoot_node-5] [INFO] [1791853395.359763760] [PointfootController]: Loading encoder from: /ros_ws/install/robot_controllers/share/robot_controllers/config/pointfoot/PF_TRON1A/policy/isaacgym/encoder.onnx
+[pointfoot_node-5] [INFO] [1791853395.362962079] [PointfootController]: GetInputName: mlp_input
+[pointfoot_node-5] [INFO] [1791853395.362977836] [PointfootController]: Shape: [300]
+[pointfoot_node-5] [INFO] [1791853395.362984488] [PointfootController]: GetOutputName: mlp_output
+[pointfoot_node-5] [INFO] [1791853395.362990975] [PointfootController]: Shape: [3]
+[pointfoot_node-5] [INFO] [1791853395.362995526] [PointfootController]: Successfully loaded ONNX models!
+[pointfoot_node-5] [WARN] [1791853395.363214683] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[pointfoot_node-5] [INFO] [1791853395.368623369] [HardwareLoop]: Loaded controller name: PointfootController, type: robot_controllers/PointfootController
+[pointfoot_node-5] [INFO] [1791853395.368638476] [robot_hw_node]: Configuring controller 'PointfootController'
+[pointfoot_node-5] [INFO] [1791853395.368745347] [HardwareLoop]: Loaded parameters - loop_frequency: 500.000000, cycle_time_error_threshold: 0.002000
+[gzserver-1] ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+[gzserver-1] ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+[gzserver-1] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+[gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
+[spawn_entity.py-3] [INFO] [1791853396.125617862] [spawn_entity]: Calling service /spawn_entity
+[spawn_entity.py-3] [INFO] [1791853396.351294864] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [pointfoot_entity]
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 1052]
+[pointfoot_node-5] [WARN] [1791853398.664952089] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001254s, cycle time: 0.005254s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853398.773528253] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000479s, cycle time: 0.004479s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853399.346952768] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000964s, cycle time: 0.004964s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853399.488513036] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000123s, cycle time: 0.004123s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853399.689955687] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001108s, cycle time: 0.005108s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853399.834437562] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000233s, cycle time: 0.004233s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853400.163954748] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000959s, cycle time: 0.004959s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853400.172081407] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000035s, cycle time: 0.004035s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853400.180036375] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000639s, cycle time: 0.004639s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853400.511981994] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000537s, cycle time: 0.004537s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853400.856264507] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000676s, cycle time: 0.004676s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853401.212984501] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001308s, cycle time: 0.005308s, threshold: 0.002000s
+[pointfoot_node-5] [INFO] [1791853401.369422961] [HardwareLoop]: Switching controllers...
+[pointfoot_node-5] [INFO] [1791853401.370430420] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.370455644] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.370467571] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.370477929] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.370487920] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.370498690] [PointfootController]: starting hybridJointHandle: 0.000000
+[pointfoot_node-5] [INFO] [1791853401.372155200] [HardwareLoop]: Controller 'PointfootController' started.
+[pointfoot_node-5] [WARN] [1791853401.547984122] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001508s, cycle time: 0.005508s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853401.744945188] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000152s, cycle time: 0.004152s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853401.870972900] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000869s, cycle time: 0.004869s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853401.885543104] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000248s, cycle time: 0.004248s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853402.226042114] [HardwareLoop]: Cycle time exceeded error threshold by: 0.003267s, cycle time: 0.007267s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853402.548826321] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000467s, cycle time: 0.004467s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853402.892164133] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000219s, cycle time: 0.004219s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853402.899079034] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000818s, cycle time: 0.004818s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.096957165] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001175s, cycle time: 0.005175s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.232107817] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000480s, cycle time: 0.004480s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.241034477] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000785s, cycle time: 0.004785s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.459244259] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000247s, cycle time: 0.004247s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.780954219] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001023s, cycle time: 0.005023s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.796518460] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000464s, cycle time: 0.004464s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.913469892] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000772s, cycle time: 0.004772s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853403.921635073] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000022s, cycle time: 0.004022s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.122954941] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000673s, cycle time: 0.004673s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.460954716] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001543s, cycle time: 0.005543s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.467944750] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000935s, cycle time: 0.004935s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.474942841] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000941s, cycle time: 0.004941s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.592705559] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000895s, cycle time: 0.004895s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.600915515] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000026s, cycle time: 0.004026s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.798949825] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001607s, cycle time: 0.005607s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853404.927964099] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000147s, cycle time: 0.004147s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.135951540] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001417s, cycle time: 0.005417s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.265139108] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000244s, cycle time: 0.004244s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.273669381] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000384s, cycle time: 0.004384s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.470954229] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000975s, cycle time: 0.004975s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.608579765] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000469s, cycle time: 0.004469s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.614981811] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000308s, cycle time: 0.004308s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.825941513] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000758s, cycle time: 0.004758s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853405.956016637] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000518s, cycle time: 0.004518s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853406.154955255] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000447s, cycle time: 0.004447s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853406.622754925] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000034s, cycle time: 0.004034s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853406.637021436] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000297s, cycle time: 0.004297s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853406.966966337] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000393s, cycle time: 0.004393s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.306327682] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000205s, cycle time: 0.004205s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.510954188] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000112s, cycle time: 0.004112s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.642468090] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001833s, cycle time: 0.005833s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.650764427] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000144s, cycle time: 0.004144s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.855960681] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000181s, cycle time: 0.004181s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.862943869] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000928s, cycle time: 0.004928s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853407.987470174] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000017s, cycle time: 0.004017s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853408.198956825] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000503s, cycle time: 0.004503s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853408.211941509] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000761s, cycle time: 0.004761s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853408.542180494] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000028s, cycle time: 0.004028s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853408.892964666] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000956s, cycle time: 0.004956s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853408.899941161] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000921s, cycle time: 0.004921s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853409.246941259] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000767s, cycle time: 0.004767s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853409.377008998] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000843s, cycle time: 0.004843s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853409.576954618] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000893s, cycle time: 0.004893s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853410.052072221] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000084s, cycle time: 0.004084s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853410.258955629] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000054s, cycle time: 0.004054s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853410.391186829] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000304s, cycle time: 0.004304s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853410.940957662] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000485s, cycle time: 0.004485s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853411.077433412] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000481s, cycle time: 0.004481s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853411.768980014] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000356s, cycle time: 0.004356s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853411.970954491] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000974s, cycle time: 0.004974s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853412.111508852] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000418s, cycle time: 0.004418s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853412.310961327] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000782s, cycle time: 0.004782s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853412.317945566] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000929s, cycle time: 0.004929s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853412.445753204] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000714s, cycle time: 0.004714s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853412.459999823] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000892s, cycle time: 0.004892s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853413.004942252] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000821s, cycle time: 0.004821s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853413.144191155] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000080s, cycle time: 0.004080s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853413.814960351] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000976s, cycle time: 0.004976s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853413.827654952] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000662s, cycle time: 0.004662s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.023969379] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000149s, cycle time: 0.004149s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.168504240] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000595s, cycle time: 0.004595s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.174981846] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000383s, cycle time: 0.004383s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.369953588] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000796s, cycle time: 0.004796s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.501976217] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001253s, cycle time: 0.005253s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853414.849981595] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000094s, cycle time: 0.004094s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.043875438] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001302s, cycle time: 0.005302s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.175498997] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000555s, cycle time: 0.004555s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.381954300] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000053s, cycle time: 0.004053s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.519403685] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000403s, cycle time: 0.004403s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.526014538] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000366s, cycle time: 0.004366s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.720957265] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000203s, cycle time: 0.004203s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.727964718] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000932s, cycle time: 0.004932s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.857059214] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000426s, cycle time: 0.004426s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853415.873423029] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000063s, cycle time: 0.004063s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853416.069952633] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001801s, cycle time: 0.005801s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853416.208247327] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000148s, cycle time: 0.004148s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853416.406015349] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001223s, cycle time: 0.005223s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853416.554289064] [HardwareLoop]: Cycle time exceeded error threshold by: 0.000679s, cycle time: 0.004679s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853416.902043421] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001130s, cycle time: 0.005130s, threshold: 0.002000s
+[pointfoot_node-5] [WARN] [1791853417.099953676] [HardwareLoop]: Cycle time exceeded error threshold by: 0.001113s, cycle time: 0.005113s, threshold: 0.002000s
+[ERROR] [gzclient-2]: process has died [pid 1050, exit code -11, cmd 'gzclient --gui-client-plugin=libgazebo_ros_eol_gui.so'].

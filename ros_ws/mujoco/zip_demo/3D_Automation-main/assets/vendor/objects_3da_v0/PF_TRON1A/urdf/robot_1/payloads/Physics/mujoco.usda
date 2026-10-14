@@ -1,0 +1,271 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.3"
+    }
+    defaultPrim = "point_foot"
+    doc = """Generated from Composed Stage of root layer /tmp/tmp49_fu7fc/point_foot.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_robot_98ut2uxk/usdex_robot/point_foot.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_robot_98ut2uxk/temp_robot/robot.usd
+
+
+Generated from Composed Stage of root layer /home/ubuntu/Downloads/tron1-robot-description-master (2)/pointfoot/PF_TRON1A/urdf/robot_1/payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./physics.usda@
+    ]
+    upAxis = "Z"
+)
+
+over "point_foot"
+{
+    over "Physics"
+    {
+        def MjcActuator "abad_L_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/abad_L_Joint>
+        }
+
+        def MjcActuator "hip_L_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/hip_L_Joint>
+        }
+
+        def MjcActuator "knee_L_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/knee_L_Joint>
+        }
+
+        def MjcActuator "abad_R_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/abad_R_Joint>
+        }
+
+        def MjcActuator "hip_R_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/hip_R_Joint>
+        }
+
+        def MjcActuator "knee_R_Joint_actuator"
+        {
+            uniform double mjc:forceRange:max = 80
+            uniform double mjc:forceRange:min = -80
+            custom rel mjc:target
+            prepend rel mjc:target = </point_foot/Physics/knee_R_Joint>
+        }
+
+        over "root_joint"
+        {
+        }
+
+        over "limx_imu_joint"
+        {
+        }
+
+        over "abad_L_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "hip_L_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "knee_L_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "foot_L_Joint"
+        {
+        }
+
+        over "contact_L_Joint"
+        {
+        }
+
+        over "abad_R_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "hip_R_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "knee_R_Joint" (
+            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+        }
+
+        over "foot_R_Joint"
+        {
+        }
+
+        over "contact_R_Joint"
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "base_Link"
+        {
+            over "abad_L_Link"
+            {
+                over "hip_L_Link"
+                {
+                    over "knee_L_Link"
+                    {
+                        over "foot_L_Link"
+                        {
+                            over "contact_L_Link"
+                            {
+                            }
+
+                            over "foot_L_Link"
+                            {
+                            }
+
+                            over "sphere"
+                            {
+                            }
+                        }
+
+                        over "knee_L_Link"
+                        {
+                        }
+
+                        over "cylinder"
+                        {
+                        }
+                    }
+
+                    over "hip_L_Link"
+                    {
+                    }
+
+                    over "cylinder"
+                    {
+                    }
+                }
+
+                over "abad_L_Link"
+                {
+                }
+
+                over "cylinder"
+                {
+                }
+            }
+
+            over "abad_R_Link"
+            {
+                over "hip_R_Link"
+                {
+                    over "knee_R_Link"
+                    {
+                        over "foot_R_Link"
+                        {
+                            over "contact_R_Link"
+                            {
+                            }
+
+                            over "foot_R_Link"
+                            {
+                            }
+
+                            over "sphere"
+                            {
+                            }
+                        }
+
+                        over "knee_R_Link"
+                        {
+                        }
+
+                        over "cylinder"
+                        {
+                        }
+                    }
+
+                    over "hip_R_Link"
+                    {
+                    }
+
+                    over "cylinder"
+                    {
+                    }
+                }
+
+                over "abad_R_Link"
+                {
+                }
+
+                over "cylinder"
+                {
+                }
+            }
+
+            over "limx_imu"
+            {
+                over "material"
+                {
+                    over "color"
+                    {
+                    }
+                }
+
+                over "box"
+                {
+                }
+            }
+
+            over "base_Link"
+            {
+            }
+
+            over "box"
+            {
+            }
+        }
+    }
+
+    over "Materials"
+    {
+    }
+
+    over "VisualMaterials"
+    {
+    }
+}
+

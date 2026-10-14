@@ -1,0 +1,27 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+
+    container_name: tiago_dev
+
+    working_dir: /ros_ws
+
+    stdin_open: true
+    tty: true
+
+    network_mode: host
+
+    environment:
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: "1"
+      LIBGL_ALWAYS_INDIRECT: "0"
+      LIBGL_ALWAYS_SOFTWARE: "1"
+
+    volumes:
+      - ./ros_ws:/ros_ws
+      - ./models:/models
+      - ./warehouse:/warehouse
+
+    command: tail -f /dev/null

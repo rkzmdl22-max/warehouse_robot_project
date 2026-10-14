@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="warehouse_realistic_scene">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50" />
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" />
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="1" type="mesh" rgba="0.9 0.9 0.9 1.0" />
+    </default>
+  </default>
+  <asset>
+    <texture name="texfloor" type="2d" builtin="checker" rgb1="0.15 0.18 0.22" rgb2="0.25 0.28 0.32" width="512" height="512" />
+    <material name="matfloor" texture="texfloor" texrepeat="20 20" reflectance="0.1" specular="0.2" shininess="0.3" />
+    <material name="matwall" rgba="0.85 0.88 0.92 1" specular="0.1" shininess="0.1" />
+    <material name="shelf_frame_mat" rgba="0.15 0.2 0.25 1" specular="0.4" shininess="0.5" />
+    <material name="shelf_plate_mat" rgba="0.4 0.42 0.45 1" specular="0.3" shininess="0.3" />
+    <material name="wood_pallet_mat" rgba="0.65 0.45 0.25 1" specular="0.1" shininess="0.1" />
+    <material name="pallet_runner_mat" rgba="0.5 0.35 0.2 1" specular="0.1" shininess="0.1" />
+    <material name="box_cardboard1_mat" rgba="0.78 0.58 0.35 1" specular="0.2" shininess="0.2" />
+    <material name="box_cardboard2_mat" rgba="0.3 0.55 0.85 1" specular="0.3" shininess="0.4" />
+    <material name="box_small_mat" rgba="0.85 0.7 0.3 1" specular="0.2" shininess="0.2" />
+    <material name="loading_zone_mat" rgba="0.1 0.8 0.2 0.35" />
+    <material name="shipping_zone_mat" rgba="0.9 0.2 0.1 0.35" />
+    <material name="hazard_stripe_mat" rgba="0.9 0.8 0.1 0.6" />
+    <material name="dock_mat" rgba="0.3 0.3 0.35 1" />
+    <mesh name="base_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/base_Link.STL" />
+    <mesh name="abad_L_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/abad_L_Link.STL" />
+    <mesh name="hip_L_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/hip_L_Link.STL" />
+    <mesh name="knee_L_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/knee_L_Link.STL" />
+    <mesh name="foot_L_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/foot_L_Link.STL" />
+    <mesh name="abad_R_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/abad_R_Link.STL" />
+    <mesh name="hip_R_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/hip_R_Link.STL" />
+    <mesh name="knee_R_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/knee_R_Link.STL" />
+    <mesh name="foot_R_Link" file="../../Objects_3DA_v0/PF_TRON1A/meshes/foot_R_Link.STL" />
+  </asset>
+  <worldbody>
+    <light name="light_overhead_center" pos="0 0 7.5" dir="0 0 -1" diffuse="0.8 0.8 0.85" specular="0.3 0.3 0.3" castshadow="true" />
+    <light name="light_overhead_nw" pos="-6 5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1" />
+    <light name="light_overhead_se" pos="6 -5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1" />
+    <light name="light_spot_picking" pos="-4 -2 4.0" dir="0 0 -1" diffuse="0.6 0.6 0.7" specular="0.4 0.4 0.4" />
+    <geom name="floor" type="plane" pos="0 0 0" size="10 10 0.1" material="matfloor" contype="1" conaffinity="1" friction="0.8 0.1 0.1" />
+    <geom name="wall_left" type="box" pos="0.0 -10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_right" type="box" pos="0.0 10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_front" type="box" pos="10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_back" type="box" pos="-10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1" />
+    <body name="base_Link" pos="1.2 -3.0 0.82">
+      <inertial pos="0.0457123 0.000139854 -0.163809" quat="0.972578 -0.00615364 -0.232461 0.00398682" mass="9.595" diaginertia="0.154712 0.11093 0.0846371" />
+      <joint type="free" limited="false" damping="0.01" stiffness="0.0000" armature="0.01" />
+      <site name="imu" pos="0 0 0" />
+      <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="base_Link" />
+      <geom name="base_collision" size="0.135 0.13 0.095" pos="0.03 0 -0.072" type="box" rgba="0 0 1 0" />
+      <body name="abad_L_Link" pos="0.05556 0.105 -0.2602">
+        <inertial pos="-0.06977 0.04479 0.00057" quat="0.595024 0.579772 0.394141 0.393019" mass="1.469" diaginertia="0.00252289 0.00208104 0.00139163" />
+        <joint name="abad_L_Joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.38397 1.39626" />
+        <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="abad_L_Link" />
+        <geom name="abad_L_collision" type="cylinder" pos="-0.08 0 0" euler="1.57 0 0" size="0.05 0.025" rgba="0 0 1 0" />
+        <body name="hip_L_Link" pos="-0.077 0.0205 0">
+          <inertial pos="-0.02869 -0.0477 -0.03992" quat="0.853885 0.192797 0.226903 0.426877" mass="2.3" diaginertia="0.0233264 0.0230229 0.00277548" />
+          <joint name="hip_L_Joint" pos="0 0 0" axis="0 1 0" limited="true" range="-1.01229 1.39626" />
+          <geom class="visual" rgba="1 1 1 1" mesh="hip_L_Link" />
+          <geom name="hip_L_collision" type="cylinder" pos="-0.1 -0.02 -0.14" euler="0 0.53 0" size="0.035 0.09" rgba="0 0 1 0" />
+          <body name="knee_L_Link" pos="-0.15 -0.0205 -0.25981">
+            <inertial pos="0.05168 0.00152 -0.08148" quat="0.668191 -0.202995 -0.19946 0.687408" mass="0.55" diaginertia="0.00419956 0.00414131 0.000138393" />
+            <joint name="knee_L_Joint" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.872665 1.36136" />
+            <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="knee_L_Link" />
+            <geom name="knee_L_collision" type="cylinder" pos="0.078 0 -0.12" euler="0 -0.55 0" size="0.015 0.13" rgba="0 0 1 0" />
+            <geom class="visual" pos="0.150 0 -0.2598" rgba="0.26667 0.26667 0.26667 1" mesh="foot_L_Link" />
+            <geom name="foot_L_collision" type="sphere" pos="0.150 0 -0.2598" size="0.032" rgba="0 0 1 0" />
+          </body>
+        </body>
+      </body>
+      <body name="abad_R_Link" pos="0.05556 -0.105 -0.2602">
+        <inertial pos="-0.06977 -0.04479 0.00057" quat="0.393019 0.394141 0.579772 0.595024" mass="1.469" diaginertia="0.00252289 0.00208104 0.00139163" />
+        <joint name="abad_R_Joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.39626 0.38397" />
+        <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="abad_R_Link" />
+        <geom name="abad_R_collision" type="cylinder" pos="-0.08 0 0" euler="1.57 0 0" size="0.05 0.025" rgba="0 0 1 0" />
+        <body name="hip_R_Link" pos="-0.077 -0.0205 0">
+          <inertial pos="-0.02869 0.0477 -0.03992" quat="0.426877 0.226903 0.192797 0.853885" mass="2.3" diaginertia="0.0233264 0.0230229 0.00277548" />
+          <joint name="hip_R_Joint" pos="0 0 0" axis="0 -1 0" limited="true" range="-1.39626 1.01229" />
+          <geom class="visual" rgba="1 1 1 1" mesh="hip_R_Link" />
+          <geom name="hip_R_collision" type="cylinder" pos="-0.10 0.025 -0.14" euler="0 0.53 0" size="0.035 0.09" rgba="0 0 1 0" />
+          <body name="knee_R_Link" pos="-0.15 0.0205 -0.25981">
+            <inertial pos="0.05168 -0.00152 -0.08148" quat="0.687408 -0.19946 -0.202995 0.668191" mass="0.55" diaginertia="0.00419956 0.00414131 0.000138393" />
+            <joint name="knee_R_Joint" pos="0 0 0" axis="0 1 0" limited="true" range="-1.36136 0.872665" />
+            <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="knee_R_Link" />
+            <geom name="knee_R_collision" type="cylinder" pos="0.078 0 -0.12" euler="0 -0.55 0" size="0.015 0.13" rgba="0 0 1 0" />
+            <geom class="visual" pos="0.150 0 -0.2598" rgba="0.26667 0.26667 0.26667 1" mesh="foot_R_Link" />
+            <geom name="foot_R_collision" type="sphere" pos="0.150 0 -0.2598" size="0.032" rgba="0 0 1 0" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <include file="../warehouse/shelves.xml" />
+  <include file="../warehouse/pallets.xml" />
+  <include file="../warehouse/boxes.xml" />
+  <include file="../warehouse/zones.xml" />
+  <include file="../warehouse/conveyor.xml" />
+  <include file="../warehouse/tron1_station.xml" />
+  <actuator>
+    <motor name="abad_L_Joint" gear="1" joint="abad_L_Joint" ctrllimited="true" ctrlrange="-80 80" />
+    <motor name="hip_L_Joint" gear="1" joint="hip_L_Joint" ctrllimited="true" ctrlrange="-80 80" />
+    <motor name="knee_L_Joint" gear="1" joint="knee_L_Joint" ctrllimited="true" ctrlrange="-80 80" />
+    <motor name="abad_R_Joint" gear="1" joint="abad_R_Joint" ctrllimited="true" ctrlrange="-80 80" />
+    <motor name="hip_R_Joint" gear="1" joint="hip_R_Joint" ctrllimited="true" ctrlrange="-80 80" />
+    <motor name="knee_R_Joint" gear="1" joint="knee_R_Joint" ctrllimited="true" ctrlrange="-80 80" />
+  </actuator>
+</mujoco>

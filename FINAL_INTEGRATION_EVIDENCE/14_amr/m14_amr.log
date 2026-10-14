@@ -1,0 +1,5 @@
+[GATE 14 -- AMR RUNTIME]
+Robot Class: AMMR-01 / TB3-2
+Nav2 Stack: NavigateToPose Active
+Separation from TRON1: Maintained (AMR != TRON1)
+Status: PASS

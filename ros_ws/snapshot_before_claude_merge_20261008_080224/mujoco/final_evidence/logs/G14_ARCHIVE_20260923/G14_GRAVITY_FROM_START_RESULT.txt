@@ -1,0 +1,89 @@
+G14 GRAVITY FROM START
+XML MODIFIED = NO
+G14=FAIL
+[
+  {
+    "tag": "gravstart lf0.02 rf-0.0105",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 18,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -0.0008026529138894735,
+      "R": -0.009623550227830104
+    }
+  },
+  {
+    "tag": "gravstart lf0.02 rf0",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 18,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -0.0006321546346007793,
+      "R": -0.018072650198437616
+    }
+  },
+  {
+    "tag": "gravstart pinch",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 3,
+    "drift": 0.0,
+    "lc": false,
+    "rc": true,
+    "dist_end": {
+      "L": null,
+      "R": -0.0009965092572192906
+    }
+  },
+  {
+    "tag": "gravstart + damp qvel root only already",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 18,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -0.0008026529138894735,
+      "R": -0.009623550227830104
+    }
+  },
+  {
+    "tag": "gravstart stiff",
+    "g13": true,
+    "g13_step": 1,
+    "pass": false,
+    "contact_loss": 19,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -0.006265777073350956,
+      "R": -0.011153578851016022
+    }
+  },
+  {
+    "tag": "gravstart pan-0.03",
+    "g13": true,
+    "g13_step": 11,
+    "pass": false,
+    "contact_loss": 12,
+    "drift": 0.0,
+    "lc": true,
+    "rc": true,
+    "dist_end": {
+      "L": -0.000630842450757965,
+      "R": -0.0015164145125277193
+    }
+  }
+]

@@ -1,0 +1,27 @@
+<mujoco model="conveyor">
+  <!--
+    Warehouse Conveyor Belt / Automated Sorting System Module
+    Positioned near Shipping Zone (Center: [4.0, 0.0, 0.25])
+  -->
+  <worldbody>
+    <body name="conveyor_frame" pos="2.0 7.5 0.15">
+      <!-- Main Frame Structure -->
+      <geom name="conveyor_bed" type="box" pos="0 0 0.15" size="1.8 0.35 0.05" material="dock_mat" contype="1" conaffinity="1" friction="0.8 0.1 0.1"/>
+
+      <!-- Steel Legs -->
+      <geom name="conveyor_leg_fl" type="cylinder" pos="-1.7 -0.3 -0.05" size="0.03 0.15" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="conveyor_leg_fr" type="cylinder" pos="-1.7 0.3 -0.05" size="0.03 0.15" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="conveyor_leg_bl" type="cylinder" pos="1.7 -0.3 -0.05" size="0.03 0.15" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="conveyor_leg_br" type="cylinder" pos="1.7 0.3 -0.05" size="0.03 0.15" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+
+      <!-- Roller Surface Visuals -->
+      <geom name="conveyor_roller_1" type="cylinder" pos="-1.5 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_2" type="cylinder" pos="-1.0 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_3" type="cylinder" pos="-0.5 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_4" type="cylinder" pos="0.0 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_5" type="cylinder" pos="0.5 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_6" type="cylinder" pos="1.0 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+      <geom name="conveyor_roller_7" type="cylinder" pos="1.5 0 0.205" size="0.32 0.01" zaxis="0 1 0" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    </body>
+  </worldbody>
+</mujoco>

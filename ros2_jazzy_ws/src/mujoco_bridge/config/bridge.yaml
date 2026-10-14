@@ -1,0 +1,5 @@
+bridge_node:
+  ros__parameters:
+    robot_id: "tiago_01"
+    use_sim_time: true
+    scene_path: ""  # e.g. /workspace/mujoco/scenes/warehouse.xml

@@ -1,0 +1,28 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+
+    container_name: warehouse_robot_dev
+
+    working_dir: /ros_ws
+
+    stdin_open: true
+    tty: true
+
+    network_mode: host
+
+    environment:
+      DISPLAY: host.docker.internal:0.0
+      QT_X11_NO_MITSHM: "1"
+      LIBGL_ALWAYS_INDIRECT: "0"
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      TURTLEBOT3_MODEL: burger
+
+    volumes:
+      - ./ros_ws:/ros_ws
+      - ./models:/models
+      - ./worlds:/worlds
+
+    command: tail -f /dev/null

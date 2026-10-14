@@ -1,0 +1,571 @@
+<mujoco model="tron1_station">
+  <compiler angle="radian" meshdir="../../Objects_3DA_v0/PF_TRON1A/meshes/"/>
+  <!--
+    TRON1 & UR5e Handover Station Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    Actuators added 2026-09-03 for GATE 3 MuJoCo track validation.
+  -->
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="1"
+            type="mesh" rgba="0.9 0.9 0.9 1.0"/>
+    </default>
+
+    <!-- Official MuJoCo Menagerie UR5e defaults -->
+    <default class="ur5e">
+      <material specular="0.5" shininess="0.25"/>
+      <joint axis="0 1 0" range="-6.28319 6.28319" armature="0.1"/>
+      <general gaintype="fixed"
+               biastype="affine"
+               ctrlrange="-6.2831 6.2831"
+               gainprm="2000"
+               biasprm="0 -2000 -400"
+               forcerange="-150 150"/>
+      <default class="size3">
+        <default class="size3_limited">
+          <joint range="-3.1415 3.1415"/>
+          <general ctrlrange="-3.1415 3.1415"/>
+        </default>
+      </default>
+      <default class="size1">
+        <general gainprm="500"
+                 biasprm="0 -500 -100"
+                 forcerange="-28 28"/>
+      </default>
+      <default class="ur5e_visual">
+        <geom type="mesh"
+              contype="0"
+              conaffinity="0"
+              group="2"/>
+      </default>
+      <default class="ur5e_collision">
+        <geom type="capsule" group="3"/>
+        <default class="eef_collision">
+          <geom type="cylinder"/>
+        </default>
+      </default>
+      <site size="0.001"
+            rgba="0.5 0.5 0.5 0.3"
+            group="4"/>
+    </default>
+  </default>
+
+<asset>
+    <!-- MuJoCo Menagerie UR5e official materials -->
+    <material class="ur5e" name="black"
+              rgba="0.033 0.033 0.033 1"
+              specular="0.5"
+              shininess="0.25"/>
+    <material class="ur5e" name="jointgray"
+              rgba="0.278 0.278 0.278 1"
+              specular="0.5"
+              shininess="0.25"/>
+    <material class="ur5e" name="linkgray"
+              rgba="0.82 0.82 0.82 1"
+              specular="0.5"
+              shininess="0.25"/>
+    <material class="ur5e" name="urblue"
+              rgba="0.49 0.678 0.8 1"
+              specular="0.5"
+              shininess="0.25"/>
+
+    <!-- Station Materials -->
+    <material name="station_table_mat" rgba="0.25 0.3 0.35 1" specular="0.3" shininess="0.4"/>
+    <material name="station_top_mat" rgba="0.8 0.82 0.85 1" specular="0.4" shininess="0.5"/>
+    <material name="bottle_mat" rgba="0.1 0.7 0.9 0.85" specular="0.8" shininess="0.9"/>
+    <material name="camera_mat" rgba="0.2 0.2 0.25 1" specular="0.5" shininess="0.6"/>
+    <material name="ur5e_mat" rgba="0.2 0.5 0.8 1" specular="0.4" shininess="0.4"/>
+    <material name="gripper_mat" rgba="0.1 0.1 0.12 1" specular="0.3" shininess="0.3"/>
+  
+    <!-- STEP 7C-8N-U2: ORIGINAL MENAGERIE UR5e VISUAL MESHES -->
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/base_0.obj" name="ur5e_base_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/base_1.obj" name="ur5e_base_1"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_0.obj" name="ur5e_shoulder_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_1.obj" name="ur5e_shoulder_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_2.obj" name="ur5e_shoulder_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_0.obj" name="ur5e_upperarm_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_1.obj" name="ur5e_upperarm_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_2.obj" name="ur5e_upperarm_2"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_3.obj" name="ur5e_upperarm_3"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_0.obj" name="ur5e_forearm_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_1.obj" name="ur5e_forearm_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_2.obj" name="ur5e_forearm_2"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_3.obj" name="ur5e_forearm_3"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_0.obj" name="ur5e_wrist1_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_1.obj" name="ur5e_wrist1_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_2.obj" name="ur5e_wrist1_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_0.obj" name="ur5e_wrist2_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_1.obj" name="ur5e_wrist2_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_2.obj" name="ur5e_wrist2_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist3.obj" name="ur5e_wrist3"/>
+
+        <mesh name="base_Link" file="base_Link.STL" />
+        <mesh name="abad_L_Link" file="abad_L_Link.STL" />
+        <mesh name="hip_L_Link" file="hip_L_Link.STL" />
+        <mesh name="knee_L_Link" file="knee_L_Link.STL" />
+        <mesh name="foot_L_Link" file="foot_L_Link.STL" />
+        <mesh name="abad_R_Link" file="abad_R_Link.STL" />
+        <mesh name="hip_R_Link" file="hip_R_Link.STL" />
+        <mesh name="knee_R_Link" file="knee_R_Link.STL" />
+        <mesh name="foot_R_Link" file="foot_R_Link.STL" />
+    </asset>
+
+  <worldbody>
+
+<body name="base_Link" pos="0 -3 0.82">
+            <inertial pos="0.0457123 0.000139854 -0.163809" quat="0.972578 -0.00615364 -0.232461 0.00398682" mass="9.595" diaginertia="0.154712 0.11093 0.0846371" />
+            <joint type="free" limited="false" damping="0.0000" stiffness="0.0000" armature="0"/>
+            <site name="imu" pos="0 0 0"/>
+            <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="base_Link" />
+            <geom name="base_collision" size="0.135 0.13 0.095" pos="0.03 0 -0.072" type="box" rgba="0 0 1 0" />
+
+            <!-- TRON1 CARRY TRAY -->
+            <body name="carry_tray" pos="0.06 0 0.10">
+                <geom name="carry_tray_collision"
+                      type="box"
+                      pos="0 0 0"
+                      size="0.18 0.16 0.015"
+                      density="100"
+                      rgba="0.15 0.15 0.15 1"
+                      contype="1"
+                      conaffinity="1"/>
+
+                <!-- TRON1 CARRIED BOTTLES: rigid children of carry_tray -->
+                <body name="carry_bottle" pos="0 0 0.115">
+                    <geom name="carry_bottle_collision"
+                          type="cylinder"
+                          pos="0 0 0"
+                          size="0.035 0.10"
+                          density="600"
+                          rgba="0.10 0.35 0.95 1"
+                          contype="1"
+                          conaffinity="1"/>
+                </body>
+
+                <body name="carry_bottle_2" pos="-0.09 0 0.115">
+                    <geom name="carry_bottle_2_collision"
+                          type="cylinder"
+                          pos="0 0 0"
+                          size="0.035 0.10"
+                          density="600"
+                          rgba="0.10 0.35 0.95 1"
+                          contype="1"
+                          conaffinity="1"/>
+                </body>
+
+                <body name="carry_bottle_3" pos="0.09 0 0.115">
+                    <geom name="carry_bottle_3_collision"
+                          type="cylinder"
+                          pos="0 0 0"
+                          size="0.035 0.10"
+                          density="600"
+                          rgba="0.10 0.35 0.95 1"
+                          contype="1"
+                          conaffinity="1"/>
+                </body>
+            </body>
+
+            <body name="abad_L_Link" pos="0.05556 0.105 -0.2602">
+                <inertial pos="-0.06977 0.04479 0.00057" quat="0.595024 0.579772 0.394141 0.393019" mass="1.469" diaginertia="0.00252289 0.00208104 0.00139163" />
+                <joint name="abad_L_Joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.38397 1.39626" />
+                <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="abad_L_Link" />
+                <geom name="abad_L_collision" type="cylinder" pos="-0.08 0 0" euler="1.57 0 0" size="0.05 0.025" rgba="0 0 1 0" />
+
+                <body name="hip_L_Link" pos="-0.077 0.0205 0">
+                    <inertial pos="-0.02869 -0.0477 -0.03992" quat="0.853885 0.192797 0.226903 0.426877" mass="2.3" diaginertia="0.0233264 0.0230229 0.00277548" />
+                    <joint name="hip_L_Joint" pos="0 0 0" axis="0 1 0" limited="true" range="-1.01229 1.39626" />
+                    <geom class="visual" rgba="1 1 1 1" mesh="hip_L_Link" />
+                    <geom name="hip_L_collision" type="cylinder" pos="-0.1 -0.02 -0.14" euler="0 0.53 0" size="0.035 0.09" rgba="0 0 1 0" />
+
+                    <body name="knee_L_Link" pos="-0.15 -0.0205 -0.25981">
+                        <inertial pos="0.05168 0.00152 -0.08148" quat="0.668191 -0.202995 -0.19946 0.687408" mass="0.55" diaginertia="0.00419956 0.00414131 0.000138393" />
+                        <joint name="knee_L_Joint" pos="0 0 0" axis="0 -1 0" limited="true" range="-0.872665 1.36136" />
+                        <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="knee_L_Link" />
+                        <geom name="knee_L_collision" type="cylinder" pos="0.078 0 -0.12" euler="0 -0.55 0" size="0.015 0.13" rgba ="0 0 1 0"/>
+
+                        <geom class="visual" pos="0.150 0 -0.2688" rgba="0.26667 0.26667 0.26667 1" mesh="foot_L_Link" />
+                        <geom name="foot_L_collision" type="box" pos="0.150 0 -0.2748" size="0.12 0.055 0.025" rgba="0 0 1 0" />
+                    </body>
+                </body>
+            </body>
+
+            <body name="abad_R_Link" pos="0.05556 -0.105 -0.2602">
+                <inertial pos="-0.06977 -0.04479 0.00057" quat="0.393019 0.394141 0.579772 0.595024" mass="1.469" diaginertia="0.00252289 0.00208104 0.00139163" />
+                <joint name="abad_R_Joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.39626 0.38397" />
+                <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="abad_R_Link" />
+                <geom name="abad_R_collision" type="cylinder" pos="-0.08 0 0" euler="1.57 0 0" size="0.05 0.025" rgba="0 0 1 0" />
+
+                <body name="hip_R_Link" pos="-0.077 -0.0205 0">
+                    <inertial pos="-0.02869 0.0477 -0.03992" quat="0.426877 0.226903 0.192797 0.853885" mass="2.3" diaginertia="0.0233264 0.0230229 0.00277548" />
+                    <joint name="hip_R_Joint" pos="0 0 0" axis="0 -1 0" limited="true" range="-1.39626 1.01229" />
+                    <geom class="visual" rgba="1 1 1 1" mesh="hip_R_Link" />
+                    <geom name="hip_R_collision" type="cylinder" pos="-0.10 0.025 -0.14" euler="0 0.53 0" size="0.035 0.09" rgba="0 0 1 0" />
+
+                    <body name="knee_R_Link" pos="-0.15 0.0205 -0.25981">
+                        <inertial pos="0.05168 -0.00152 -0.08148" quat="0.687408 -0.19946 -0.202995 0.668191" mass="0.55" diaginertia="0.00419956 0.00414131 0.000138393" />
+                        <joint name="knee_R_Joint" pos="0 0 0" axis="0 1 0" limited="true" range="-1.36136 0.872665" />
+                        <geom class="visual" rgba="0.79216 0.81961 0.93333 1" mesh="knee_R_Link" />
+                        <geom name="knee_R_collision" type="cylinder" pos="0.078 0 -0.12" euler="0 -0.55 0" size="0.015 0.13" rgba ="0 0 1 0"/>
+                        
+                        <geom class="visual" pos="0.150 0 -0.2688" rgba="0.26667 0.26667 0.26667 1" mesh="foot_R_Link" />
+                        <geom name="foot_R_collision" type="box" pos="0.150 0 -0.2748" size="0.12 0.055 0.025" rgba="0 0 1 0" />
+                    </body>
+                </body>
+            </body>
+        </body>
+    <!-- Station Table (Center pos: [2.5, -3.0, 0.4], size half-extents: [0.6, 0.4, 0.4]) -->
+    <body name="station_table" pos="2.5 -3.0 0.4">
+      <geom name="station_table_base" type="box" size="0.6 0.4 0.38" material="station_table_mat" contype="1" conaffinity="1"/>
+      <geom name="station_table_top" type="box" pos="0 0 0.39" size="0.62 0.42 0.01" material="station_top_mat" contype="1" conaffinity="1"/>
+
+      <!-- ============================================================
+           UR5e Manipulator
+           Golden Reference: Gazebo ur5e_station.urdf
+           Geometry: primitive approximation matching Gazebo
+           ============================================================ -->
+
+      <!-- Gazebo base: world-mounted UR5e base -->
+      
+      <body name="ur5e_base" pos="0.3 -0.2 0.4"
+            quat="0 0 0 -1"
+            childclass="ur5e">
+
+        <inertial mass="4.0"
+                  pos="0 0 0"
+                  diaginertia="0.00443333156 0.00443333156 0.0072"/>
+
+        <geom mesh="ur5e_base_0"
+              material="black"
+              class="ur5e_visual"/>
+        <geom mesh="ur5e_base_1"
+              material="jointgray"
+              class="ur5e_visual"/>
+
+        <body name="ur5e_base_link"
+              pos="0 0 0.163">
+
+          <joint name="shoulder_pan_joint"
+                 class="size3"
+                 axis="0 0 1"/>
+
+          <geom mesh="ur5e_shoulder_0"
+                material="urblue"
+                class="ur5e_visual"/>
+          <geom mesh="ur5e_shoulder_1"
+                material="black"
+                class="ur5e_visual"/>
+          <geom mesh="ur5e_shoulder_2"
+                material="jointgray"
+                class="ur5e_visual"/>
+
+          <geom class="ur5e_collision"
+                size="0.06 0.06"
+                pos="0 0 -0.04"/>
+
+          <body name="ur5e_shoulder_link"
+                pos="0 0.138 0"
+                quat="1 0 0 0">
+
+            <joint name="shoulder_lift_joint"
+                   class="size3"/>
+
+            <geom mesh="ur5e_upperarm_0"
+                  material="linkgray"
+                  class="ur5e_visual"/>
+            <geom mesh="ur5e_upperarm_1"
+                  material="black"
+                  class="ur5e_visual"/>
+            <geom mesh="ur5e_upperarm_2"
+                  material="jointgray"
+                  class="ur5e_visual"/>
+            <geom mesh="ur5e_upperarm_3"
+                  material="urblue"
+                  class="ur5e_visual"/>
+
+            <geom class="ur5e_collision"
+                  pos="0 -0.04 0"
+                  quat="1 1 0 0"
+                  size="0.06 0.06"/>
+            <geom class="ur5e_collision"
+                  size="0.05 0.2"
+                  pos="0 0 0.2"/>
+
+            <body name="ur5e_upper_arm_link"
+                  pos="0 -0.131 0.425"
+                  quat="1 0 0 0">
+
+              <joint name="elbow_joint"
+                     class="size3_limited"/>
+
+              <geom mesh="ur5e_forearm_0"
+                    material="urblue"
+                    class="ur5e_visual"/>
+              <geom mesh="ur5e_forearm_1"
+                    material="linkgray"
+                    class="ur5e_visual"/>
+              <geom mesh="ur5e_forearm_2"
+                    material="black"
+                    class="ur5e_visual"/>
+              <geom mesh="ur5e_forearm_3"
+                    material="jointgray"
+                    class="ur5e_visual"/>
+
+              <geom class="ur5e_collision"
+                    pos="0 0.08 0"
+                    quat="1 1 0 0"
+                    size="0.055 0.06"/>
+              <geom class="ur5e_collision"
+                    size="0.038 0.19"
+                    pos="0 0 0.2"/>
+
+              <body name="ur5e_forearm_link"
+                    pos="0 0 0.392"
+                    quat="1 0 1 0">
+
+                <joint name="wrist_1_joint"
+                       class="size1"/>
+
+                <geom mesh="ur5e_wrist1_0"
+                      material="black"
+                      class="ur5e_visual"/>
+                <geom mesh="ur5e_wrist1_1"
+                      material="urblue"
+                      class="ur5e_visual"/>
+                <geom mesh="ur5e_wrist1_2"
+                      material="jointgray"
+                      class="ur5e_visual"/>
+
+                <geom class="ur5e_collision"
+                      pos="0 0.05 0"
+                      quat="1 1 0 0"
+                      size="0.04 0.07"/>
+
+                <body name="ur5e_wrist_1_link"
+                      pos="0 0.127 0">
+
+                  <joint name="wrist_2_joint"
+                         axis="0 0 1"
+                         class="size1"/>
+
+                  <geom mesh="ur5e_wrist2_0"
+                        material="black"
+                        class="ur5e_visual"/>
+                  <geom mesh="ur5e_wrist2_1"
+                        material="urblue"
+                        class="ur5e_visual"/>
+                  <geom mesh="ur5e_wrist2_2"
+                        material="jointgray"
+                        class="ur5e_visual"/>
+
+                  <geom class="ur5e_collision"
+                        size="0.04 0.06"
+                        pos="0 0 0.04"/>
+                  <geom class="ur5e_collision"
+                        pos="0 0.02 0.1"
+                        quat="1 1 0 0"
+                        size="0.04 0.04"/>
+
+                  <body name="ur5e_wrist_2_link"
+                        pos="0 0 0.1">
+
+                    <joint name="wrist_3_joint"
+                           class="size1"/>
+
+                    <geom mesh="ur5e_wrist3"
+                          material="linkgray"
+                          class="ur5e_visual"/>
+
+                    <geom class="eef_collision"
+                          pos="0 0.08 0"
+                          quat="1 1 0 0"
+                          size="0.04 0.02"/>
+
+                    <site name="attachment_site"
+                          pos="0 0.1 0"
+                          quat="-1 1 0 0"/>
+
+                    <!-- Existing gripper preserved -->
+                    <body name="tool0"
+                          pos="0 0.1 0"
+                          quat="-1 1 0 0">
+
+                                                  pos="0 0 0">
+                      
+                                              <geom name="gripper_body"
+                                                    type="box"
+                                                    pos="0 0 0.04"
+                                                    size="0.04 0.06 0.03"
+                                                    material="gripper_mat"
+                                                    contype="0"
+                                                    conaffinity="0"/>
+                      
+                                              <!-- STEP 8-5: Gripper-mounted RGB-D virtual camera -->
+                                              <camera name="gripper_rgbd_camera"
+                                                      pos="0 0 0.12"
+                                                      quat="-0.11686776 0.09400519 0.77035347 0.61972613"
+                                                      fovy="60"/>
+                      
+                                              <!-- left_finger_joint:
+                                                   origin -0.03 0 0.08
+                                                   axis 1 0 0 -->
+                                              <body name="left_finger_link"
+                                                    pos="-0.0325 0 0.08">
+                      
+                                                <joint name="left_finger_joint"
+                                                       type="slide"
+                                                       axis="1 0 0"
+                                                       limited="true"
+                                                       range="0 0.07"
+                                                       damping="0.1"/>
+                      
+                                                <geom name="left_finger_geom"
+                                                      type="box"
+                                                      pos="0 0 0"
+                                                      size="0.008 0.015 0.03"
+                                                      material="gripper_mat"
+                                                      friction="1.2 0.1 0.1"/>
+                      
+                                              </body>
+                      
+                                              <!-- right_finger_joint:
+                                                   origin +0.03 0 0.08
+                                                   axis -1 0 0 -->
+                                              <body name="right_finger_link"
+                                                    pos="0.0325 0 0.08">
+                      
+                                                <joint name="right_finger_joint"
+                                                       type="slide"
+                                                       axis="-1 0 0"
+                                                       limited="true"
+                                                       range="0 0.07"
+                                                       damping="0.1"/>
+                      
+                                                <geom name="right_finger_geom"
+                                                      type="box"
+                                                      pos="0 0 0"
+                                                      size="0.008 0.015 0.03"
+                                                      material="gripper_mat"
+                                                      friction="1.2 0.1 0.1"/>
+                      
+                                              </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- RGB-D Virtual Station Camera Mount (pos: [2.5, -3.0, 2.2]) -->
+    <body name="station_camera_stand" pos="2.5 -3.0 2.2">
+      <geom name="cam_box" type="box" size="0.06 0.12 0.04" material="camera_mat" contype="0" conaffinity="0"/>
+      <camera name="station_rgbd_camera" pos="0 0 0" euler="1.066418904 0 1.570796327" fovy="60"/>
+    </body>
+
+    <!-- ============================================================
+         TABLE #2 — BOTTLE PLACEMENT TABLE
+         Separate from UR5e fixed table.
+         Center: [0.65, -3.0, 0.4]
+         ============================================================ -->
+    <body name="bottle_place_table" pos="0.85 -3.0 0.4">
+      <geom name="bottle_place_table_base"
+            type="box"
+            size="0.6 0.4 0.38"
+            material="station_table_mat"
+            contype="1"
+            conaffinity="1"/>
+      <geom name="bottle_place_table_top"
+            type="box"
+            pos="0 0 0.39"
+            size="0.62 0.42 0.01"
+            material="station_top_mat"
+            contype="1"
+            conaffinity="1"/>
+    </body>
+
+    <!-- Target Handover Bottle (Diameter: 0.08m, Height: 0.24m) -->
+    <body name="bottle_target" pos="0.65 -3.0 0.92">
+      <freejoint/>
+      <geom name="bottle_geom" type="cylinder" size="0.04 0.12" material="bottle_mat" mass="0.35" friction="0.9 0.05 0.01" contype="1" conaffinity="1"/>
+      <site name="bottle_centroid_site" pos="0 0 0" size="0.015" rgba="1 0 0 1"/>
+    </body>
+  
+        <!-- INDEPENDENT HANDOVER BOTTLES -->
+
+</worldbody>
+
+  <!-- STEP 7C-8N: disable wrist_1 ↔ wrist_3 self-collision -->
+  <contact>
+    <exclude body1="ur5e_forearm_link" body2="ur5e_wrist_2_link"/>
+  </contact>
+
+  <!--
+    ============================================================
+    ACTUATORS for UR5e + Robotiq 2F-140 Gripper
+    Added 2026-09-03 for GATE 3 MuJoCo track validation.
+
+    All joints use position actuators with kp gain.
+    Joint travel:  arm ±π rad,  finger 0~0.07m (slide)
+
+    Smoke test:
+      HOME  → all ctrl=0
+      REACH → shoulder_lift ctrl=-1.0, elbow ctrl=1.5
+      GRASP → left/right finger ctrl=0.064
+      OPEN  → left/right finger ctrl=0.0
+    ============================================================
+  -->
+  <actuator>
+    <position name="act_shoulder_pan"
+              joint="shoulder_pan_joint"
+              kp="200"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_shoulder_lift"
+              joint="shoulder_lift_joint"
+              kp="200"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_elbow"
+              joint="elbow_joint"
+              kp="150"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_1"
+              joint="wrist_1_joint"
+              kp="80"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_2"
+              joint="wrist_2_joint"
+              kp="80"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_3"
+              joint="wrist_3_joint"
+              kp="50"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_left_finger"
+              joint="left_finger_joint"
+              kp="100"
+              ctrlrange="0 0.07"/>
+
+    <position name="act_right_finger"
+              joint="right_finger_joint"
+              kp="100"
+              ctrlrange="0 0.07"/>
+  </actuator>
+
+
+    <equality>
+    </equality>
+
+</mujoco>

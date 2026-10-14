@@ -1,0 +1,187 @@
+<mujoco model="warehouse_realistic_scene">
+  <!--
+    Main Integrated Realistic Warehouse Scene
+    Coordinates & Bounds SSOT: config/warehouse_layout.yaml
+    Layout: docs/REORGANIZATION_PLAN.md & docs/GAZEBO_TO_MUJOCO.md
+  -->
+  <compiler angle="radian" autolimits="true"/>
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50"/>
+
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01"/>
+    <geom condim="4" contype="1" conaffinity="15"/>
+  </default>
+
+  <asset>
+    <!-- Epoxy Industrial Floor Checkerboard Texture & Materials -->
+    <texture name="texfloor" type="2d" builtin="flat" rgb1="0.38 0.40 0.42" width="512" height="512"/>
+    <material name="matfloor" texture="texfloor" texrepeat="20 20" reflectance="0.1" specular="0.2" shininess="0.3"/>
+    <material name="matwall" rgba="0.85 0.88 0.92 1" specular="0.1" shininess="0.1"/>
+
+    <!-- Shelf Materials -->
+    <material name="shelf_frame_mat" rgba="0.15 0.2 0.25 1" specular="0.4" shininess="0.5"/>
+    <material name="shelf_plate_mat" rgba="0.4 0.42 0.45 1" specular="0.3" shininess="0.3"/>
+
+    <!-- Pallet Materials -->
+    <material name="wood_pallet_mat" rgba="0.65 0.45 0.25 1" specular="0.1" shininess="0.1"/>
+    <material name="pallet_runner_mat" rgba="0.5 0.35 0.2 1" specular="0.1" shininess="0.1"/>
+
+    <!-- Cardboard Box Materials -->
+    <material name="box_cardboard1_mat" rgba="0.78 0.58 0.35 1" specular="0.2" shininess="0.2"/>
+    <material name="box_cardboard2_mat" rgba="0.3 0.55 0.85 1" specular="0.3" shininess="0.4"/>
+    <material name="box_small_mat" rgba="0.85 0.7 0.3 1" specular="0.2" shininess="0.2"/>
+
+    <!-- Logistics Zone Materials -->
+    <material name="loading_zone_mat" rgba="0.1 0.8 0.2 0.35"/>
+    <material name="shipping_zone_mat" rgba="0.9 0.2 0.1 0.35"/>
+    <material name="hazard_stripe_mat" rgba="0.9 0.8 0.1 0.6"/>
+    <material name="dock_mat" rgba="0.3 0.3 0.35 1"/>
+  
+
+    <!-- TRON1 meshes: reused existing PF_TRON1A asset -->
+    <mesh name="tron1_base_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/base_Link.STL"/>
+    <mesh name="tron1_abad_L_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/abad_L_Link.STL"/>
+    <mesh name="tron1_hip_L_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/hip_L_Link.STL"/>
+    <mesh name="tron1_knee_L_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/knee_L_Link.STL"/>
+    <mesh name="tron1_foot_L_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/foot_L_Link.STL"/>
+    <mesh name="tron1_abad_R_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/abad_R_Link.STL"/>
+    <mesh name="tron1_hip_R_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/hip_R_Link.STL"/>
+    <mesh name="tron1_knee_R_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/knee_R_Link.STL"/>
+    <mesh name="tron1_foot_R_Link" file="/ros_ws/Objects_3DA_v0/PF_TRON1A/meshes/foot_R_Link.STL"/>
+</asset>
+
+  <worldbody>
+    <!-- Multi-directional Overhead Factory Lighting -->
+    <light name="light_overhead_center" pos="0 0 7.5" dir="0 0 -1" diffuse="0.8 0.8 0.85" specular="0.3 0.3 0.3" castshadow="true"/>
+    <light name="light_overhead_nw" pos="-6 5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1"/>
+    <light name="light_overhead_se" pos="6 -5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1"/>
+    <light name="light_spot_picking" pos="-4 -2 4.0" dir="0 0 -1" diffuse="0.6 0.6 0.7" specular="0.4 0.4 0.4"/>
+
+    <!-- Ground Floor (20m x 20m Arena, Center Z=0) -->
+    <geom name="floor" type="plane" pos="0 0 0" size="10 10 0.1" material="matfloor" contype="1" conaffinity="1" friction="0.8 0.1 0.1"/>
+
+    <!-- Perimeter Walls (Size half-extents for 20m length, 2.5m height, 0.2m thickness) -->
+    <geom name="wall_left" type="box" pos="0.0 -10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_right" type="box" pos="0.0 10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_front" type="box" pos="10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_back" type="box" pos="-10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1"/>
+  
+
+    <!-- TRON1 visual + carry tray + bottle -->
+    <body name="tron1_base_Link" pos="0 -3.0 0.82">
+      <joint name="tron1_freejoint" type="free"
+             damping="0" stiffness="0" armature="0"/>
+
+      <geom name="tron1_base_visual" type="mesh"
+            mesh="tron1_base_Link"
+            rgba="0.79216 0.81961 0.93333 1"/>
+
+      <geom name="tron1_base_collision"
+            type="box"
+            size="0.135 0.13 0.095"
+            pos="0.03 0 -0.072"
+            rgba="0 0 1 0"/>
+
+
+
+      <!-- LEFT LEG -->
+      <body name="tron1_abad_L_Link" pos="0.05556 0.105 -0.2602">
+        <joint name="tron1_abad_L_Joint"
+               axis="1 0 0"
+               limited="true"
+               range="-0.38397 1.39626"/>
+        <geom class="visual" type="mesh"
+              rgba="0.79216 0.81961 0.93333 1"
+              mesh="tron1_abad_L_Link"/>
+
+        <body name="tron1_hip_L_Link" pos="-0.077 0.0205 0">
+          <joint name="tron1_hip_L_Joint"
+                 axis="0 1 0"
+                 limited="true"
+                 range="-1.01229 1.39626"/>
+          <geom class="visual" type="mesh"
+                rgba="1 1 1 1"
+                mesh="tron1_hip_L_Link"/>
+
+          <body name="tron1_knee_L_Link"
+                pos="-0.15 -0.0205 -0.25981">
+            <joint name="tron1_knee_L_Joint"
+                   axis="0 -1 0"
+                   limited="true"
+                   range="-0.872665 1.36136"/>
+            <geom class="visual" type="mesh"
+                  rgba="0.79216 0.81961 0.93333 1"
+                  mesh="tron1_knee_L_Link"/>
+            <geom class="visual" type="mesh"
+                  pos="0.150 0 -0.2688"
+                  rgba="0.26667 0.26667 0.26667 1"
+                  mesh="tron1_foot_L_Link"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- RIGHT LEG -->
+      <body name="tron1_abad_R_Link" pos="0.05556 -0.105 -0.2602">
+        <joint name="tron1_abad_R_Joint"
+               axis="1 0 0"
+               limited="true"
+               range="-1.39626 0.38397"/>
+        <geom class="visual" type="mesh"
+              rgba="0.79216 0.81961 0.93333 1"
+              mesh="tron1_abad_R_Link"/>
+
+        <body name="tron1_hip_R_Link" pos="-0.077 -0.0205 0">
+          <joint name="tron1_hip_R_Joint"
+                 axis="0 -1 0"
+                 limited="true"
+                 range="-1.39626 1.01229"/>
+          <geom class="visual" type="mesh"
+                rgba="1 1 1 1"
+                mesh="tron1_hip_R_Link"/>
+
+          <body name="tron1_knee_R_Link"
+                pos="-0.15 0.0205 -0.25981">
+            <joint name="tron1_knee_R_Joint"
+                   axis="0 1 0"
+                   limited="true"
+                   range="-1.36136 0.872665"/>
+            <geom class="visual" type="mesh"
+                  rgba="0.79216 0.81961 0.93333 1"
+                  mesh="tron1_knee_R_Link"/>
+            <geom class="visual" type="mesh"
+                  pos="0.150 0 -0.2688"
+                  rgba="0.26667 0.26667 0.26667 1"
+                  mesh="tron1_foot_R_Link"/>
+          </body>
+        </body>
+      </body>
+
+      <body name="tron1_carry_tray" pos="0.06 0 0.10">
+        <geom name="tron1_carry_tray_collision"
+              type="box"
+              size="0.18 0.16 0.015"
+              density="100"
+              rgba="0.15 0.15 0.15 1"/>
+
+        <body name="tron1_carry_bottle" pos="0 0 0.115">
+          <geom name="tron1_carry_bottle_collision"
+                type="cylinder"
+                size="0.035 0.10"
+                density="600"
+                rgba="0.2 0.5 1 1"/>
+        </body>
+      </body>
+    </body>
+</worldbody>
+
+  <!-- Include Modular Warehouse Components at Root Level -->
+  <include file="../warehouse/shelves_realistic_test.xml"/>
+  <include file="../warehouse/pallets.xml"/>
+  <include file="../warehouse/boxes.xml"/>
+  <include file="../warehouse/zones_final.xml"/>
+  <include file="../warehouse/conveyor.xml"/>
+  <include file="../warehouse/tron1_station.xml"/>
+  <!-- V5.2 Gazebo-consistent visual layer -->
+  <include file="../warehouse/v52_visual_final.xml"/>
+</mujoco>
+

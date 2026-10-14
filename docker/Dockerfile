@@ -1,0 +1,70 @@
+FROM ros:humble
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    python3-colcon-common-extensions \
+    python3-vcstool \
+    python3-rosdep \
+    git \
+    wget \
+    curl \
+    vim \
+    nano \
+    build-essential \
+    cmake \
+    mesa-utils \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    libglfw3 \
+    libglfw3-dev \
+    libosmesa6 \
+    libosmesa6-dev \
+    libglew-dev \
+    libeigen3-dev \
+    ros-humble-xacro \
+    \
+    ros-humble-gazebo-ros-pkgs \
+    ros-humble-gazebo-ros2-control \
+    \
+    ros-humble-navigation2 \
+    ros-humble-nav2-bringup \
+    ros-humble-slam-toolbox \
+    \
+    ros-humble-moveit \
+    \
+    ros-humble-ros2-control \
+    ros-humble-ros2-controllers \
+    \
+    ros-humble-turtlebot3 \
+    ros-humble-turtlebot3-msgs \
+    ros-humble-turtlebot3-gazebo \
+    ros-humble-turtlebot3-navigation2 \
+    \
+    ros-humble-ament-lint-auto \
+    ros-humble-ament-lint-common \
+    \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir \
+    mujoco==3.6.0 \
+    urdf2mjcf \
+    numpy \
+    scipy \
+    glfw \
+    imageio \
+    opencv-python
+
+RUN rosdep init || true
+
+WORKDIR /ros_ws
+
+COPY docker/entrypoint.sh /entrypoint.sh
+
+RUN sed -i 's/\r$//' /entrypoint.sh \
+    && chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["tail","-f","/dev/null"]

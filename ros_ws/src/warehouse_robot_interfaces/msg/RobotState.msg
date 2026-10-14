@@ -1,0 +1,9 @@
+string robot_id
+string state
+geometry_msgs/Pose pose
+float32 battery
+string current_mission_id
+string[] capabilities
+bool available
+string error_code
+string error_message

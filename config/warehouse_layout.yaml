@@ -1,0 +1,81 @@
+# Gazebo warehouse.world / warehouse_lite.world 기준 좌표 (미터)
+# MuJoCo scene 작성 시 이 파일을 Single Source of Truth 로 사용
+# Gazebo: Z-up, MuJoCo: Z-up (동일)
+
+warehouse:
+  name: warehouse
+  bounds:
+    x_min: -10.0
+    x_max: 10.0
+    y_min: -10.0
+    y_max: 10.0
+
+  walls:
+    - name: wall_left
+      center: [0.0, -10.0, 1.25]
+      size: [20.0, 0.2, 2.5]
+    - name: wall_right
+      center: [0.0, 10.0, 1.25]
+      size: [20.0, 0.2, 2.5]
+    - name: wall_front
+      center: [10.0, 0.0, 1.25]
+      size: [0.2, 20.0, 2.5]
+    - name: wall_back
+      center: [-10.0, 0.0, 1.25]
+      size: [0.2, 20.0, 2.5]
+
+  shelves:
+  # size: [3.0, 0.8, 2.0], center z=1.0
+    - {id: shelf_1, center: [-6.0, -5.0, 1.0]}
+    - {id: shelf_2, center: [0.0, -5.0, 1.0]}
+    - {id: shelf_3, center: [6.0, -5.0, 1.0]}
+    - {id: shelf_4, center: [-6.0, 5.0, 1.0]}
+    - {id: shelf_5, center: [0.0, 5.0, 1.0]}
+    - {id: shelf_6, center: [6.0, 5.0, 1.0]}
+
+  pallets:
+    - {id: pallet_1, center: [-6.0, -2.0, 0.075], size: [1.2, 0.8, 0.15]}
+    - {id: pallet_2, center: [6.0, 2.0, 0.075], size: [1.2, 0.8, 0.15]}
+
+  boxes:
+    - {id: box_1, center: [-4.0, -2.0, 0.55], size: [0.5, 0.4, 0.4], sku: BOX-101}
+    - {id: box_2, center: [4.0, -2.0, 0.55], size: [0.5, 0.4, 0.4], sku: BOX-102}
+
+  zones:
+    loading:
+      center: [-6.0, -2.0, 0.0]
+      radius: 2.0
+    shipping:
+      center: [6.0, 2.0, 0.0]
+      radius: 2.0
+    handover:
+      center: [2.0, -3.0, 0.0]
+      radius: 1.5
+
+  stations:
+    table_1:
+      center: [2.5, -3.0, 0.4]
+      size: [1.2, 0.8, 0.8]
+    camera_rgbd:
+      position: [2.5, -3.0, 2.2]
+      target: [2.0, -3.0, 0.8]
+
+
+robots:
+  turtlebot3:
+    spec_namespace: tb3_01   # 최종 스펙 이름
+    gazebo_namespace: tb3_1  # 현재 Gazebo launch 이름
+    spawn:
+      - {id: tb3_01, gazebo_id: tb3_1, xyz: [-2.0, -2.0, 0.05]}
+      - {id: tb3_02, gazebo_id: tb3_2, xyz: [-2.0, 2.0, 0.05]}
+      - {id: tb3_03, gazebo_id: tb3_3, xyz: [2.0, 0.0, 0.05]}
+
+  tiago:
+    spawn:
+      - {id: tiago_01, gazebo_id: tiago_1, xyz: [4.0, -3.0, 0.10]}
+      - {id: tiago_02, gazebo_id: tiago_2, xyz: [4.0, 3.0, 0.10]}
+
+nav_map:
+  file: ros_ws/src/warehouse_robot/maps/warehouse.yaml
+  resolution: 0.05
+  origin: [-7.68, -11.1, 0.0]

@@ -1,0 +1,35 @@
+============================================================
+MUJOCO FINAL STATUS — V5.2
+============================================================
+
+MuJoCo Version             : 3.6.0
+Integrated Scene           : warehouse_tron1_integration.xml
+
+Warehouse Scene LOAD       : PASS
+TRON1 Runtime              : PASS
+UR5e Runtime               : PASS
+Gripper Actuator           : PASS
+Bottle Runtime             : PASS
+
+Finger-Bottle Contact      : FAIL
+Bilateral Grasp            : FAIL
+Lift Motion                : PASS
+
+OVERALL                    : PARTIAL
+
+FINAL JUDGEMENT
+------------------------------------------------------------
+The integrated MuJoCo warehouse/TRON1/UR5e scene loads and
+runs successfully. UR5e gripper actuation and lift motion
+were verified. However, direct left/right finger-to-bottle
+collision contact was not verified in the final integrated
+runtime.
+
+Therefore the final MuJoCo manipulation status is PARTIAL.
+No unverified grasp success is claimed as PASS.
+
+Evidence:
+- STEP_24G_FINAL_RESULT.txt
+- FINAL FINGER-BOTTLE CONTACT AUDIT
+- warehouse_tron1_integration.xml
+============================================================

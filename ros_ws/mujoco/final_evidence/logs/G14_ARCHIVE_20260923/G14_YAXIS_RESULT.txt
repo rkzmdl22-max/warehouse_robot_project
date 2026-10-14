@@ -1,0 +1,80 @@
+=== GEOMETRY AT Q0 ===
+tool0: [ 0.0649 -2.9202  1.0383]
+lf   : [ 0.0275 -2.9981  1.0359]
+rf   : [ 0.0924 -3.002   1.0341]
+bottle: [ 0.06  -3.     1.035]
+tool0 xmat (col=world axis):
+  X: [ 0.998 -0.06  -0.028]
+  Y: [ 0.026 -0.043  0.999]
+  Z: [-0.061 -0.997 -0.041]
+LF slide direction (world): [ 0.998 -0.06  -0.028]
+Approach angle (tool0 from bottle): 86.51 deg
+LF inner X: 0.0355
+RF inner X: 0.0844
+Inner gap: 0.0489 m
+Bottle geom radius: 0.035 m  (diameter=0.07)
+
+=== CHECKING IF FINGER CAN REACH BOTTLE VIA Y APPROACH ===
+  w3=0.000  lf_slide=[ 0.998 -0.06  -0.028]  Y_comp=0.060  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=0.785  lf_slide=[ 0.724 -0.073  0.686]  Y_comp=0.073  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=1.571  lf_slide=[ 0.025 -0.043  0.999]  Y_comp=0.043  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=-0.785  lf_slide=[ 0.688 -0.012 -0.726]  Y_comp=0.012  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=-1.571  lf_slide=[-0.026  0.043 -0.999]  Y_comp=0.043  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=2.356  lf_slide=[-0.687  0.012  0.726]  Y_comp=0.012  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+  w3=-2.356  lf_slide=[-0.723  0.073 -0.686]  Y_comp=0.073  fc_dist=0.0001  t0=[ 0.065 -2.92   1.038]
+
+=== BOTTLE_TARGET ANALYSIS ===
+bottle_target body id: 53
+bottle_target joint type: 0 (3=free, 0=fixed)
+bottle_target xpos: [ 1.   -3.    0.92]
+
+bottle_target is at station table (NOT on TRON1 tray)
+carry_bottle is on TRON1 tray
+To grasp carry_bottle: need TRON1 to be stationary OR bottle freejoint
+
+=== MINIMUM XML CHANGE ANALYSIS ===
+Current finger joint range: ctrlrange=[-0.015, 0.07]
+At qpos=-0.015: gap=0.079m > bottle 0.07m -> can achieve contact
+But ctrl=-0.015 drives qpos TOWARD -0.015 (more open, not more closed)
+
+CLARIFICATION:
+  left_finger axis=+X: positive qpos moves finger in +X direction
+  left_finger local pos = [-0.0325, 0, 0.08]
+  At qpos=0: lf at X=-0.0325 from tool0
+  At qpos=0.07: lf at X=-0.0325+0.07 = +0.0375 from tool0
+  -> Positive qpos moves lf TOWARD right (+X)
+
+  right_finger axis=-X: positive qpos moves finger in -X direction
+  right_finger local pos = [+0.0325, 0, 0.08]
+  At qpos=0: rf at X=+0.0325 from tool0
+  At qpos=0.07: rf at X=0.0325-0.07 = -0.0375 from tool0
+  -> Positive qpos moves rf TOWARD left (-X)
+
+  ctrl=-0.015 drives TOWARD qpos=-0.015 (max OPEN)
+  ctrl=0.07  drives TOWARD qpos=0.07 (max CLOSE)
+
+  Re-analysis: at qpos=0.07 (max close):
+    lf inner x from tool0: -0.0325 + 0.07 + 0.008 = 0.0455
+    rf inner x from tool0: +0.0325 - 0.07 - 0.008 = -0.0455
+    gap = 0.0455 - (-0.0455) = 0.091m
+
+  Wait - recalculate at qpos=0:
+    at qpos=0: lf_inner=-0.0245  rf_inner=0.0245  gap=0.0490
+
+  at qpos=0.07 (max CLOSE): lf_inner=0.0455  rf_inner=-0.0455  gap=-0.0910
+  bottle diameter = 0.070m
+
+  AT MAX CLOSE: gap(-0.0910) < bottle(0.07) -> OVERCLAMPING possible
+  Need qpos where gap = 0.07:
+  Contact qpos = -0.0105
+  -> ctrl=-0.0105 achieves exact bottle contact gap
+
+FINAL DIAGNOSIS:
+  ctrl=-0.015: drives to OPEN (qpos=-0.015), gap=0.079m > bottle 0.07m
+  Contact can only happen as bottle is already INSIDE the finger gap
+  This means bottle must be positioned AT the right spot before closing
+  Then ctrl=-0.0105 (or slightly negative) achieves contact
+
+PROPOSED CTRL FIX: use ctrl=-0.0105 instead of ctrl=-0.015
+This drives qpos to -0.0105 which achieves gap=0.07=bottle diameter
+Exit: 0 

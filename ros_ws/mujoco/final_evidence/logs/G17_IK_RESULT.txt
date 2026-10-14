@@ -1,0 +1,19 @@
+UR5e base world: [ 0.6   -3.45   0.963]
+tool0 at Q0:     [ 0.0649 -2.9202  1.0383]
+bottle_place:    [ 1.15 -3.    0.92]
+Angle to place target (from base): 39.29 deg
+
+Scanning pan angles...
+Best pan angle: -155.85 deg  ( -2.7202 rad)
+tool0 at best pan: [ 1.1852 -2.9793  1.2922]
+dist to place target XY: 0.0408
+
+tool0 at Q0 pan (lift pose): [ 0.0659 -2.922   1.2922]
+pan delta needed: -1.6846 rad
+  = Q0[0] + -1.6846
+
+Key positions:
+  ur5e_base:           [ 0.6   -3.45   0.963]
+  bottle_place_table:  [ 1.15 -3.    0.4 ]
+  station_table:       [ 1.  -3.   0.4]
+Exit: 0 

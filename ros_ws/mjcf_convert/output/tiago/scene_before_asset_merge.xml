@@ -1,0 +1,69 @@
+<mujoco model="tiago">
+
+    <size
+        memory="512M"
+        njmax="2000"
+        nconmax="2000"
+    />
+
+
+    <compiler
+        angle="radian"
+        meshdir="meshes"
+        autolimits="true"
+    />
+
+
+    <option
+        timestep="0.001"
+        gravity="0 0 -9.81"
+        iterations="50"
+    />
+
+
+    <default>
+
+        <joint
+            limited="true"
+            damping="0.01"
+            armature="0.01"
+            frictionloss="0.01"
+        />
+
+        <geom
+            condim="4"
+            contype="1"
+            conaffinity="15"
+        />
+
+        <motor
+            ctrllimited="true"
+        />
+
+        <default class="visualgeom">
+
+            <geom
+                contype="0"
+                conaffinity="0"
+            />
+
+        </default>
+
+    </default>
+
+
+    <asset>
+        <include file="assets.xml"/>
+    </asset>
+
+
+    <include file="bodies.xml"/>
+
+
+    <include file="actuators.xml"/>
+
+
+    <include file="sensors.xml"/>
+
+
+</mujoco>

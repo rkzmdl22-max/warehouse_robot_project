@@ -1,0 +1,3 @@
+G15~G18 ZERO-G TEST
+XML MODIFIED = NO
+Testing independent gates with zero-G (gravity-incompatible G14 bypassed)

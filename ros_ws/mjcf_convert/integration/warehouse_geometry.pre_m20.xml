@@ -1,0 +1,54 @@
+<!--
+  Warehouse geometry fragment.
+  Source: /ros_ws/src/warehouse_robot/worlds/warehouse.world
+  Generated for MuJoCo integration.
+  Original Gazebo warehouse.world is authoritative and unchanged.
+-->
+
+<body name="warehouse">
+
+  <!-- Walls -->
+  <body name="wall_left" pos="0 0 1.25">
+    <geom name="warehouse_wall_left" type="box"
+          size="10 0.1 1.25"
+          contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="wall_right" pos="0 0 1.25">
+    <geom name="warehouse_wall_right" type="box"
+          size="10 0.1 1.25"
+          contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="wall_front" pos="0 0 1.25">
+    <geom name="warehouse_wall_front" type="box"
+          size="10 0.1 1.25"
+          contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="wall_back" pos="0 0 1.25">
+    <geom name="warehouse_wall_back" type="box"
+          size="10 0.1 1.25"
+          contype="1" conaffinity="1"/>
+  </body>
+
+  <!-- Aisles -->
+  <body name="aisle_main" pos="0 0 0.012">
+    <geom name="warehouse_aisle_main" type="box"
+          size="7.0 0.6 0.01"
+          contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="aisle_cross" pos="0 -3.0 0.013">
+    <geom name="warehouse_aisle_cross" type="box"
+          size="7.0 0.4 0.01"
+          contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="aisle_receiving" pos="-7.0 -6.0 0.014">
+    <geom name="warehouse_aisle_receiving" type="box"
+          size="2.75 0.35 0.01"
+          contype="0" conaffinity="0"/>
+  </body>
+
+</body>

@@ -1,0 +1,44 @@
+<mujoco model="shelves">
+  <!--
+    Warehouse Shelves Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    6 Heavy-Duty Storage Racks (Full dimensions: 3.0m x 0.8m x 2.0m, Center Z=1.0m)
+  -->
+  <worldbody>
+    <body name="shelf_1_body" pos="-6.0 -5.0 0.0">
+      <geom name="shelf_1_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_1_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_1_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="shelf_2_body" pos="0.0 -5.0 0.0">
+      <geom name="shelf_2_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_2_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_2_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="shelf_3_body" pos="6.0 -5.0 0.0">
+      <geom name="shelf_3_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_3_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_3_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="shelf_4_body" pos="-6.0 5.0 0.0">
+      <geom name="shelf_4_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_4_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_4_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="shelf_5_body" pos="0.0 5.0 0.0">
+      <geom name="shelf_5_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_5_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_5_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="shelf_6_body" pos="6.0 5.0 0.0">
+      <geom name="shelf_6_base" type="box" pos="0 0 1.0" size="1.5 0.4 1.0" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_6_tier1" type="box" pos="0 0 0.4" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+      <geom name="shelf_6_tier2" type="box" pos="0 0 1.2" size="1.48 0.38 0.02" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    </body>
+  </worldbody>
+</mujoco>

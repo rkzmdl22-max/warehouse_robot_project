@@ -1,0 +1,113 @@
+"""사람-로봇 협업(HRI) 안전 모듈 (1014 추가)
+구역: WARN_R 안 -> 감속 / STOP_R 안 -> 보호정지 / 비상버튼 -> 완전정지
+외력: 관절 토크 관측기(mj_inverse 잔차) > TAU_TH -> 접촉 보호정지, 사람이 빠지면 자동 재개
+"""
+import os, atexit
+import numpy as np, mujoco
+
+WARN_R = float(os.environ.get("HRI_WARN_R", "2.5"))   # 감속 구역 반경 (UR5e 베이스 기준, m)
+STOP_R = float(os.environ.get("HRI_STOP_R", "1.7"))   # 보호정지 구역 반경 (m)
+SLOW = 0.5                                             # 감속 구역 속도 비율
+TAU_TH = float(os.environ.get("HRI_TAU_TH", "10"))    # 외력 판정 임계값 (관절 토크 노름, N*m)
+F_PUSH = float(os.environ.get("HRI_PUSH", "70"))      # 가상 작업자가 미는 힘 (N)
+SCEN = os.environ.get("HRI_SCEN", "demo")             # demo | estop | none
+HOME = (2.8, -1.2)
+PATHS = {  # (작업 시작 후 초, x, y)
+    "demo": [(0, 2.8, -1.2), (1, 2.8, -1.2), (3, 2.4, -2.0), (5, 1.3, -2.45), (11, 1.3, -2.45), (13, 2.8, -1.2), (20, 2.8, -1.2)],
+    "estop": [(0, 2.8, -1.2), (2, 2.8, -1.2), (6, 0.9, -1.98), (9, 0.9, -1.98)],
+}
+PUSH_WIN = {"demo": (7.0, 10.0)}   # 이 구간에 작업자가 팔을 민다
+PRESS_AT = {"estop": 8.0}           # 이 시각에 비상버튼을 누른다
+STOPS = ("STOP_ZONE", "CONTACT_STOP")
+SCALE = {"NORMAL": 1.0, "SLOW": SLOW, "STOP_ZONE": 0.0, "CONTACT_STOP": 0.0}
+
+
+class HRI:
+    def __init__(self, m, d, vadr):
+        self.m, self.d, self.vadr = m, d, list(vadr)
+        self.D = mujoco.MjData(m)
+        bid = lambda n: mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, n)
+        self.mh, self.mhand = m.body_mocapid[bid("claude_human")], m.body_mocapid[bid("claude_human_hand")]
+        self.fb = bid("ur5e_forearm_link")
+        mujoco.mj_forward(m, d)
+        self.base = d.xpos[bid("ur5e_base")][:2].copy()
+        self.btn = d.xpos[bid("claude_estop")] + np.array([0.0, 0.0, 1.03])
+        p = np.array(PATHS.get(SCEN, [(0, *HOME)]), float)
+        self.P = (p[:, 0], p[:, 1], p[:, 2])
+        self.t0 = None; self.state = "NORMAL"; self.scale = 1.0
+        self.hxy = np.array(HOME, float); self.r = 9.9; self.tau = 0.0
+        self.hi = 0; self.contact = False; self.low_since = None; self.resume_at = 0.0
+        self.estop_pressed = False; self.n = 0; self.free_max = 0.0; self.push_on = False; self.pushed = False
+        atexit.register(self.summary)
+        print("[HRI] 시나리오=%s | 감속 r<%.1fm | 보호정지 r<%.1fm | 외력 임계 %.1f N*m" % (SCEN, WARN_R, STOP_R, TAU_TH))
+
+    def start(self):
+        self.t0 = self.d.time
+        print("[HRI] 작업자 시나리오 시작 t=%.1fs" % self.t0)
+
+    def tag(self):
+        return "%s r=%.2fm tau=%.1fNm" % (self.state, self.r, self.tau)
+
+    def summary(self):
+        if self.t0 is not None:
+            print("[HRI] 요약: 비접촉 구간 외력 관측 최대 %.2f N*m (임계 %.1f)" % (self.free_max, TAU_TH))
+
+    def pre(self):  # mj_step 직전: 작업자 이동, 미는 힘 적용, 상태 갱신
+        d = self.d
+        d.xfrc_applied[self.fb, :] = 0.0
+        t = -1.0 if self.t0 is None else d.time - self.t0
+        ts, xs, ys = self.P
+        self.hxy = np.array([np.interp(t, ts, xs), np.interp(t, ts, ys)])
+        d.mocap_pos[self.mh] = (self.hxy[0], self.hxy[1], 0.0)
+        tw = self.base - self.hxy; tw = tw / (np.linalg.norm(tw) + 1e-9)
+        dirv = np.array([tw[0], tw[1], 0.0])
+        hand = np.array([self.hxy[0], self.hxy[1], 1.0]) + 0.35 * dirv
+        w = PUSH_WIN.get(SCEN); self.push_on = False
+        if w and w[0] <= t <= w[1] and not self.pushed:
+            a = min(1.0, (t - w[0]) / 1.0)                 # 1초에 걸쳐 손을 뻗고 힘이 올라감
+            hand = hand + ((d.xpos[self.fb] - 0.12 * dirv) - hand) * a
+            d.xfrc_applied[self.fb, :3] = F_PUSH * a * dirv
+            self.push_on = True
+        pa = PRESS_AT.get(SCEN)
+        if pa is not None and t >= pa - 1.5:
+            a = min(1.0, (t - (pa - 1.5)) / 1.5); hand = hand + (self.btn - hand) * a
+            if t >= pa and not self.estop_pressed:
+                self.estop_pressed = True; print("!! [HRI t=%.1fs] 작업자가 비상버튼을 누름" % d.time)
+        d.mocap_pos[self.mhand] = hand
+        self._state()
+
+    def _state(self):
+        now = self.d.time; r = float(np.linalg.norm(self.hxy - self.base)); self.r = r
+        if self.contact:
+            if self.tau < 0.5 * TAU_TH:
+                if self.low_since is None: self.low_since = now
+                if now - self.low_since > 1.0 and r >= STOP_R + 0.1: self.contact = False
+            else: self.low_since = None
+        in_stop = self.state in STOPS
+        sr = STOP_R + (0.1 if in_stop else 0.0); wr = WARN_R + (0.1 if self.state != "NORMAL" else 0.0)
+        new = "CONTACT_STOP" if self.contact else ("STOP_ZONE" if r < sr else ("SLOW" if r < wr else "NORMAL"))
+        if new in STOPS: self.resume_at = now + 1.0
+        elif in_stop and now < self.resume_at: new = self.state   # 사람이 빠진 뒤 1초 유지 후 재개
+        if new != self.state:
+            print("[HRI t=%.1fs] %s -> %s | 작업자 거리 %.2fm | 외력 %.1f N*m" % (now, self.state, new, r, self.tau))
+            self.state = new
+        self.scale = SCALE[self.state]
+
+    def post(self, q0, v0):  # mj_step 직후: 외력 관측기 (모터 토크와 실제 운동의 차이)
+        self.n += 1
+        if self.n % 3: return
+        D = self.D; D.qpos[:] = q0; D.qvel[:] = v0; D.qacc[:] = self.d.qacc
+        D.mocap_pos[:] = self.d.mocap_pos
+        mujoco.mj_inverse(self.m, D)
+        self.tau = float(np.linalg.norm((D.qfrc_inverse - self.d.qfrc_actuator)[self.vadr]))
+        if self.t0 is not None and not self.push_on: self.free_max = max(self.free_max, self.tau)
+        self.hi = self.hi + 1 if self.tau > TAU_TH else 0
+        if self.hi >= 3 and not self.contact:
+            self.contact = True; self.low_since = None; self.pushed = True   # 감지되면 작업자는 손을 뗌
+            print("!! [HRI t=%.2fs] 외력 감지: 토크 잔차 %.1f N*m > 임계 %.1f -> 보호정지 (작업자 거리 %.2fm)" % (self.d.time, self.tau, TAU_TH, self.r))
+
+
+def make_hri(m, d, vadr):
+    if mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, "claude_human") < 0:
+        print("[HRI] 씬에 claude_human 없음 -> 비활성"); return None
+    return HRI(m, d, vadr)

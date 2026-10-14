@@ -1,0 +1,62 @@
+====================================================================
+G14-G18 V3  FINAL
+G14 condition: settle 2s, measure 3s, drift < 0.025m
+XML MODIFIED = NO
+====================================================================
+
+[G13 INIT]
+  bottle=[ 0.0542 -2.987   1.0633]  lc=True rc=True  lq=0.0770
+G13 = PASS
+
+====================================================================
+G14: HOLD  [settle 2s + measure 3s]
+====================================================================
+  bottle start = [ 0.0542 -2.987   1.0633]
+  bottle settled (t=2s) = [ 0.0631 -2.9839  1.0263]  L=True R=True
+  bottle end (t=5s)    = [ 0.0592 -2.9896  1.0238]
+  drift in 3s measure  = 0.007241 m
+  contact_loss_step    = -1
+  lc_end=True rc_end=True  max_qvel=0.1536
+G14 = PASS   [drift=0.007241m < 0.025]
+
+====================================================================
+G15: LIFT  [target +50mm]
+====================================================================
+  bottle_start_z = 1.0238
+  phase 1: bz=1.1097  L=True R=True
+  phase 2: bz=1.1639  L=True R=True
+  phase 3: bz=1.2444  L=True R=True
+  phase 4: bz=1.3058  L=True R=True
+
+  bottle_start_z    = 1.0238
+  bottle_end_z      = 1.3058
+  bottle dz         = 0.282 m
+  tool0 dz          = 0.3118 m
+  L=True R=True  finite=True
+G15 = PASS   [dz_b=0.2820]
+
+====================================================================
+G16: CARRY  [pan rotation toward place table]
+====================================================================
+  carry start = [ 0.0582 -2.9896  1.3058]
+  phase 1: bottle=[-0.0321 -3.1527  1.3425]  L=True R=True  btool=0.0663
+  phase 2: bottle=[-0.1013 -3.3118  1.3154]  L=True R=True  btool=0.0625
+  phase 3: bottle=[-0.1241 -3.5166  1.2967]  L=True R=True  btool=0.0659
+
+  carry_disp=0.5578m  L=True R=True  finite=True
+G16 = PASS   [disp=0.5578]
+
+====================================================================
+G17: PLACE  [lower toward bottle_place_table]
+====================================================================
+  bottle before place = [-0.1241 -3.5166  1.2967]
+  table_target        = [ 1.15 -3.    0.92]
+  phase 1: bz=1.2291  z_err=0.3091  L=True R=True
+  phase 2: bz=1.1416  z_err=0.2216  L=True R=True
+  phase 3: bz=1.0458  z_err=0.1258  L=True R=True
+  phase 4: bz=1.0190  z_err=0.0990  L=True R=True
+
+  bottle final = [-0.0804 -3.4879  1.019 ]
+  XY_err=1.3236m  Z_err=0.0990m  L=True R=True
+G17 = FAIL   [xy=1.3236 z=0.0990]
+Exit: 1 

@@ -1,0 +1,13 @@
+G14 LEFT LOSS MS
+XML MODIFIED = NO
+A_V4 G13step=1 G14=False loss=16 drift=0.0
+  first_loss t=0.0320 lc=0 rc=1 lq=-0.01329 lqv=-1.17677 ldist= lFn=
+B_zeroG G13step=1 G14=False loss=16 drift=0.0
+  first_loss t=0.0320 lc=0 rc=1 lq=-0.01307 lqv=-1.17183 ldist= lFn=
+C_kiro_ctrl0 G13step=600 G14=False loss=3 drift=0.0
+  first_loss t=0.0060 lc=1 rc=0 lq=0.06021 lqv=-0.00963 ldist=-0.020528156447439806 lFn=-5.2575978768569485
+D_kiro_FF G13step=600 G14=False loss=3 drift=0.0
+  first_loss t=0.0060 lc=1 rc=0 lq=0.06022 lqv=-0.00545 ldist=-0.020527505747433263 lFn=-5.334308979290423
+E_nslam_FF G13step=1 G14=False loss=2 drift=0.0
+  first_loss t=0.0040 lc=0 rc=1 lq=-0.01169 lqv=-0.23505 ldist= lFn=
+G14 = FAIL

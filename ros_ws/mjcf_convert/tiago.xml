@@ -1,0 +1,569 @@
+<mujoco model="tiago">
+  <option iterations="50" timestep="0.001" solver="PGS" gravity="0 0 -9.81" />
+
+  <compiler angle="radian" meshdir="meshes" eulerseq="zyx" autolimits="true" />
+
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="base_collision" file="base_collision.stl" />
+    <mesh name="base_dock_link" file="base_dock_link.stl" />
+    <mesh name="torso_lift_collision_core" file="torso_lift_collision_core.stl" />
+    <mesh name="torso_lift_collision_shoulder" file="torso_lift_collision_shoulder.stl" />
+    <mesh name="torso_lift_collision_neck" file="torso_lift_collision_neck.stl" />
+    <mesh name="arm_1_collision" file="arm_1_collision.stl" />
+    <mesh name="arm_2_collision" file="arm_2_collision.stl" />
+    <mesh name="arm_3_collision" file="arm_3_collision.stl" />
+    <mesh name="arm_4_collision" file="arm_4_collision.stl" />
+    <mesh name="arm_5_collision-wrist-2017" file="arm_5_collision-wrist-2017.stl" />
+    <mesh name="arm_6_collision-wrist-2017" file="arm_6_collision-wrist-2017.stl" />
+    <mesh name="palm_collision" file="palm_collision.stl" />
+    <mesh name="thumb_abd_collision" file="thumb_abd_collision.stl" />
+    <mesh name="finger_flex_collision" file="finger_flex_collision.stl" />
+    <mesh name="finger_flex_tip_collision" file="finger_flex_tip_collision.stl" />
+    <mesh name="finger_abd_collision" file="finger_abd_collision.stl" />
+    <mesh name="head_1_collision" file="head_1_collision.stl" />
+    <mesh name="head_2_collision" file="head_2_collision.stl" />
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="visualgeom" rgba="0.5 0.9 0.2 1" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+    <geom name="ground" type="plane" pos="0 0 0" size="100 100 0.001" quat="1 0 0 0" material="matplane" condim="3" conaffinity="15" />
+    <camera name="fixed" pos="0 -3.0 0.565825047934416" xyaxes="1 0 0 0 0 1" />
+    <camera name="track" mode="trackcom" pos="0 -3.0 0.565825047934416" xyaxes="1 0 0 0 0 1" />
+    <body name="root" pos="0 0 0.06582504793441607" quat="1 0 0 0">
+      <freejoint name="root" />
+      <site name="imu" size="0.01" pos="0 0 0" />
+      <geom name="collision_1" pos="0 0 0.0985" type="mesh" rgba="1 1 1 1" mesh="base_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="mesh" rgba="1 1 1 1" mesh="base_collision" pos="0 0 0.0985" />
+      <geom name="collision_0" size="0.01 0.005" pos="0.202 0 0.0945" type="cylinder" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="cylinder" rgba="0.1 0.1 0.1 1" pos="0.202 0 0.0945" size="0.01 0.005" />
+      <geom name="collision_2" pos="0.2675 0 0.1595" type="mesh" rgba="0.25098 0.25098 0.25098 1" mesh="base_dock_link" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="mesh" rgba="0.25098 0.25098 0.25098 1" mesh="base_dock_link" pos="0.2675 0 0.1595" />
+      <geom name="collision_3" size="0.005 0.085" pos="-0.201 0.1062 0.3785" type="cylinder" rgba="0 0 0 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="cylinder" rgba="0 0 0 1" pos="-0.201 0.1062 0.3785" size="0.005 0.085" />
+      <geom name="collision_4" size="0.005 0.085" pos="-0.201 -0.1062 0.3785" type="cylinder" rgba="0 0 0 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="cylinder" rgba="0 0 0 1" pos="-0.201 -0.1062 0.3785" size="0.005 0.085" />
+      <geom name="collision_7" size="0.025" pos="0.1535 -0.102 0.025" quat="0.707107 -0.707107 0 0" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="sphere" rgba="0.1 0.1 0.1 1" pos="0.1535 -0.102 0.025" quat="0.707107 -0.707107 0 0" size="0.025" />
+      <geom name="collision_8" size="0.025" pos="0.1535 0.102 0.025" quat="0.707107 -0.707107 0 0" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="sphere" rgba="0.1 0.1 0.1 1" pos="0.1535 0.102 0.025" quat="0.707107 -0.707107 0 0" size="0.025" />
+      <geom name="collision_9" size="0.025" pos="-0.1895 -0.102 0.025" quat="0.707107 -0.707107 0 0" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="sphere" rgba="0.1 0.1 0.1 1" pos="-0.1895 -0.102 0.025" quat="0.707107 -0.707107 0 0" size="0.025" />
+      <geom name="collision_10" size="0.025" pos="-0.1895 0.102 0.025" quat="0.707107 -0.707107 0 0" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="sphere" rgba="0.1 0.1 0.1 1" pos="-0.1895 0.102 0.025" quat="0.707107 -0.707107 0 0" size="0.025" />
+      <geom name="collision_11" size="0.2 0.125 0.02" pos="0.023 0 0.3115" type="box" rgba="0.9 0.9 0.9 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="box" rgba="0.9 0.9 0.9 1" size="0.2 0.125 0.02" pos="0.023 0 0.3115" />
+      <geom name="collision_12" size="0.125 0.125 0.05" pos="-0.062 0 0.3415" type="box" rgba="0.9 0.9 0.9 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="box" rgba="0.9 0.9 0.9 1" size="0.125 0.125 0.05" pos="-0.062 0 0.3415" />
+      <geom name="collision_13" size="0.116 0.1325 0.225" pos="-0.062 0 0.5665" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="box" rgba="0.1 0.1 0.1 1" size="0.116 0.1325 0.225" pos="-0.062 0 0.5665" />
+      <body name="wheel_right_link" pos="0 -0.2022 0.0985" quat="0.707107 -0.707107 0 0">
+        <inertial pos="0 0 -0.00207" quat="0.296456 0.641958 -0.296458 0.641963" mass="1.82362" diaginertia="0.0083924 0.00499747 0.00499738" />
+        <joint name="wheel_right_joint" pos="0 0 0" axis="0 0 1" actuatorfrcrange="-6 6" damping="1" frictionloss="2"  limited="false" />
+        <geom name="collision_5" size="0.0985 0.02" type="cylinder" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="cylinder" rgba="0.1 0.1 0.1 1" size="0.0985 0.02" />
+      </body>
+      <body name="wheel_left_link" pos="0 0.2022 0.0985" quat="0.707107 -0.707107 0 0">
+        <inertial pos="0 0 0.00207" quat="0.641958 0.296456 -0.641963 0.296458" mass="1.82362" diaginertia="0.0083924 0.00499747 0.00499738" />
+        <joint name="wheel_left_joint" pos="0 0 0" axis="0 0 1" actuatorfrcrange="-6 6" damping="1" frictionloss="2"  limited="false" />
+        <geom name="collision_6" size="0.0985 0.02" type="cylinder" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="cylinder" rgba="0.1 0.1 0.1 1" size="0.0985 0.02" />
+      </body>
+      <body name="torso_lift_link" pos="-0.062 0 0.8885">
+        <inertial pos="0.04361 -0.00116 -0.17334" quat="0.562536 0.0400112 -0.00365739 0.825796" mass="6.93198" diaginertia="0.250465 0.244703 0.0893652" />
+        <joint name="torso_lift_joint" pos="0 0 0" axis="0 0 1" type="slide" range="0 0.35" actuatorfrcrange="-2000 2000" damping="1000" />
+        <geom name="collision_14" type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_core" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_core" />
+        <geom name="collision_15" type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_shoulder" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_shoulder" />
+        <geom name="collision_16" type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_neck" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="mesh" rgba="1 1 1 1" mesh="torso_lift_collision_neck" />
+        <body name="arm_1_link" pos="0.15505 0.014 -0.151" quat="0.707107 0 0 -0.707107">
+          <inertial pos="0.061191 -0.022397 -0.012835" quat="0.153008 0.605524 -0.119006 0.771859" mass="1.56343" diaginertia="0.00702295 0.00687506 0.00140899" />
+          <joint name="arm_1_joint" pos="0 0 0" axis="0 0 1" range="0 2.74889" actuatorfrcrange="-43 43" damping="40" frictionloss="1" />
+          <geom name="collision_17" type="mesh" rgba="1 1 1 1" mesh="arm_1_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="mesh" rgba="1 1 1 1" mesh="arm_1_collision" />
+          <body name="arm_2_link" pos="0.125 0.0195 -0.031" quat="0.707107 0.707107 0 0">
+            <inertial pos="0.030432 0.000229 -0.005942" quat="0.126897 0.72859 0.136233 0.659161" mass="1.8004" diaginertia="0.00437229 0.00432701 0.0017837" />
+            <joint name="arm_2_joint" pos="0 0 0" axis="0 0 1" range="-1.5708 1.09083" actuatorfrcrange="-43 43" damping="40" frictionloss="1" />
+            <geom name="collision_18" type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_2_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_2_collision" />
+            <body name="arm_3_link" pos="0.0895 0 0.0015" quat="0.5 -0.5 -0.5 0.5">
+              <inertial pos="0.007418 -0.004361 -0.134194" quat="0.516615 0.0556881 0.00536911 0.854388" mass="1.8" diaginertia="0.0200771 0.0196154 0.00264853" />
+              <joint name="arm_3_joint" pos="0 0 0" axis="0 0 1" range="-3.53429 1.5708" actuatorfrcrange="-26 26" damping="40" frictionloss="1" />
+              <geom name="collision_19" type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_3_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+              <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_3_collision" />
+              <body name="arm_4_link" pos="-0.02 -0.027 -0.222" quat="0.5 -0.5 -0.5 -0.5">
+                <inertial pos="-0.095658 0.014666 0.018133" quat="-0.161572 0.615556 -0.202229 0.744371" mass="1.4327" diaginertia="0.00906004 0.00831328 0.00177669" />
+                <joint name="arm_4_joint" pos="0 0 0" axis="0 0 1" range="-0.392699 2.35619" actuatorfrcrange="-26 26" damping="40" frictionloss="1" />
+                <geom name="collision_20" type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_4_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="arm_4_collision" />
+                <body name="arm_5_link" pos="-0.162 0.02 0.027" quat="0.707107 0 -0.707107 0">
+                  <inertial pos="0.001078 -0.000151 -0.077173" quat="0.999999 -0.000362286 -0.00167006 0.000217394" mass="0.935914" diaginertia="0.00103619 0.000794527 0.000439824" />
+                  <joint name="arm_5_joint" pos="0 0 0" axis="0 0 1" range="-2.0944 2.0944" actuatorfrcrange="-3 3" damping="1" frictionloss="1" />
+                  <geom name="collision_21" type="mesh" rgba="0.9 0.9 0.9 1" mesh="arm_5_collision-wrist-2017" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                  <geom type="mesh" rgba="0.9 0.9 0.9 1" mesh="arm_5_collision-wrist-2017" />
+                  <body name="arm_6_link" pos="0 0 0.15" quat="0.5 -0.5 -0.5 -0.5">
+                    <inertial pos="-0.000153 -0.003122 0.000183" quat="0.510936 0.49453 0.508164 0.485956" mass="0.302758" diaginertia="3.85419e-05 3.33205e-05 3.29226e-05" />
+                    <joint name="arm_6_joint" pos="0 0 0" axis="0 0 1" range="-1.41372 1.41372" actuatorfrcrange="-6.6 6.6" damping="1" frictionloss="1" />
+                    <geom name="collision_22" type="mesh" rgba="0.9 0.9 0.9 1" mesh="arm_6_collision-wrist-2017" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                    <geom type="mesh" rgba="0.9 0.9 0.9 1" mesh="arm_6_collision-wrist-2017" />
+                    <body name="arm_7_link" quat="0.5 0.5 0.5 0.5">
+                      <inertial pos="0.0166 0.0169483 0.150283" quat="0.997639 -0.0582871 0.0343288 -0.0118526" mass="4.935" diaginertia="0.0321742 0.0254978 0.016436" />
+                      <joint name="arm_7_joint" pos="0 0 0" axis="0 0 1" range="-2.0944 2.0944" actuatorfrcrange="-6.6 6.6" damping="1" frictionloss="1" />
+                      <geom name="collision_23" size="0.005 0.0025" pos="0 0 0.052875" quat="-0.707107 0 0 0.707107" type="cylinder" rgba="0.9 0.9 0.9 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                      <geom type="cylinder" rgba="0.9 0.9 0.9 1" pos="0 0 0.052875" quat="-0.707107 0 0 0.707107" size="0.005 0.0025" />
+                      <geom name="collision_24" size="0.0225 0.00785" pos="0 0 0.051875" quat="-0.707107 0 0 0.707107" type="cylinder" rgba="0.9 0.9 0.9 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                      <geom type="cylinder" rgba="0.9 0.9 0.9 1" pos="0 0 0.051875" quat="-0.707107 0 0 0.707107" size="0.0225 0.00785" />
+                      <geom name="collision_25" size="0.025 0.004875" pos="0 0 0.063075" quat="-0.707107 0 0 0.707107" type="cylinder" rgba="0.09 0.09 0.09 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                      <geom type="cylinder" rgba="0.09 0.09 0.09 1" pos="0 0 0.063075" quat="-0.707107 0 0 0.707107" size="0.025 0.004875" />
+                      <geom name="collision_26" pos="0 0 0.063075" quat="-0.5 0.5 0.5 0.5" type="mesh" rgba="0.1 0.1 0.1 1" mesh="palm_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                      <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="palm_collision" pos="0 0 0.063075" quat="-0.5 0.5 0.5 0.5" />
+                      <geom name="collision_60" size="0.1 0.0575 0.09" pos="0.02 0.02 0.163075" quat="-0.5 0.5 0.5 0.5" type="box" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                      <geom type="box" rgba="0.5 0.5 0.5 1" size="0.1 0.0575 0.09" pos="0.02 0.02 0.163075" quat="-0.5 0.5 0.5 0.5" />
+                      <body name="hand_thumb_link" pos="0 0 0.063075" quat="-0.5 0.5 0.5 0.5">
+                        <inertial pos="0 0 0" mass="0.001" diaginertia="1e-06 1e-06 1e-06" />
+                        <joint name="hand_thumb_joint" pos="0 0 0" axis="0 0 1" range="-2.61799 6.28319" actuatorfrcrange="-2 2" damping="0.5" />
+                      </body>
+                      <body name="hand_index_link" pos="0 0 0.063075" quat="-0.5 0.5 0.5 0.5">
+                        <inertial pos="0 0 0" mass="0.001" diaginertia="1e-06 1e-06 1e-06" />
+                        <joint name="hand_index_joint" pos="0 0 0" axis="0 0 1" range="-3.05433 6.80678" actuatorfrcrange="-2 2" damping="0.5" />
+                      </body>
+                      <body name="hand_mrl_link" pos="0 0 0.063075" quat="-0.5 0.5 0.5 0.5">
+                        <inertial pos="0 0 0" mass="0.001" diaginertia="1e-06 1e-06 1e-06" />
+                        <joint name="hand_mrl_joint" pos="0 0 0" axis="0 0 1" range="-2.53073 9.25025" actuatorfrcrange="-2 2" damping="0.5" />
+                      </body>
+                      <body name="hand_thumb_abd_link" pos="0.0134 0.038 0.153175" quat="-0.153046 0.690346 0.690346 0.153046">
+                        <inertial pos="-0.0132 0.0037 -0.0017" mass="0.014" diaginertia="0.001 0.001 0.001" />
+                        <joint name="hand_thumb_abd_joint" pos="0 0 0" axis="0 0 1" range="0 1.5708" actuatorfrcrange="-2 2" damping="0.5" />
+                        <geom name="collision_27" type="mesh" rgba="0.1 0.1 0.1 1" mesh="thumb_abd_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                        <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="thumb_abd_collision" />
+                        <body name="hand_thumb_virtual_1_link" pos="0.0225 0.003 0" quat="0.840756 -0.541415 0 0">
+                          <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                          <joint name="hand_thumb_virtual_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                          <geom name="collision_28" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                          <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                          <body name="hand_thumb_flex_1_link" pos="0.013 0 0">
+                            <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                            <joint name="hand_thumb_flex_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                            <geom name="collision_29" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                            <body name="hand_thumb_virtual_2_link" pos="0.009 0 0">
+                              <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                              <joint name="hand_thumb_virtual_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                              <geom name="collision_30" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                              <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                              <body name="hand_thumb_flex_2_link" pos="0.013 0 0">
+                                <inertial pos="0.0096 0.003 0" mass="0.015" diaginertia="0.001 0.001 0.001" />
+                                <joint name="hand_thumb_flex_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                <geom name="collision_31" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" />
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <body name="hand_index_abd_link" pos="0.0042 0.0265 0.189575" quat="0.183013 0.683013 0.183013 0.683013">
+                        <inertial pos="-0.0018 0 0.0028" mass="0.018" diaginertia="0.001 0.001 0.001" />
+                        <joint name="hand_index_abd_joint" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-2 2" damping="0.5" />
+                        <geom name="collision_32" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                        <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" />
+                        <body name="hand_index_virtual_1_link" pos="0.009 0 0" quat="0.707107 0.707107 0 0">
+                          <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                          <joint name="hand_index_virtual_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                          <geom name="collision_33" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                          <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                          <body name="hand_index_flex_1_link" pos="0.013 0 0">
+                            <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                            <joint name="hand_index_flex_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                            <geom name="collision_34" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                            <body name="hand_index_virtual_2_link" pos="0.009 0 0">
+                              <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                              <joint name="hand_index_virtual_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                              <geom name="collision_35" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                              <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                              <body name="hand_index_flex_2_link" pos="0.013 0 0">
+                                <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                                <joint name="hand_index_flex_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                <geom name="collision_36" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                                <body name="hand_index_virtual_3_link" pos="0.009 0 0">
+                                  <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                  <joint name="hand_index_virtual_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                  <geom name="collision_37" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                  <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                                  <body name="hand_index_flex_3_link" pos="0.013 0 0">
+                                    <inertial pos="0.0096 0.003 0" mass="0.015" diaginertia="0.001 0.001 0.001" />
+                                    <joint name="hand_index_flex_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                    <geom name="collision_38" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                    <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <body name="hand_middle_abd_link" pos="0.0042 0.007 0.196575" quat="0 0.707107 0 0.707107">
+                        <inertial pos="-0.0018 0 0.0028" mass="0.018" diaginertia="0.001 0.001 0.001" />
+                        <joint name="hand_middle_abd_joint" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-2 2" damping="0.5" />
+                        <geom name="collision_39" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                        <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" />
+                        <body name="hand_middle_virtual_1_link" pos="0.009 0 0" quat="0.707107 0.707107 0 0">
+                          <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                          <joint name="hand_middle_virtual_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                          <geom name="collision_40" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                          <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                          <body name="hand_middle_flex_1_link" pos="0.013 0 0">
+                            <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                            <joint name="hand_middle_flex_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                            <geom name="collision_41" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                            <body name="hand_middle_virtual_2_link" pos="0.009 0 0">
+                              <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                              <joint name="hand_middle_virtual_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                              <geom name="collision_42" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                              <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                              <body name="hand_middle_flex_2_link" pos="0.013 0 0">
+                                <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                                <joint name="hand_middle_flex_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                <geom name="collision_43" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                                <body name="hand_middle_virtual_3_link" pos="0.009 0 0">
+                                  <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                  <joint name="hand_middle_virtual_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                  <geom name="collision_44" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                  <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                                  <body name="hand_middle_flex_3_link" pos="0.013 0 0">
+                                    <inertial pos="0.0096 0.003 0" mass="0.015" diaginertia="0.001 0.001 0.001" />
+                                    <joint name="hand_middle_flex_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                    <geom name="collision_45" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                    <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <body name="hand_ring_abd_link" pos="0.0042 -0.0125 0.189575" quat="-0.092296 0.701057 -0.092296 0.701057">
+                        <inertial pos="-0.0018 0 0.0028" mass="0.018" diaginertia="0.001 0.001 0.001" />
+                        <joint name="hand_ring_abd_joint" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-2 2" damping="0.5" />
+                        <geom name="collision_46" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                        <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" />
+                        <body name="hand_ring_virtual_1_link" pos="0.009 0 0" quat="0.707107 0.707107 0 0">
+                          <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                          <joint name="hand_ring_virtual_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                          <geom name="collision_47" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                          <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                          <body name="hand_ring_flex_1_link" pos="0.013 0 0">
+                            <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                            <joint name="hand_ring_flex_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                            <geom name="collision_48" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                            <body name="hand_ring_virtual_2_link" pos="0.009 0 0">
+                              <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                              <joint name="hand_ring_virtual_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                              <geom name="collision_49" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                              <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                              <body name="hand_ring_flex_2_link" pos="0.013 0 0">
+                                <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                                <joint name="hand_ring_flex_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                <geom name="collision_50" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                                <body name="hand_ring_virtual_3_link" pos="0.009 0 0">
+                                  <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                  <joint name="hand_ring_virtual_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                  <geom name="collision_51" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                  <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                                  <body name="hand_ring_flex_3_link" pos="0.013 0 0">
+                                    <inertial pos="0.0096 0.003 0" mass="0.015" diaginertia="0.001 0.001 0.001" />
+                                    <joint name="hand_ring_flex_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                    <geom name="collision_52" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                    <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                      <body name="hand_little_abd_link" pos="0.0042 -0.032 0.179575" quat="-0.183013 0.683013 -0.183013 0.683013">
+                        <inertial pos="-0.0018 0 0.0028" mass="0.018" diaginertia="0.001 0.001 0.001" />
+                        <joint name="hand_little_abd_joint" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-2 2" damping="0.5" />
+                        <geom name="collision_53" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                        <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_abd_collision" />
+                        <body name="hand_little_virtual_1_link" pos="0.009 0 0" quat="0.707107 0.707107 0 0">
+                          <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                          <joint name="hand_little_virtual_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                          <geom name="collision_54" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                          <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                          <body name="hand_little_flex_1_link" pos="0.013 0 0">
+                            <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                            <joint name="hand_little_flex_1_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                            <geom name="collision_55" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                            <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                            <body name="hand_little_virtual_2_link" pos="0.009 0 0">
+                              <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                              <joint name="hand_little_virtual_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                              <geom name="collision_56" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                              <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                              <body name="hand_little_flex_2_link" pos="0.013 0 0">
+                                <inertial pos="0.0047 0.0031 0" mass="0.009" diaginertia="0.001 0.001 0.001" />
+                                <joint name="hand_little_flex_2_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                <geom name="collision_57" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_collision" />
+                                <body name="hand_little_virtual_3_link" pos="0.009 0 0">
+                                  <inertial pos="0.0065 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                  <joint name="hand_little_virtual_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                  <geom name="collision_58" size="0.0065 0.001 0.006" type="box" rgba="0.1 0.1 0.1 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                  <geom type="box" rgba="0.1 0.1 0.1 1" size="0.0065 0.001 0.006" />
+                                  <body name="hand_little_flex_3_link" pos="0.013 0 0">
+                                    <inertial pos="0.0096 0.003 0" mass="0.015" diaginertia="0.001 0.001 0.001" />
+                                    <joint name="hand_little_flex_3_joint" pos="0 0 0" axis="0 0 1" range="0 0.785398" actuatorfrcrange="-2 2" damping="0.5" />
+                                    <geom name="collision_59" type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+                                    <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="finger_flex_tip_collision" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="head_1_link" pos="0.182 0 0">
+          <inertial pos="-0.00508 0.00237 0.07229" quat="0.688669 -0.0973979 -0.101834 0.711251" mass="0.6222" diaginertia="0.00140223 0.00121968 0.000861083" />
+          <joint name="head_1_joint" pos="0 0 0" axis="0 0 1" range="-1.309 1.309" actuatorfrcrange="-5.197 5.197" damping="0.5" frictionloss="1" />
+          <geom name="collision_61" type="mesh" rgba="1 1 1 1" mesh="head_1_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="mesh" rgba="1 1 1 1" mesh="head_1_collision" />
+          <body name="head_2_link" pos="0.005 0 0.098" quat="0.707107 0.707107 0 0">
+            <inertial pos="0.0558274 0.0609987 1.58542e-05" quat="0.89114 -0.000495756 -0.00420876 0.453708" mass="0.88693" diaginertia="0.00554181 0.00436261 0.00347586" />
+            <joint name="head_2_joint" pos="0 0 0" axis="0 0 1" range="-1.0472 0.785398" actuatorfrcrange="-2.77 2.77" damping="0.5" frictionloss="1" />
+            <geom name="collision_62" type="mesh" rgba="1 1 1 1" mesh="head_2_collision" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="mesh" rgba="1 1 1 1" mesh="head_2_collision" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="wheel_right_joint" joint="wheel_right_joint" ctrllimited="true" ctrlrange="-6 6" gear="1"  />
+    <motor name="wheel_left_joint" joint="wheel_left_joint" ctrllimited="true" ctrlrange="-6 6" gear="1"  />
+    <motor name="torso_lift_joint" joint="torso_lift_joint" ctrllimited="true" ctrlrange="-2000 2000" gear="1" />
+    <motor name="arm_1_joint" joint="arm_1_joint" ctrllimited="true" ctrlrange="-43 43" gear="1" />
+    <motor name="arm_2_joint" joint="arm_2_joint" ctrllimited="true" ctrlrange="-43 43" gear="1" />
+    <motor name="arm_3_joint" joint="arm_3_joint" ctrllimited="true" ctrlrange="-26 26" gear="1" />
+    <motor name="arm_4_joint" joint="arm_4_joint" ctrllimited="true" ctrlrange="-26 26" gear="1" />
+    <motor name="arm_5_joint" joint="arm_5_joint" ctrllimited="true" ctrlrange="-3 3" gear="1" />
+    <motor name="arm_6_joint" joint="arm_6_joint" ctrllimited="true" ctrlrange="-6.6 6.6" gear="1" />
+    <motor name="arm_7_joint" joint="arm_7_joint" ctrllimited="true" ctrlrange="-6.6 6.6" gear="1" />
+    <motor name="hand_thumb_joint" joint="hand_thumb_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_joint" joint="hand_index_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_mrl_joint" joint="hand_mrl_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_thumb_abd_joint" joint="hand_thumb_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_thumb_virtual_1_joint" joint="hand_thumb_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_thumb_flex_1_joint" joint="hand_thumb_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_thumb_virtual_2_joint" joint="hand_thumb_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_thumb_flex_2_joint" joint="hand_thumb_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_abd_joint" joint="hand_index_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_virtual_1_joint" joint="hand_index_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_flex_1_joint" joint="hand_index_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_virtual_2_joint" joint="hand_index_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_flex_2_joint" joint="hand_index_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_virtual_3_joint" joint="hand_index_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_index_flex_3_joint" joint="hand_index_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_abd_joint" joint="hand_middle_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_virtual_1_joint" joint="hand_middle_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_flex_1_joint" joint="hand_middle_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_virtual_2_joint" joint="hand_middle_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_flex_2_joint" joint="hand_middle_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_virtual_3_joint" joint="hand_middle_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_middle_flex_3_joint" joint="hand_middle_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_abd_joint" joint="hand_ring_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_virtual_1_joint" joint="hand_ring_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_flex_1_joint" joint="hand_ring_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_virtual_2_joint" joint="hand_ring_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_flex_2_joint" joint="hand_ring_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_virtual_3_joint" joint="hand_ring_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_ring_flex_3_joint" joint="hand_ring_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_abd_joint" joint="hand_little_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_virtual_1_joint" joint="hand_little_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_flex_1_joint" joint="hand_little_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_virtual_2_joint" joint="hand_little_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_flex_2_joint" joint="hand_little_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_virtual_3_joint" joint="hand_little_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="hand_little_flex_3_joint" joint="hand_little_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1" />
+    <motor name="head_1_joint" joint="head_1_joint" ctrllimited="true" ctrlrange="-5.197 5.197" gear="1" />
+    <motor name="head_2_joint" joint="head_2_joint" ctrllimited="true" ctrlrange="-2.77 2.77" gear="1" />
+  </actuator>
+
+  <sensor>
+    <actuatorpos name="wheel_right_joint_p" actuator="wheel_right_joint" />
+    <actuatorvel name="wheel_right_joint_v" actuator="wheel_right_joint" />
+    <actuatorfrc name="wheel_right_joint_f" actuator="wheel_right_joint" noise="0.001" />
+    <actuatorpos name="wheel_left_joint_p" actuator="wheel_left_joint" />
+    <actuatorvel name="wheel_left_joint_v" actuator="wheel_left_joint" />
+    <actuatorfrc name="wheel_left_joint_f" actuator="wheel_left_joint" noise="0.001" />
+    <actuatorpos name="torso_lift_joint_p" actuator="torso_lift_joint" />
+    <actuatorvel name="torso_lift_joint_v" actuator="torso_lift_joint" />
+    <actuatorfrc name="torso_lift_joint_f" actuator="torso_lift_joint" noise="0.001" />
+    <actuatorpos name="arm_1_joint_p" actuator="arm_1_joint" />
+    <actuatorvel name="arm_1_joint_v" actuator="arm_1_joint" />
+    <actuatorfrc name="arm_1_joint_f" actuator="arm_1_joint" noise="0.001" />
+    <actuatorpos name="arm_2_joint_p" actuator="arm_2_joint" />
+    <actuatorvel name="arm_2_joint_v" actuator="arm_2_joint" />
+    <actuatorfrc name="arm_2_joint_f" actuator="arm_2_joint" noise="0.001" />
+    <actuatorpos name="arm_3_joint_p" actuator="arm_3_joint" />
+    <actuatorvel name="arm_3_joint_v" actuator="arm_3_joint" />
+    <actuatorfrc name="arm_3_joint_f" actuator="arm_3_joint" noise="0.001" />
+    <actuatorpos name="arm_4_joint_p" actuator="arm_4_joint" />
+    <actuatorvel name="arm_4_joint_v" actuator="arm_4_joint" />
+    <actuatorfrc name="arm_4_joint_f" actuator="arm_4_joint" noise="0.001" />
+    <actuatorpos name="arm_5_joint_p" actuator="arm_5_joint" />
+    <actuatorvel name="arm_5_joint_v" actuator="arm_5_joint" />
+    <actuatorfrc name="arm_5_joint_f" actuator="arm_5_joint" noise="0.001" />
+    <actuatorpos name="arm_6_joint_p" actuator="arm_6_joint" />
+    <actuatorvel name="arm_6_joint_v" actuator="arm_6_joint" />
+    <actuatorfrc name="arm_6_joint_f" actuator="arm_6_joint" noise="0.001" />
+    <actuatorpos name="arm_7_joint_p" actuator="arm_7_joint" />
+    <actuatorvel name="arm_7_joint_v" actuator="arm_7_joint" />
+    <actuatorfrc name="arm_7_joint_f" actuator="arm_7_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_joint_p" actuator="hand_thumb_joint" />
+    <actuatorvel name="hand_thumb_joint_v" actuator="hand_thumb_joint" />
+    <actuatorfrc name="hand_thumb_joint_f" actuator="hand_thumb_joint" noise="0.001" />
+    <actuatorpos name="hand_index_joint_p" actuator="hand_index_joint" />
+    <actuatorvel name="hand_index_joint_v" actuator="hand_index_joint" />
+    <actuatorfrc name="hand_index_joint_f" actuator="hand_index_joint" noise="0.001" />
+    <actuatorpos name="hand_mrl_joint_p" actuator="hand_mrl_joint" />
+    <actuatorvel name="hand_mrl_joint_v" actuator="hand_mrl_joint" />
+    <actuatorfrc name="hand_mrl_joint_f" actuator="hand_mrl_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_abd_joint_p" actuator="hand_thumb_abd_joint" />
+    <actuatorvel name="hand_thumb_abd_joint_v" actuator="hand_thumb_abd_joint" />
+    <actuatorfrc name="hand_thumb_abd_joint_f" actuator="hand_thumb_abd_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_virtual_1_joint_p" actuator="hand_thumb_virtual_1_joint" />
+    <actuatorvel name="hand_thumb_virtual_1_joint_v" actuator="hand_thumb_virtual_1_joint" />
+    <actuatorfrc name="hand_thumb_virtual_1_joint_f" actuator="hand_thumb_virtual_1_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_flex_1_joint_p" actuator="hand_thumb_flex_1_joint" />
+    <actuatorvel name="hand_thumb_flex_1_joint_v" actuator="hand_thumb_flex_1_joint" />
+    <actuatorfrc name="hand_thumb_flex_1_joint_f" actuator="hand_thumb_flex_1_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_virtual_2_joint_p" actuator="hand_thumb_virtual_2_joint" />
+    <actuatorvel name="hand_thumb_virtual_2_joint_v" actuator="hand_thumb_virtual_2_joint" />
+    <actuatorfrc name="hand_thumb_virtual_2_joint_f" actuator="hand_thumb_virtual_2_joint" noise="0.001" />
+    <actuatorpos name="hand_thumb_flex_2_joint_p" actuator="hand_thumb_flex_2_joint" />
+    <actuatorvel name="hand_thumb_flex_2_joint_v" actuator="hand_thumb_flex_2_joint" />
+    <actuatorfrc name="hand_thumb_flex_2_joint_f" actuator="hand_thumb_flex_2_joint" noise="0.001" />
+    <actuatorpos name="hand_index_abd_joint_p" actuator="hand_index_abd_joint" />
+    <actuatorvel name="hand_index_abd_joint_v" actuator="hand_index_abd_joint" />
+    <actuatorfrc name="hand_index_abd_joint_f" actuator="hand_index_abd_joint" noise="0.001" />
+    <actuatorpos name="hand_index_virtual_1_joint_p" actuator="hand_index_virtual_1_joint" />
+    <actuatorvel name="hand_index_virtual_1_joint_v" actuator="hand_index_virtual_1_joint" />
+    <actuatorfrc name="hand_index_virtual_1_joint_f" actuator="hand_index_virtual_1_joint" noise="0.001" />
+    <actuatorpos name="hand_index_flex_1_joint_p" actuator="hand_index_flex_1_joint" />
+    <actuatorvel name="hand_index_flex_1_joint_v" actuator="hand_index_flex_1_joint" />
+    <actuatorfrc name="hand_index_flex_1_joint_f" actuator="hand_index_flex_1_joint" noise="0.001" />
+    <actuatorpos name="hand_index_virtual_2_joint_p" actuator="hand_index_virtual_2_joint" />
+    <actuatorvel name="hand_index_virtual_2_joint_v" actuator="hand_index_virtual_2_joint" />
+    <actuatorfrc name="hand_index_virtual_2_joint_f" actuator="hand_index_virtual_2_joint" noise="0.001" />
+    <actuatorpos name="hand_index_flex_2_joint_p" actuator="hand_index_flex_2_joint" />
+    <actuatorvel name="hand_index_flex_2_joint_v" actuator="hand_index_flex_2_joint" />
+    <actuatorfrc name="hand_index_flex_2_joint_f" actuator="hand_index_flex_2_joint" noise="0.001" />
+    <actuatorpos name="hand_index_virtual_3_joint_p" actuator="hand_index_virtual_3_joint" />
+    <actuatorvel name="hand_index_virtual_3_joint_v" actuator="hand_index_virtual_3_joint" />
+    <actuatorfrc name="hand_index_virtual_3_joint_f" actuator="hand_index_virtual_3_joint" noise="0.001" />
+    <actuatorpos name="hand_index_flex_3_joint_p" actuator="hand_index_flex_3_joint" />
+    <actuatorvel name="hand_index_flex_3_joint_v" actuator="hand_index_flex_3_joint" />
+    <actuatorfrc name="hand_index_flex_3_joint_f" actuator="hand_index_flex_3_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_abd_joint_p" actuator="hand_middle_abd_joint" />
+    <actuatorvel name="hand_middle_abd_joint_v" actuator="hand_middle_abd_joint" />
+    <actuatorfrc name="hand_middle_abd_joint_f" actuator="hand_middle_abd_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_virtual_1_joint_p" actuator="hand_middle_virtual_1_joint" />
+    <actuatorvel name="hand_middle_virtual_1_joint_v" actuator="hand_middle_virtual_1_joint" />
+    <actuatorfrc name="hand_middle_virtual_1_joint_f" actuator="hand_middle_virtual_1_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_flex_1_joint_p" actuator="hand_middle_flex_1_joint" />
+    <actuatorvel name="hand_middle_flex_1_joint_v" actuator="hand_middle_flex_1_joint" />
+    <actuatorfrc name="hand_middle_flex_1_joint_f" actuator="hand_middle_flex_1_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_virtual_2_joint_p" actuator="hand_middle_virtual_2_joint" />
+    <actuatorvel name="hand_middle_virtual_2_joint_v" actuator="hand_middle_virtual_2_joint" />
+    <actuatorfrc name="hand_middle_virtual_2_joint_f" actuator="hand_middle_virtual_2_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_flex_2_joint_p" actuator="hand_middle_flex_2_joint" />
+    <actuatorvel name="hand_middle_flex_2_joint_v" actuator="hand_middle_flex_2_joint" />
+    <actuatorfrc name="hand_middle_flex_2_joint_f" actuator="hand_middle_flex_2_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_virtual_3_joint_p" actuator="hand_middle_virtual_3_joint" />
+    <actuatorvel name="hand_middle_virtual_3_joint_v" actuator="hand_middle_virtual_3_joint" />
+    <actuatorfrc name="hand_middle_virtual_3_joint_f" actuator="hand_middle_virtual_3_joint" noise="0.001" />
+    <actuatorpos name="hand_middle_flex_3_joint_p" actuator="hand_middle_flex_3_joint" />
+    <actuatorvel name="hand_middle_flex_3_joint_v" actuator="hand_middle_flex_3_joint" />
+    <actuatorfrc name="hand_middle_flex_3_joint_f" actuator="hand_middle_flex_3_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_abd_joint_p" actuator="hand_ring_abd_joint" />
+    <actuatorvel name="hand_ring_abd_joint_v" actuator="hand_ring_abd_joint" />
+    <actuatorfrc name="hand_ring_abd_joint_f" actuator="hand_ring_abd_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_virtual_1_joint_p" actuator="hand_ring_virtual_1_joint" />
+    <actuatorvel name="hand_ring_virtual_1_joint_v" actuator="hand_ring_virtual_1_joint" />
+    <actuatorfrc name="hand_ring_virtual_1_joint_f" actuator="hand_ring_virtual_1_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_flex_1_joint_p" actuator="hand_ring_flex_1_joint" />
+    <actuatorvel name="hand_ring_flex_1_joint_v" actuator="hand_ring_flex_1_joint" />
+    <actuatorfrc name="hand_ring_flex_1_joint_f" actuator="hand_ring_flex_1_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_virtual_2_joint_p" actuator="hand_ring_virtual_2_joint" />
+    <actuatorvel name="hand_ring_virtual_2_joint_v" actuator="hand_ring_virtual_2_joint" />
+    <actuatorfrc name="hand_ring_virtual_2_joint_f" actuator="hand_ring_virtual_2_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_flex_2_joint_p" actuator="hand_ring_flex_2_joint" />
+    <actuatorvel name="hand_ring_flex_2_joint_v" actuator="hand_ring_flex_2_joint" />
+    <actuatorfrc name="hand_ring_flex_2_joint_f" actuator="hand_ring_flex_2_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_virtual_3_joint_p" actuator="hand_ring_virtual_3_joint" />
+    <actuatorvel name="hand_ring_virtual_3_joint_v" actuator="hand_ring_virtual_3_joint" />
+    <actuatorfrc name="hand_ring_virtual_3_joint_f" actuator="hand_ring_virtual_3_joint" noise="0.001" />
+    <actuatorpos name="hand_ring_flex_3_joint_p" actuator="hand_ring_flex_3_joint" />
+    <actuatorvel name="hand_ring_flex_3_joint_v" actuator="hand_ring_flex_3_joint" />
+    <actuatorfrc name="hand_ring_flex_3_joint_f" actuator="hand_ring_flex_3_joint" noise="0.001" />
+    <actuatorpos name="hand_little_abd_joint_p" actuator="hand_little_abd_joint" />
+    <actuatorvel name="hand_little_abd_joint_v" actuator="hand_little_abd_joint" />
+    <actuatorfrc name="hand_little_abd_joint_f" actuator="hand_little_abd_joint" noise="0.001" />
+    <actuatorpos name="hand_little_virtual_1_joint_p" actuator="hand_little_virtual_1_joint" />
+    <actuatorvel name="hand_little_virtual_1_joint_v" actuator="hand_little_virtual_1_joint" />
+    <actuatorfrc name="hand_little_virtual_1_joint_f" actuator="hand_little_virtual_1_joint" noise="0.001" />
+    <actuatorpos name="hand_little_flex_1_joint_p" actuator="hand_little_flex_1_joint" />
+    <actuatorvel name="hand_little_flex_1_joint_v" actuator="hand_little_flex_1_joint" />
+    <actuatorfrc name="hand_little_flex_1_joint_f" actuator="hand_little_flex_1_joint" noise="0.001" />
+    <actuatorpos name="hand_little_virtual_2_joint_p" actuator="hand_little_virtual_2_joint" />
+    <actuatorvel name="hand_little_virtual_2_joint_v" actuator="hand_little_virtual_2_joint" />
+    <actuatorfrc name="hand_little_virtual_2_joint_f" actuator="hand_little_virtual_2_joint" noise="0.001" />
+    <actuatorpos name="hand_little_flex_2_joint_p" actuator="hand_little_flex_2_joint" />
+    <actuatorvel name="hand_little_flex_2_joint_v" actuator="hand_little_flex_2_joint" />
+    <actuatorfrc name="hand_little_flex_2_joint_f" actuator="hand_little_flex_2_joint" noise="0.001" />
+    <actuatorpos name="hand_little_virtual_3_joint_p" actuator="hand_little_virtual_3_joint" />
+    <actuatorvel name="hand_little_virtual_3_joint_v" actuator="hand_little_virtual_3_joint" />
+    <actuatorfrc name="hand_little_virtual_3_joint_f" actuator="hand_little_virtual_3_joint" noise="0.001" />
+    <actuatorpos name="hand_little_flex_3_joint_p" actuator="hand_little_flex_3_joint" />
+    <actuatorvel name="hand_little_flex_3_joint_v" actuator="hand_little_flex_3_joint" />
+    <actuatorfrc name="hand_little_flex_3_joint_f" actuator="hand_little_flex_3_joint" noise="0.001" />
+    <actuatorpos name="head_1_joint_p" actuator="head_1_joint" />
+    <actuatorvel name="head_1_joint_v" actuator="head_1_joint" />
+    <actuatorfrc name="head_1_joint_f" actuator="head_1_joint" noise="0.001" />
+    <actuatorpos name="head_2_joint_p" actuator="head_2_joint" />
+    <actuatorvel name="head_2_joint_v" actuator="head_2_joint" />
+    <actuatorfrc name="head_2_joint_f" actuator="head_2_joint" noise="0.001" />
+    <framequat name="orientation" objtype="site" noise="0.001" objname="imu" />
+    <gyro name="angular-velocity" site="imu" noise="0.005" cutoff="34.9" />
+  </sensor>
+</mujoco>

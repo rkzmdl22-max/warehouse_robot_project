@@ -1,0 +1,594 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-13-07-02-15-490659-hkit-desktop-36013
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [36015]
+[INFO] [gzclient-2]: process started with pid [36017]
+[gzserver-1] ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+[gzserver-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+[gzserver-1] ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+[gzserver-1] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+[gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
+[gzserver-1] [INFO] [1791874961.795810709] [tron1a.tron1_planar_move]: Subscribed to [/tron1a/cmd_vel]
+[gzserver-1] [INFO] [1791874966.357982972] [tb3_2.turtlebot3_imu]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1791874966.782849590] [tb3_2.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.160000m]
+[gzserver-1] [INFO] [1791874966.782901700] [tb3_2.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gzserver-1] [INFO] [1791874966.784542218] [tb3_2.turtlebot3_diff_drive]: Subscribed to [/tb3_2/cmd_vel]
+[gzserver-1] [INFO] [1791874966.786451020] [tb3_2.turtlebot3_diff_drive]: Advertise odometry on [/tb3_2/odom]
+[gzserver-1] [INFO] [1791874966.790907697] [tb3_2.turtlebot3_diff_drive]: Publishing odom transforms between [tb3_2/odom] and [tb3_2/base_footprint]
+[gzserver-1] [INFO] [1791874966.817197260] [tb3_2.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1791874966.817271421] [tb3_2.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gzserver-1] [INFO] [1791874967.230991023] [tb3_1.turtlebot3_imu]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1791874967.327205069] [tb3_1.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.160000m]
+[gzserver-1] [INFO] [1791874967.327260419] [tb3_1.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gzserver-1] [INFO] [1791874967.328950347] [tb3_1.turtlebot3_diff_drive]: Subscribed to [/tb3_1/cmd_vel]
+[gzserver-1] [INFO] [1791874967.330744406] [tb3_1.turtlebot3_diff_drive]: Advertise odometry on [/tb3_1/odom]
+[gzserver-1] [INFO] [1791874967.333986108] [tb3_1.turtlebot3_diff_drive]: Publishing odom transforms between [tb3_1/odom] and [tb3_1/base_footprint]
+[gzserver-1] [INFO] [1791874967.356460888] [tb3_1.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1791874967.356505476] [tb3_1.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gzserver-1] [INFO] [1791874967.647604375] [tb3_3.turtlebot3_imu]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1791874967.955818948] [tb3_3.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.160000m]
+[gzserver-1] [INFO] [1791874967.955891694] [tb3_3.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gzserver-1] [INFO] [1791874967.958691518] [tb3_3.turtlebot3_diff_drive]: Subscribed to [/tb3_3/cmd_vel]
+[gzserver-1] [INFO] [1791874967.960210373] [tb3_3.turtlebot3_diff_drive]: Advertise odometry on [/tb3_3/odom]
+[gzserver-1] [INFO] [1791874967.963232173] [tb3_3.turtlebot3_diff_drive]: Publishing odom transforms between [tb3_3/odom] and [tb3_3/base_footprint]
+[gzserver-1] [INFO] [1791874967.980333420] [tb3_3.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1791874967.980379188] [tb3_3.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gzserver-1] [INFO] [1791874982.360360966] [gazebo_ros2_control]: Loading gazebo_ros2_control plugin
+[gzserver-1] [INFO] [1791874982.388992373] [ur5e.gazebo_ros2_control]: Starting gazebo_ros2_control plugin in namespace: /ur5e
+[gzserver-1] [INFO] [1791874982.389061545] [ur5e.gazebo_ros2_control]: Starting gazebo_ros2_control plugin in ros 2 node: gazebo_ros2_control
+[gzserver-1] [INFO] [1791874982.410508667] [ur5e.gazebo_ros2_control]: connected to service!! /ur5e/robot_state_publisher
+[gzserver-1] [INFO] [1791874982.411432442] [ur5e.gazebo_ros2_control]: Received urdf from param server, parsing...
+[gzserver-1] [INFO] [1791874982.411486323] [ur5e.gazebo_ros2_control]: Loading parameter files /ros_ws/src/warehouse_robot/config/ur5e_controllers.yaml
+[gzserver-1] [INFO] [1791874982.425777596] [ur5e.gazebo_ros2_control]: Loading joint: shoulder_pan_joint
+[gzserver-1] [INFO] [1791874982.425834427] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.425849608] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.425861953] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.425871329] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.425880180] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.428035672] [ur5e.gazebo_ros2_control]: Loading joint: shoulder_lift_joint
+[gzserver-1] [INFO] [1791874982.428072243] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.428084316] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.428097653] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.428108215] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.428119068] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.431174187] [ur5e.gazebo_ros2_control]: Loading joint: elbow_joint
+[gzserver-1] [INFO] [1791874982.431226105] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.431247474] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.431262975] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.431275442] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.431287444] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.433523690] [ur5e.gazebo_ros2_control]: Loading joint: wrist_1_joint
+[gzserver-1] [INFO] [1791874982.433566399] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.433583958] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.433597389] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.433606525] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.433616699] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.435781150] [ur5e.gazebo_ros2_control]: Loading joint: wrist_2_joint
+[gzserver-1] [INFO] [1791874982.435818916] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.435833697] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.435858917] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.435869656] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.435881026] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.439637101] [ur5e.gazebo_ros2_control]: Loading joint: wrist_3_joint
+[gzserver-1] [INFO] [1791874982.439705867] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.439722110] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.439732538] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.439741463] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.439759432] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.442253266] [ur5e.gazebo_ros2_control]: Loading joint: left_finger_joint
+[gzserver-1] [INFO] [1791874982.442300012] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.442316276] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.442332138] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.442350900] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.442364964] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.444500996] [ur5e.gazebo_ros2_control]: Loading joint: right_finger_joint
+[gzserver-1] [INFO] [1791874982.444561413] [ur5e.gazebo_ros2_control]: 	State:
+[gzserver-1] [INFO] [1791874982.444579961] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.444596921] [ur5e.gazebo_ros2_control]: 		 velocity
+[gzserver-1] [INFO] [1791874982.444613397] [ur5e.gazebo_ros2_control]: 	Command:
+[gzserver-1] [INFO] [1791874982.444628364] [ur5e.gazebo_ros2_control]: 		 position
+[gzserver-1] [INFO] [1791874982.447196485] [resource_manager]: Initialize hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791874982.447399944] [resource_manager]: Successful initialization of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791874982.447543313] [resource_manager]: 'configure' hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791874982.447557193] [resource_manager]: Successful 'configure' of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791874982.447568614] [resource_manager]: 'activate' hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791874982.447576320] [resource_manager]: Successful 'activate' of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791874982.447660159] [ur5e.gazebo_ros2_control]: Loading controller_manager
+[gzserver-1] [WARN] [1791874982.532887933] [ur5e.gazebo_ros2_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.002 s).
+[gzserver-1] [INFO] [1791874982.533821997] [ur5e.gazebo_ros2_control]: Loaded gazebo_ros2_control.
+[gzserver-1] [INFO] [1791874988.169177325] [ur5e.controller_manager]: Loading controller 'ur5e_joint_state_broadcaster'
+[gzserver-1] [INFO] [1791874988.221197961] [ur5e.controller_manager]: Configuring controller 'ur5e_joint_state_broadcaster'
+[gzserver-1] [INFO] [1791874988.221505679] [ur5e.ur5e_joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[gzserver-1] [INFO] [1791874989.073996542] [ur5e.controller_manager]: Loading controller 'ur5e_arm_controller'
+[gzserver-1] [WARN] [1791874989.125273639] [ur5e.ur5e_arm_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[gzserver-1] [INFO] [1791874989.213682191] [ur5e.controller_manager]: Configuring controller 'ur5e_arm_controller'
+[gzserver-1] [INFO] [1791874989.213911099] [ur5e.ur5e_arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[gzserver-1] [INFO] [1791874989.213978486] [ur5e.ur5e_arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[gzserver-1] [INFO] [1791874989.214025822] [ur5e.ur5e_arm_controller]: Using 'splines' interpolation method.
+[gzserver-1] [INFO] [1791874989.215465267] [ur5e.ur5e_arm_controller]: Controller state will be published at 100.00 Hz.
+[gzserver-1] [INFO] [1791874989.218660147] [ur5e.ur5e_arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[gzserver-1] [INFO] [1791874992.032778942] [ur5e.controller_manager]: Loading controller 'ur5e_gripper_controller'
+[gzserver-1] [WARN] [1791874992.087369817] [ur5e.ur5e_gripper_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[gzserver-1] [INFO] [1791874992.097042919] [ur5e.controller_manager]: Configuring controller 'ur5e_gripper_controller'
+[gzserver-1] [INFO] [1791874992.097141267] [ur5e.ur5e_gripper_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[gzserver-1] [INFO] [1791874992.097164952] [ur5e.ur5e_gripper_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[gzserver-1] [INFO] [1791874992.097175312] [ur5e.ur5e_gripper_controller]: Using 'splines' interpolation method.
+[gzserver-1] [INFO] [1791874992.098692419] [ur5e.ur5e_gripper_controller]: Controller state will be published at 50.00 Hz.
+[gzserver-1] [INFO] [1791874992.102009989] [ur5e.ur5e_gripper_controller]: Action status changes will be monitored at 20.00 Hz.
+[gzserver-1] [ERROR] [1791875020.396843361] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.404539307] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.588579830] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.598250010] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.611097659] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.628328439] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.808611277] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.809484243] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875020.821089639] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.008557091] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.009942690] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.019179644] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.208720498] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.213687979] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.222495304] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.411792153] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.412680623] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.426522767] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.608615181] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.611561736] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.618814959] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.631510356] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.809183107] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.809643264] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875021.819217931] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.008752846] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.011260655] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.019070230] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.031032161] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.208444361] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.210766164] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.218817200] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.410575532] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.412895805] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.432234785] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.442812589] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.628789222] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.635294827] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.808543926] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.809033736] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875022.819271144] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.008938273] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.009158395] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.019286683] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.210866360] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.213546479] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.226177716] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.408538288] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.413339530] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.420241394] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.422571027] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.608509535] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.614768050] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.627031010] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.808483178] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.816694709] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875023.827198077] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.012139966] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.021303132] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.211254672] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.228255525] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.411306893] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.415259833] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.425682999] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.608574003] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.609779468] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.622127918] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.812347181] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.818729357] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875024.990256983] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.008555589] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.009124333] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.023285547] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.025062240] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.208672376] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.211846656] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.221136245] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.410161094] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.420292829] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.608641456] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.610657269] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.618910429] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.812203993] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875025.812428674] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.012410029] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.023421402] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.211172216] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.219287162] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.408628790] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.414192245] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.431156742] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.608736972] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.612442336] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.624987371] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.808556857] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.814637207] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875026.824913944] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.008614509] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.011001777] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.018859619] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.208585171] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.213304851] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.227229762] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.417211495] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.429078089] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.447279123] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.628581145] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.630940340] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.638796129] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.831321858] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791875027.840322881] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879565.618198140] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879565.718337166] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879565.818603175] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879565.918860297] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879566.019028000] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879568.121308788] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879568.221596423] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879568.321799419] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879568.422053741] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879568.522288872] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879570.624405553] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879570.725653784] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879570.825219295] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879570.925457115] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879571.025694644] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879573.127703423] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879573.233865146] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879573.333126067] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879573.430771764] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879573.531007006] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879575.632377244] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879575.732515752] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879575.832902053] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879575.935177768] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879576.033923984] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879578.135436168] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879578.240383922] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879578.342447324] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879578.441186774] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879578.550279095] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879580.649899356] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879580.749984776] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879580.850698255] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879580.950706885] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879581.050927089] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879583.154038926] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879583.254126797] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879583.354350926] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879583.454465041] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879583.555857654] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879626.329419669] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879626.432209280] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879626.536117469] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879626.632577129] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879626.733786715] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879630.336368272] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879630.436649632] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879630.537002374] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879630.637811257] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879630.740310037] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879634.341409349] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879634.441801807] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879634.541943497] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879634.643137057] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879634.743991592] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879638.347486127] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879638.447696359] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879638.547983869] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879638.651385303] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879638.750488304] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879642.353384013] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879642.454341969] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879642.555155517] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879642.654659198] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879642.754822166] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879718.372497807] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879718.472763110] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879718.573045230] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879718.673234154] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879718.774068726] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879721.879313433] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879721.979551028] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879722.079798748] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879722.183575957] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879722.280300515] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879725.386402702] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879725.486644416] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879725.590491928] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879725.687119130] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879725.787892297] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879728.890586115] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879728.990669068] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879729.090940932] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879729.191164612] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879729.291418241] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879732.394408340] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879732.494598108] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879732.595748182] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879732.695543559] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879732.795765247] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879735.900685066] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879735.998698765] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879736.100128107] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879736.199265947] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879736.299567514] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879739.402479194] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879739.502763772] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879739.602957730] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879739.704249662] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879739.803602978] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879742.906694424] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879743.009447480] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879743.109518567] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879743.210168949] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879743.310089421] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879746.413533595] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879746.513653744] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879746.613829371] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879746.714119169] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879746.814541102] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879749.917423207] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879750.017643483] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879750.118787808] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879750.219006563] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879750.319405465] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879753.427219158] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879753.525850042] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879753.626685987] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879753.726882201] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879753.828143673] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879804.517455828] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879804.617667324] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879804.724153999] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879804.818944166] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879804.919646947] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879808.024158594] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879808.123153419] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879808.223553693] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879808.323769339] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879808.424041294] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879811.527396091] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879811.627649878] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879811.728182142] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879811.831742495] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879811.934334666] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879815.038058810] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879815.144343262] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879815.240804671] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879815.341048295] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879815.446404176] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879818.546461347] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879818.646656901] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879818.746808933] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879818.848694778] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879818.948736810] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879822.051350266] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879822.151616696] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879822.254722251] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879822.358124297] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879822.458132144] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879825.559482846] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879825.659679052] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879825.762294460] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879825.862531946] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879825.962823729] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879829.070185005] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879829.170245531] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879829.270419170] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879829.370773755] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879829.470940012] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879832.573424891] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879832.677281942] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879832.780309129] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879832.877597204] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879832.977746362] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879836.080488609] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879836.185173928] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879836.282243659] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879836.384124848] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879836.488171384] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879839.589361873] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879839.689611211] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879839.789754409] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879839.890056997] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879839.990323185] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879912.301477978] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879912.401759551] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879912.502451158] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879912.604239364] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879912.708164578] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879915.524245522] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879915.623919683] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879915.726230691] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879915.825513818] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879915.926234733] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879918.939437234] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879919.044110891] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879919.139900477] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879919.240140307] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879919.340337586] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879922.371245135] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879922.471492240] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879922.574417828] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879922.675342933] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879922.775508140] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879925.856905636] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879925.957108458] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879926.057266636] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879926.157445828] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879926.257730381] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879929.224300514] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879929.326409011] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879929.426721654] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879929.526892040] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879929.627157276] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879932.653682417] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879932.753758177] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879932.854017887] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879932.958328848] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879933.055634593] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879936.064637215] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879936.164849520] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879936.265077417] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879936.366675080] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879936.469412706] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879939.485161988] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879939.588178655] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879939.685637580] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879939.789310912] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879939.889510383] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879943.103565509] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879943.202965401] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879943.303159209] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879943.403422957] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879943.503587386] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879946.336235237] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879946.438686199] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879946.538825164] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879946.639668815] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791879946.739580206] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [INFO] [1791880148.244993865] [ur5e.controller_manager]: Configuring controller 'ur5e_joint_state_broadcaster'
+[gzserver-1] [ERROR] [1791880148.245080554] [ur5e.controller_manager]: Controller 'ur5e_joint_state_broadcaster' can not be configured from 'active' state.
+[gzserver-1] [INFO] [1791880149.651797544] [ur5e.base_imu]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1791880150.168662348] [ur5e.head_front_camera_frame_controller]: Publishing camera info to [/ur5e/head_front_camera/rgb/camera_info]
+[gzserver-1] [INFO] [1791880150.173548415] [ur5e.head_front_camera_frame_controller]: Publishing depth camera info to [/ur5e/head_front_camera/depth/camera_info]
+[gzserver-1] [INFO] [1791880150.175360275] [ur5e.head_front_camera_frame_controller]: Publishing pointcloud to [/ur5e/head_front_camera/depth/rgb/points]
+[gzserver-1] [INFO] [1791880150.375045405] [ur5e.controller_manager]: Configuring controller 'ur5e_arm_controller'
+[gzserver-1] [ERROR] [1791880150.375104413] [ur5e.controller_manager]: Controller 'ur5e_arm_controller' can not be configured from 'active' state.
+[gzserver-1] [INFO] [1791880151.888633057] [ur5e.controller_manager]: Configuring controller 'ur5e_gripper_controller'
+[gzserver-1] [ERROR] [1791880151.888700501] [ur5e.controller_manager]: Controller 'ur5e_gripper_controller' can not be configured from 'active' state.
+[gzserver-1] [WARN] [1791880151.991310512] [ur5e.controller_manager.rclcpp]: failed to send response to /ur5e/controller_manager/configure_controller (timeout): client will not receive response, at ./src/rmw_response.cpp:154, at ./src/rcl/service.c:314
+[gzserver-1] [INFO] [1791880161.263181274] [ur5e.controller_manager]: Configuring controller 'ur5e_gripper_controller'
+[gzserver-1] [ERROR] [1791880161.263671013] [ur5e.controller_manager]: Controller 'ur5e_gripper_controller' can not be configured from 'active' state.
+[INFO] [gzclient-2]: process has finished cleanly [pid 36017]
+[gzserver-1] [INFO] [1791880258.828791029] [gazebo_ros2_control]: Loading gazebo_ros2_control plugin
+[gzserver-1] [WARN] [1791880258.830010620] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[gzserver-1] [INFO] [1791880258.866023361] [ur5e.gazebo_ros2_control]: Starting gazebo_ros2_control plugin in namespace: /ur5e
+[gzserver-1] [INFO] [1791880258.866072732] [ur5e.gazebo_ros2_control]: Starting gazebo_ros2_control plugin in ros 2 node: gazebo_ros2_control
+[gzserver-1] [INFO] [1791880258.896083415] [ur5e.gazebo_ros2_control]: connected to service!! robot_state_publisher
+[gzserver-1] [INFO] [1791880258.896616136] [ur5e.gazebo_ros2_control]: Received urdf from param server, parsing...
+[gzserver-1] [INFO] [1791880258.901481704] [ur5e.gazebo_ros2_control]: Loading parameter files /ros_ws/install/tiago_description/share/tiago_description/ros2_control/gazebo_controller_manager_cfg.yaml
+[gzserver-1] [WARN] [1791880258.907121135] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'shoulder_pan_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907194523] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'shoulder_lift_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907215888] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'elbow_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907230846] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'wrist_1_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907245148] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'wrist_2_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907259699] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'wrist_3_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907273109] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'left_finger_joint' which is not in the gazebo model.
+[gzserver-1] [WARN] [1791880258.907287561] [ur5e.gazebo_ros2_control]: Skipping joint in the URDF named 'right_finger_joint' which is not in the gazebo model.
+[gzserver-1] [INFO] [1791880258.907302272] [resource_manager]: Initialize hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791880258.907330781] [resource_manager]: Successful initialization of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791880258.907346092] [resource_manager]: 'configure' hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791880258.907354405] [resource_manager]: Successful 'configure' of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791880258.907360528] [resource_manager]: 'activate' hardware 'ur5e_station_system' 
+[gzserver-1] [INFO] [1791880258.907368242] [resource_manager]: Successful 'activate' of hardware 'ur5e_station_system'
+[gzserver-1] [INFO] [1791880258.907429639] [ur5e.gazebo_ros2_control]: Loading controller_manager
+[gzserver-1] [WARN] [1791880259.012264105] [tiago_1.controller_manager]: 'update_rate' parameter not set, using default value.
+[gzserver-1] [ERROR] [1791880259.062032268] [ur5e.gazebo_ros2_control]: controller manager doesn't have an update_rate parameter
+[gzserver-1] [WARN] [1791880498.793523013] [gazebo.rclcpp]: failed to send response to /spawn_entity (timeout): client will not receive response, at ./src/rmw_response.cpp:154, at ./src/rcl/service.c:314
+[gzserver-1] [WARN] [1791880500.248404290] [gazebo.rclcpp]: failed to send response to /spawn_entity (timeout): client will not receive response, at ./src/rmw_response.cpp:154, at ./src/rcl/service.c:314
+[gzserver-1] [WARN] [1791880504.264239433] [ur5e.controller_manager.rclcpp]: failed to send response to /ur5e/controller_manager/list_controllers (timeout): client will not receive response, at ./src/rmw_response.cpp:154, at ./src/rcl/service.c:314
+[gzserver-1] [INFO] [1791880504.510554544] [ur5e.controller_manager]: Configuring controller 'ur5e_joint_state_broadcaster'
+[gzserver-1] [ERROR] [1791880504.510670955] [ur5e.controller_manager]: Controller 'ur5e_joint_state_broadcaster' can not be configured from 'active' state.
+[gzserver-1] [WARN] [1791880504.615925000] [ur5e.controller_manager.rclcpp]: failed to send response to /ur5e/controller_manager/configure_controller (timeout): client will not receive response, at ./src/rmw_response.cpp:154, at ./src/rcl/service.c:314
+[gzserver-1] [INFO] [1791880512.996888592] [ur5e.controller_manager]: Configuring controller 'ur5e_joint_state_broadcaster'
+[gzserver-1] [ERROR] [1791880512.997005970] [ur5e.controller_manager]: Controller 'ur5e_joint_state_broadcaster' can not be configured from 'active' state.
+[gzserver-1] [INFO] [1791880514.196522286] [ur5e.controller_manager]: Loading controller 'ur5e_gripper_controller'
+[gzserver-1] [ERROR] [1791880514.196629740] [ur5e.controller_manager]: A controller named 'ur5e_gripper_controller' was already loaded inside the controller manager
+[gzserver-1] [ERROR] [1791880856.611064347] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.619674373] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.629143454] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.639408711] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.654737303] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.665069596] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.675497988] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.691783922] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880856.697651929] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.870485429] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.879316020] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.890110261] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.900265890] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.915845462] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.926616798] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.943650955] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880863.960180288] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.128670447] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.138754880] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.153755775] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.168824649] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.181787716] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.197304841] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.205778830] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880871.222125619] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.635724291] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.643003580] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.653301165] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.667374993] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.678046715] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.691688449] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.707719174] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.717931180] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.736179340] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.748243418] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.758464904] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880878.836113735] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880882.000031687] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880882.100323480] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880882.205302365] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880882.303196799] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791880882.404304055] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.032314451] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.089500855] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.135388415] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.190891314] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.235689979] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.285861561] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.348684812] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.404530320] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.453400081] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.503280232] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.560001493] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.612734305] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.666546239] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881170.716424069] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.267963442] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.304318970] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.328465453] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.404048510] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.498683717] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.601659004] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.698722964] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.798427914] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881323.903976346] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.002416953] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.102435102] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.208370583] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.300468000] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.398453535] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.502309557] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.600585589] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.703257128] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.799351300] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.906130324] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881324.998673633] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.098938153] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.202011748] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.302615488] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.400344616] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.498857188] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.601663723] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.701416787] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [ERROR] [1791881325.807430019] [tron1a.tron1_joint_pose]: Plugin needs a reference link [] as frame_id, aborting.
+[gzserver-1] [INFO] [1791881513.015346973] [tiago_1.tron1_planar_move]: Subscribed to [/tiago_1/cmd_vel]

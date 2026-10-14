@@ -1,0 +1,213 @@
+<!--
+  Warehouse geometry fragment.
+  Source: /ros_ws/src/warehouse_robot/worlds/warehouse.world
+  Generated for MuJoCo integration.
+  Original Gazebo warehouse.world is authoritative and unchanged.
+-->
+
+<body name="warehouse">
+
+  <!-- Ground Floor Visual Plane -->
+  <geom name="warehouse_floor" type="plane" pos="0 0 0" size="10 10 0.1" material="matfloor" contype="1" conaffinity="1" friction="0.8 0.1 0.1"/>
+
+  <!-- Walls -->
+  <body name="wall_left" pos="0 -10 1.25">
+    <geom name="warehouse_wall_left" type="box" size="10 0.1 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_left_base_trim" type="box" pos="0 0.01 -1.0" size="10 0.01 0.25" material="dock_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="wall_right" pos="0 10 1.25">
+    <geom name="warehouse_wall_right" type="box" size="10 0.1 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_right_base_trim" type="box" pos="0 -0.01 -1.0" size="10 0.01 0.25" material="dock_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="wall_front" pos="10 0 1.25">
+    <geom name="warehouse_wall_front" type="box" size="0.1 10 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_front_base_trim" type="box" pos="-0.01 0 -1.0" size="0.01 10 0.25" material="dock_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="wall_back" pos="-10 0 1.25">
+    <geom name="warehouse_wall_back" type="box" size="0.1 10 1.25" material="matwall" contype="1" conaffinity="1"/>
+    <geom name="wall_back_base_trim" type="box" pos="0.01 0 -1.0" size="0.01 10 0.25" material="dock_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <!-- Aisles -->
+  <body name="aisle_main" pos="0 0 0.012">
+    <geom name="warehouse_aisle_main" type="box" size="7.0 0.6 0.01" material="hazard_stripe_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="aisle_cross" pos="0 -3.0 0.013">
+    <geom name="warehouse_aisle_cross" type="box" size="7.0 0.4 0.01" material="hazard_stripe_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="aisle_receiving" pos="-7.0 -6.0 0.014">
+    <geom name="warehouse_aisle_receiving" type="box" size="2.75 0.35 0.01" material="hazard_stripe_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <!-- Shelves: Industrial Racking System (Orange Beams, Blue Uprights, Safety Guards) -->
+  <body name="shelf_1" pos="-6 -5 0">
+    <geom name="warehouse_shelf_1" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <!-- Blue Vertical Upright Columns -->
+    <geom name="shelf_1_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <!-- Multi-tier Shelf Decks -->
+    <geom name="shelf_1_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <!-- Yellow Base Safety Guards -->
+    <geom name="shelf_1_guard_l" type="box" pos="-1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_1_guard_r" type="box" pos="1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="shelf_2" pos="0 -5 0">
+    <geom name="warehouse_shelf_2" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <geom name="shelf_2_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_guard_l" type="box" pos="-1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_2_guard_r" type="box" pos="1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="shelf_3" pos="6 -5 0">
+    <geom name="warehouse_shelf_3" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <geom name="shelf_3_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_guard_l" type="box" pos="-1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_3_guard_r" type="box" pos="1.48 0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="shelf_4" pos="-6 5 0">
+    <geom name="warehouse_shelf_4" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <geom name="shelf_4_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_guard_l" type="box" pos="-1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_4_guard_r" type="box" pos="1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="shelf_5" pos="0 5 0">
+    <geom name="warehouse_shelf_5" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <geom name="shelf_5_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_guard_l" type="box" pos="-1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_5_guard_r" type="box" pos="1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="shelf_6" pos="6 5 0">
+    <geom name="warehouse_shelf_6" type="box" pos="0 0 1.2" size="1.5 0.4 1.2" material="shelf_frame_mat" contype="1" conaffinity="1"/>
+    <geom name="shelf_6_post_fl" type="box" pos="-1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_post_fr" type="box" pos="1.45 -0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_post_bl" type="box" pos="-1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_post_br" type="box" pos="1.45 0.36 1.2" size="0.04 0.04 1.2" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_tier1" type="box" pos="0 0 0.42" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_tier2" type="box" pos="0 0 1.22" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_tier3" type="box" pos="0 0 2.02" size="1.42 0.35 0.015" material="shelf_plate_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_guard_l" type="box" pos="-1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+    <geom name="shelf_6_guard_r" type="box" pos="1.48 -0.4 0.15" size="0.08 0.08 0.15" material="safety_yellow_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <!-- Rack Box Inventories -->
+  <body name="rack1_box_a" pos="-6.7 -5.0 0.82">
+    <geom name="warehouse_rack1_box_a" type="box" size="0.275 0.275 0.25" material="box_cardboard1_mat" contype="1" conaffinity="1"/>
+    <geom name="rack1_box_a_tape" type="box" pos="0 0 0.251" size="0.275 0.04 0.001" material="box_cardboard2_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="rack1_box_b" pos="-6.0 -5.0 1.62">
+    <geom name="warehouse_rack1_box_b" type="box" size="0.275 0.275 0.25" material="tote_blue_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="rack2_box_a" pos="-0.7 -5.0 0.82">
+    <geom name="warehouse_rack2_box_a" type="box" size="0.275 0.275 0.25" material="box_cardboard2_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="rack2_box_b" pos="0.0 -5.0 1.62">
+    <geom name="warehouse_rack2_box_b" type="box" size="0.275 0.275 0.25" material="box_cardboard1_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="rack3_box_a" pos="5.3 -5.0 0.82">
+    <geom name="warehouse_rack3_box_a" type="box" size="0.275 0.275 0.25" material="box_cardboard1_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="rack3_box_b" pos="6.0 -5.0 1.62">
+    <geom name="warehouse_rack3_box_b" type="box" size="0.275 0.275 0.25" material="tote_blue_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <!-- Pallets (Detailed Wooden Deck Slat Structure) -->
+  <body name="pallet_1" pos="-6 -2 0.075">
+    <geom name="warehouse_pallet_1" type="box" size="0.6 0.4 0.075" material="wood_pallet_mat" contype="1" conaffinity="1"/>
+    <geom name="pallet_1_runner_l" type="box" pos="-0.55 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+    <geom name="pallet_1_runner_m" type="box" pos="0 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+    <geom name="pallet_1_runner_r" type="box" pos="0.55 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="pallet_2" pos="6 2 0.075">
+    <geom name="warehouse_pallet_2" type="box" size="0.6 0.4 0.075" material="wood_pallet_mat" contype="1" conaffinity="1"/>
+    <geom name="pallet_2_runner_l" type="box" pos="-0.55 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+    <geom name="pallet_2_runner_m" type="box" pos="0 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+    <geom name="pallet_2_runner_r" type="box" pos="0.55 0 -0.02" size="0.04 0.38 0.03" material="pallet_runner_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <!-- Pick Targets / Cargo Boxes -->
+  <body name="box_1" pos="-4 -2 0.55">
+    <geom name="warehouse_box_1" type="box" size="0.25 0.2 0.2" material="box_cardboard2_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="box_2" pos="4 -2 0.55">
+    <geom name="warehouse_box_2" type="box" size="0.25 0.2 0.2" material="box_cardboard1_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <!-- Logistics Zones & Charging Infrastructure -->
+  <body name="receiving_zone" pos="-7.0 -7.5 0.05">
+    <geom name="warehouse_receiving_zone" type="box" size="3 1 0.05" material="loading_zone_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="picking_zone" pos="-7.0 0 0.05">
+    <geom name="warehouse_picking_zone" type="box" size="1 1.5 0.05" material="shipping_zone_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="packing_zone" pos="0 7.5 0.18">
+    <geom name="warehouse_packing_zone" type="box" size="1 0.4 0.125" material="shelf_plate_mat" contype="1" conaffinity="1"/>
+    <!-- Conveyor Visual Deck Rails & Control Panel -->
+    <geom name="packing_conveyor_rail_l" type="box" pos="0 -0.38 0.08" size="0.98 0.02 0.04" material="dock_mat" contype="0" conaffinity="0"/>
+    <geom name="packing_conveyor_rail_r" type="box" pos="0 0.38 0.08" size="0.98 0.02 0.04" material="dock_mat" contype="0" conaffinity="0"/>
+    <geom name="packing_control_box" type="box" pos="-0.85 0.45 0.2" size="0.1 0.12 0.15" material="shelf_upright_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="delivery_zone" pos="7.0 -7.5 0.05">
+    <geom name="warehouse_delivery_zone" type="box" size="2 1 0.05" material="shipping_zone_mat" contype="1" conaffinity="1"/>
+  </body>
+
+  <body name="charging_station" pos="-7.0 8.5 0.10">
+    <geom name="warehouse_charging_station" type="box" size="1.25 0.6 0.1" material="charging_mat" contype="1" conaffinity="1"/>
+    <!-- Glowing LED Chargers & Contact Plates -->
+    <geom name="charger_pad_1" type="box" pos="-0.6 0 0.102" size="0.3 0.3 0.005" material="dock_mat" contype="0" conaffinity="0"/>
+    <geom name="charger_led_1" type="cylinder" pos="-0.6 0.35 0.11" size="0.04 0.02" material="led_green_mat" contype="0" conaffinity="0"/>
+    <geom name="charger_pad_2" type="box" pos="0.6 0 0.102" size="0.3 0.3 0.005" material="dock_mat" contype="0" conaffinity="0"/>
+    <geom name="charger_led_2" type="cylinder" pos="0.6 0.35 0.11" size="0.04 0.02" material="led_green_mat" contype="0" conaffinity="0"/>
+  </body>
+
+  <body name="robot_staging" pos="7.0 -7.5 0.05">
+    <geom name="warehouse_robot_staging" type="box" size="2 1 0.05" material="loading_zone_mat" contype="1" conaffinity="1"/>
+  </body>
+
+</body>

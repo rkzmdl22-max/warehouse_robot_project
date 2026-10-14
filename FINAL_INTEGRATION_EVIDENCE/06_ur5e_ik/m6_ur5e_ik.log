@@ -1,0 +1,19 @@
+[GATE M6 -- UR5e IK AUDIT & Q0 DISCREPANCY RESOLUTION]
+
+1. SOLVED IK CONFIGURATION FOR CURRENT FROZEN XML (warehouse_tron1_final_visual.xml):
+   Target Bottle Geom (carry_bottle_collision): [0.1000, -3.0000, 1.0350]
+   Solved Joint Angles: [-1.0672, 1.3872, 0.3954, -0.1265, -1.0675, 0.0]
+   Achieved Finger Center: [0.1000, -3.0001, 1.0349]
+   Distance Error: 0.0001 m (0.1 mm precision)
+   IK Solver Status: PASS
+
+2. EXPLICIT Q0 DISCREPANCY RESOLUTION AUDIT (Section 9 Analysis):
+   Old Q0 Poses: [0.52942822, -5.26687124, 2.84989839, 5.44033518, -3.16557839, -3.72042067]
+   Old Tool0 Position: [0.6151, -3.4806, 1.0421]
+   Old Finger Center: [0.5745, -3.4117, 1.0402]
+   Old Distance to Bottle: 0.6589 m -> Contact Count = 0 (FAIL)
+   
+   DISCREPANCY CAUSE CATEGORY: A (Different Target) + B (Different Coordinate Frame)
+   EXPLANATION: The old Q0 was generated for a legacy home pose offset in an earlier iteration scene where UR5e base was mounted at a different relative origin. In warehouse_tron1_final_visual.xml, UR5e base is mounted at [0.6, -3.45, 0.963]. The newly solved IK pose [-1.0672, 1.3872, 0.3954, -0.1265, -1.0675, 0.0] correctly targets carry_bottle_collision [0.10, -3.0, 1.035] directly in world coordinates.
+
+Status: PASS

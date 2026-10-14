@@ -1,0 +1,60 @@
+nohup: ignoring input
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-10-13-06-17-59-533816-hkit-desktop-28749
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_state_publisher-1]: process started with pid [28751]
+[INFO] [robot_state_publisher-2]: process started with pid [28753]
+[INFO] [robot_state_publisher-3]: process started with pid [28755]
+[INFO] [spawn_entity.py-4]: process started with pid [28757]
+[INFO] [spawn_entity.py-5]: process started with pid [28759]
+[INFO] [spawn_entity.py-6]: process started with pid [28761]
+[robot_state_publisher-3] [INFO] [1791872279.724720811] [tb3_3.robot_state_publisher]: got segment tb3_3/base_footprint
+[robot_state_publisher-1] [INFO] [1791872279.729105285] [tb3_1.robot_state_publisher]: got segment tb3_1/base_footprint
+[robot_state_publisher-3] [INFO] [1791872279.729791918] [tb3_3.robot_state_publisher]: got segment tb3_3/base_link
+[robot_state_publisher-3] [INFO] [1791872279.729815616] [tb3_3.robot_state_publisher]: got segment tb3_3/base_scan
+[robot_state_publisher-3] [INFO] [1791872279.729824052] [tb3_3.robot_state_publisher]: got segment tb3_3/caster_back_link
+[robot_state_publisher-3] [INFO] [1791872279.729831319] [tb3_3.robot_state_publisher]: got segment tb3_3/imu_link
+[robot_state_publisher-3] [INFO] [1791872279.729838265] [tb3_3.robot_state_publisher]: got segment tb3_3/wheel_left_link
+[robot_state_publisher-3] [INFO] [1791872279.729845478] [tb3_3.robot_state_publisher]: got segment tb3_3/wheel_right_link
+[robot_state_publisher-1] [INFO] [1791872279.733011957] [tb3_1.robot_state_publisher]: got segment tb3_1/base_link
+[robot_state_publisher-1] [INFO] [1791872279.733043051] [tb3_1.robot_state_publisher]: got segment tb3_1/base_scan
+[robot_state_publisher-1] [INFO] [1791872279.733056238] [tb3_1.robot_state_publisher]: got segment tb3_1/caster_back_link
+[robot_state_publisher-1] [INFO] [1791872279.733065332] [tb3_1.robot_state_publisher]: got segment tb3_1/imu_link
+[robot_state_publisher-1] [INFO] [1791872279.733078876] [tb3_1.robot_state_publisher]: got segment tb3_1/wheel_left_link
+[robot_state_publisher-1] [INFO] [1791872279.733092293] [tb3_1.robot_state_publisher]: got segment tb3_1/wheel_right_link
+[robot_state_publisher-2] [INFO] [1791872279.757097870] [tb3_2.robot_state_publisher]: got segment tb3_2/base_footprint
+[robot_state_publisher-2] [INFO] [1791872279.757198020] [tb3_2.robot_state_publisher]: got segment tb3_2/base_link
+[robot_state_publisher-2] [INFO] [1791872279.757209698] [tb3_2.robot_state_publisher]: got segment tb3_2/base_scan
+[robot_state_publisher-2] [INFO] [1791872279.757217527] [tb3_2.robot_state_publisher]: got segment tb3_2/caster_back_link
+[robot_state_publisher-2] [INFO] [1791872279.757225262] [tb3_2.robot_state_publisher]: got segment tb3_2/imu_link
+[robot_state_publisher-2] [INFO] [1791872279.757232674] [tb3_2.robot_state_publisher]: got segment tb3_2/wheel_left_link
+[robot_state_publisher-2] [INFO] [1791872279.757239924] [tb3_2.robot_state_publisher]: got segment tb3_2/wheel_right_link
+[spawn_entity.py-4] [INFO] [1791872280.225775432] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-4] [INFO] [1791872280.226699916] [spawn_entity]: Loading entity XML from file /ros_ws/install/warehouse_robot/share/warehouse_robot/models/tb3_1/model.sdf
+[spawn_entity.py-4] [INFO] [1791872280.227895171] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-4] [INFO] [1791872280.228652472] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-4] [INFO] [1791872280.243731953] [spawn_entity]: Calling service /spawn_entity
+[spawn_entity.py-5] [INFO] [1791872280.343061892] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-5] [INFO] [1791872280.343797732] [spawn_entity]: Loading entity XML from file /ros_ws/install/warehouse_robot/share/warehouse_robot/models/tb3_2/model.sdf
+[spawn_entity.py-5] [INFO] [1791872280.344996687] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-5] [INFO] [1791872280.345551444] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-5] [INFO] [1791872280.358459785] [spawn_entity]: Calling service /spawn_entity
+[spawn_entity.py-6] [INFO] [1791872280.361872957] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-6] [INFO] [1791872280.362470176] [spawn_entity]: Loading entity XML from file /ros_ws/install/warehouse_robot/share/warehouse_robot/models/tb3_3/model.sdf
+[spawn_entity.py-6] [INFO] [1791872280.363263283] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-6] [INFO] [1791872280.363598347] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-6] [INFO] [1791872280.618151581] [spawn_entity]: Calling service /spawn_entity
+[spawn_entity.py-4] [INFO] [1791872280.662427454] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb3_1]
+[INFO] [spawn_entity.py-4]: process has finished cleanly [pid 28757]
+[spawn_entity.py-6] [INFO] [1791872281.230957481] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb3_3]
+[INFO] [spawn_entity.py-6]: process has finished cleanly [pid 28761]
+[spawn_entity.py-5] [INFO] [1791872281.758953672] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb3_2]
+[INFO] [spawn_entity.py-5]: process has finished cleanly [pid 28759]
+[robot_state_publisher-2] [WARN] [1791873118.147104851] [tb3_2.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-3] [WARN] [1791873118.681982484] [tb3_3.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-1] [WARN] [1791873119.206128321] [tb3_1.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-3] [WARN] [1791873629.776411297] [tb3_3.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-1] [WARN] [1791873630.327143453] [tb3_1.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-2] [WARN] [1791873632.253072164] [tb3_2.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-1] [WARN] [1791873944.018100632] [tb3_1.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-3] [WARN] [1791873944.619223017] [tb3_3.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!
+[robot_state_publisher-2] [WARN] [1791873945.785474995] [tb3_2.robot_state_publisher]: Moved backwards in time, re-publishing joint transforms!

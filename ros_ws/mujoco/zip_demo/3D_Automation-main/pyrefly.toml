@@ -1,0 +1,16 @@
+project-includes = [
+    "src"
+]
+
+project-excludes = [
+    "src/vendor/**",
+    "build/**",
+    "install/**",
+    "log/**",
+    "**/__pycache__/**"
+]
+
+[errors]
+missing-import = false
+untyped-import = false
+missing-attribute = false

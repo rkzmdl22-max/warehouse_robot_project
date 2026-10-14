@@ -1,0 +1,7 @@
+mujoco==3.1.6
+urdf2mjcf
+numpy
+scipy
+glfw
+opencv-python
+imageionumpy

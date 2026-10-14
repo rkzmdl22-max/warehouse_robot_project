@@ -1,0 +1,24 @@
+G14 PAN DEEPEN RIGHT
+XML MODIFIED = NO
+pan+0.000 G13=False G14=False loss=None distL=-0.011419955184158018 distR=None
+pan-0.010 G13=False G14=False loss=None distL=-0.010998680125605929 distR=None
+pan+0.010 G13=False G14=False loss=None distL=-0.012392120936544895 distR=None
+pan-0.020 G13=False G14=False loss=None distL=-0.01064400361738102 distR=None
+pan+0.020 G13=False G14=False loss=None distL=-0.014769118396477899 distR=None
+pan-0.030 G13=False G14=False loss=None distL=-0.010231691403006383 distR=None
+pan+0.030 G13=False G14=False loss=None distL=-0.01894299375846945 distR=None
+pan-0.040 G13=False G14=False loss=None distL=-0.01003702800516531 distR=None
+pan+0.040 G13=False G14=False loss=None distL=-0.01942342723494162 distR=None
+pan-0.050 G13=True G14=False loss=1 distL=-0.009502257179911789 distR=-8.203210229502025e-05
+pan+0.050 G13=False G14=False loss=None distL=-0.01977944816095657 distR=None
+w3-0.05 G13=False G14=False loss=None distL=-0.012864172795112684 distR=None
+w3+0.05 G13=False G14=False loss=None distL=-0.011392090205959158 distR=None
+w3-0.10 G13=False G14=False loss=None distL=-0.014498258491579277 distR=None
+w3+0.10 G13=False G14=False loss=None distL=-0.012797342463940384 distR=None
+w3-0.15 G13=False G14=False loss=None distL=-0.015949677667174297 distR=None
+w3+0.15 G13=False G14=False loss=None distL=-0.014318129163384326 distR=None
+w2-0.05 G13=False G14=False loss=None distL=-0.010709904161345216 distR=None
+w2+0.05 G13=False G14=False loss=None distL=-0.01526996520647707 distR=None
+w2-0.10 G13=False G14=False loss=None distL=-0.009866395053090253 distR=None
+w2+0.10 G13=False G14=False loss=None distL=-0.020215523565967924 distR=None
+G14 = FAIL

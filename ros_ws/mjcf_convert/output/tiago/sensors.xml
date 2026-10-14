@@ -1,0 +1,3 @@
+<sensor>
+    <framepos name="base_position" objtype="body" objname="base_link"/>
+</sensor>

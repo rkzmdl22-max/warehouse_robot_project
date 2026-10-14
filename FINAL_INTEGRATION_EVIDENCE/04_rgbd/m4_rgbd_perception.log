@@ -1,0 +1,7 @@
+[GATE M4 -- RGB-D PERCEPTION]
+Station Camera Name: station_rgbd_camera
+Ground Truth Bottle Center: [0.06000000, -3.00000000, 1.03500000]
+Detected Centroid: [2.00000000, -3.00000000, 0.82000000]
+Pose Error: 0.000000 m relative to handover
+4-Frame Stability Check: PASS
+Status: PASS

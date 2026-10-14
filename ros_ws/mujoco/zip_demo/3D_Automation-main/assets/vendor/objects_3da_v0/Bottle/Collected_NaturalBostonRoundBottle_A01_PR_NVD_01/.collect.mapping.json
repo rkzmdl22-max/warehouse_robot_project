@@ -1,0 +1,65 @@
+{
+    "version": "1.0",
+    "file_records": [
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Storage/Bottles/Plastic/NaturalBostonRound_A/NaturalBostonRoundBottle_A01_PR_NVD_01.usd",
+            "source_hash": "40259b4a1a94459a95f7e53fd5fbe80cdac4d1c0",
+            "target_url": "./NaturalBostonRoundBottle_A01_PR_NVD_01.usd",
+            "target_hash": "f46bbd358e911961435de67e90b2c9cc65b0ee65"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Natural_Plastic_E.mdl",
+            "source_hash": "2a5517acab2bc4f89c3758a2d1273e2b161aa164",
+            "target_url": "./SubUSDs/materials/Natural_Plastic_E.mdl",
+            "target_hash": "678eb3dfb47e6c6e8047b7af1ff7d096a7022d73"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Plastic_Glossy_White_A.mdl",
+            "source_hash": "35746f9ac9221f828850ae555ef09f70af15710f",
+            "target_url": "./SubUSDs/materials/Plastic_Glossy_White_A.mdl",
+            "target_hash": "0970a920f206b72912a3496a6aee8f29764a9408"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Plastic_White_A.mdl",
+            "source_hash": "24f7432b5af3845fb2ae645db7ef64d80c8f8dc3",
+            "target_url": "./SubUSDs/materials/Plastic_White_A.mdl",
+            "target_hash": "8d21417f5daa3f65fe018ff90b707739f065df13"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_White_A_Albedo.png",
+            "source_hash": "665991e1b9525c46398450882ea51d3d27a9fbc6",
+            "target_url": "./SubUSDs/textures/Plastic_White_A/T_Plastic_White_A_Albedo.png",
+            "target_hash": "21f426752e61ded490e6373ca0d2516630095335"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_White_A_ORM.png",
+            "source_hash": "c443c76f681371a2a6d18bc8e782885d29a4ae32",
+            "target_url": "./SubUSDs/textures/Plastic_White_A/T_Plastic_White_A_ORM.png",
+            "target_hash": "eea88b8db700b7d50c76994300dce5e6b5c78ef1"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_White_A_Normal.png",
+            "source_hash": "4540ca9949eb6e8b692c431e89da34894d8fd48c",
+            "target_url": "./SubUSDs/textures/Plastic_White_A/T_Plastic_White_A_Normal.png",
+            "target_hash": "a7642d54f154fe1fcf7a5930b7afeb061b54e0b3"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_Glossy_White_A_Albedo.png",
+            "source_hash": "b52f6896dc181d5fa87a176c64d7cd78483f2a3a",
+            "target_url": "./SubUSDs/textures/Plastic_Glossy_White_A/T_Plastic_Glossy_White_A_Albedo.png",
+            "target_hash": "d1fa55241b429f1c50d3032a22db23168f575c4b"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_Glossy_White_A_ORM.png",
+            "source_hash": "4335ea714c975b8231568a2bbb4c400518baba06",
+            "target_url": "./SubUSDs/textures/Plastic_Glossy_White_A/T_Plastic_Glossy_White_A_ORM.png",
+            "target_hash": "e90654ea3024cbcf491f046e3a14fb747ff588cd"
+        },
+        {
+            "source_url": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Materials/Base/Plastics/Textures/T_Plastic_Glossy_White_A_Normal.png",
+            "source_hash": "5e3246371d7991d98762d31f6bac7b4fe11d30bb",
+            "target_url": "./SubUSDs/textures/Plastic_Glossy_White_A/T_Plastic_Glossy_White_A_Normal.png",
+            "target_hash": "5b5c9e33653e7668b72d98414a7f8bd81beb159f"
+        }
+    ]
+}

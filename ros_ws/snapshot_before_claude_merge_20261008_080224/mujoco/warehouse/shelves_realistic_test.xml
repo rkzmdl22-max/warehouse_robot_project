@@ -1,0 +1,68 @@
+<mujoco model="shelves_realistic_test">
+  <worldbody>
+
+    <!-- RACK 1 -->
+    <body name="real_rack_1" pos="-6 -5 0">
+      <!-- vertical posts -->
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+
+      <!-- shelves -->
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+    <!-- RACK 2 -->
+    <body name="real_rack_2" pos="0 -5 0">
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+    <!-- RACK 3 -->
+    <body name="real_rack_3" pos="6 -5 0">
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+    <!-- RACK 4 -->
+    <body name="real_rack_4" pos="-6 5 0">
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+    <!-- RACK 5 -->
+    <body name="real_rack_5" pos="0 5 0">
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+    <!-- RACK 6 -->
+    <body name="real_rack_6" pos="6 5 0">
+      <geom type="box" pos="-1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos=" 1.38 0 1.0" size="0.06 0.06 1.0" material="shelf_frame_mat"/>
+      <geom type="box" pos="0 0 0.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 0.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.35" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+      <geom type="box" pos="0 0 1.85" size="1.5 0.38 0.04" material="shelf_plate_mat"/>
+    </body>
+
+  </worldbody>
+</mujoco>

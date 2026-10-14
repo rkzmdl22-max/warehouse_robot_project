@@ -1,0 +1,13 @@
+Objects_3DA_v0
+# Build outputs
+**/build/
+**/install/
+**/log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Backup files
+*.bak
+*.bak_*

@@ -1,0 +1,10 @@
+string mission_id
+string task_id
+string item_id
+string product_id
+string source_location
+string destination
+float32 quantity
+string[] required_capabilities
+int32 priority
+builtin_interfaces/Time timestamp

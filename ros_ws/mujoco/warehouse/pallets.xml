@@ -1,0 +1,36 @@
+<mujoco model="pallets">
+  <!--
+    Warehouse Pallets Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    2 Industrial Wooden Pallets (Full size: 1.2m x 0.8m x 0.15m, Center Z=0.075m)
+  -->
+  <worldbody>
+    <body name="pallet_1" pos="-6.0 -2.0 0.075">
+      <geom name="pallet_1_top" type="box" pos="0 0 0.02" size="0.6 0.4 0.025" material="wood_pallet_mat" contype="1" conaffinity="1" friction="0.9 0.2 0.1"/>
+      <geom name="pallet_1_runner1" type="box" pos="0 -0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_1_runner2" type="box" pos="0 0.0 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_1_runner3" type="box" pos="0 0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="pallet_2" pos="6.0 2.0 0.075">
+      <geom name="pallet_2_top" type="box" pos="0 0 0.02" size="0.6 0.4 0.025" material="wood_pallet_mat" contype="1" conaffinity="1" friction="0.9 0.2 0.1"/>
+      <geom name="pallet_2_runner1" type="box" pos="0 -0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_2_runner2" type="box" pos="0 0.0 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_2_runner3" type="box" pos="0 0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+    </body>
+  
+    <body name="pallet_3" pos="-8.0 -7.5 0.075">
+      <geom name="pallet_3_top" type="box" pos="0 0 0.02" size="0.6 0.4 0.025" material="wood_pallet_mat" contype="1" conaffinity="1" friction="0.9 0.2 0.1"/>
+      <geom name="pallet_3_runner1" type="box" pos="0 -0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_3_runner2" type="box" pos="0 0.0 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_3_runner3" type="box" pos="0 0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="pallet_4" pos="8.0 -7.5 0.075">
+      <geom name="pallet_4_top" type="box" pos="0 0 0.02" size="0.6 0.4 0.025" material="wood_pallet_mat" contype="1" conaffinity="1" friction="0.9 0.2 0.1"/>
+      <geom name="pallet_4_runner1" type="box" pos="0 -0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_4_runner2" type="box" pos="0 0.0 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+      <geom name="pallet_4_runner3" type="box" pos="0 0.35 -0.03" size="0.6 0.04 0.03" material="pallet_runner_mat" contype="1" conaffinity="1"/>
+    </body>
+</worldbody>
+</mujoco>

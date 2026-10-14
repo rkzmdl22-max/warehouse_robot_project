@@ -1,0 +1,4 @@
+[GATE 15 -- ROS 2 MESSAGING]
+Active Nodes: mission_manager, fleet_manager, side_grasp_verifier, tron1_mission_fsm
+Topics: /mission/state, /fleet/robot_state, /detected_bottle_pose
+Status: PASS

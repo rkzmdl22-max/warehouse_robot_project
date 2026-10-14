@@ -1,0 +1,842 @@
+<?xml version="1.0"?>
+<robot name="point_foot">
+    <!-- 
+      Uncomment to support the robot by fixing its base link to the world frame. 
+      This anchors the robot in place, preventing movement.
+    -->
+    
+    <!-- 
+    <link name="world"/>
+    <joint name="base_static_Joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.3"/>
+        <parent link="world"/>
+        <child link="base_Link"/>
+    </joint>
+    -->
+
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+    <material name="blue">
+        <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+    <material name="green">
+        <color rgba="0.0 0.8 0.0 1.0"/>
+    </material>
+    <material name="grey">
+        <color rgba="0.2 0.2 0.2 1.0"/>
+    </material>
+    <material name="silver">
+        <color rgba="0.9137254901960784 0.9137254901960784 0.8470588235294118 1.0"/>
+    </material>
+    <material name="orange">
+        <color rgba="1.0 0.4235294117647059 0.0392156862745098 1.0"/>
+    </material>
+    <material name="brown">
+        <color rgba="0.8705882352941177 0.8117647058823529 0.7647058823529411 1.0"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+    <!-- ros_control plugin -->
+    <ros2_control name="pointfoot_gazebo_ros2_control_settings" type="system">
+            <hardware>
+                <plugin>pointfoot_gazebo/PointFootHWSim</plugin>
+            </hardware>
+            <joint name="abad_L_Joint">
+                <command_interface name="position"><param name="min">-0.38397</param><param name="max">1.39626</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="hip_L_Joint">
+                <command_interface name="position"><param name="min">-1.012291</param><param name="max">1.396263</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="knee_L_Joint">
+                <command_interface name="position"><param name="min">-0.872665</param><param name="max">1.361357</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="abad_R_Joint">
+                <command_interface name="position"><param name="min">-1.39626</param><param name="max">0.38397</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="hip_R_Joint">
+                <command_interface name="position"><param name="min">-1.396263</param><param name="max">1.012291</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="knee_R_Joint">
+                <command_interface name="position"><param name="min">-1.361357</param><param name="max">0.872665</param></command_interface>
+                <command_interface name="velocity"><param name="min">-20</param><param name="max">20</param></command_interface>
+                <command_interface name="effort"><param name="min">-80</param><param name="max">80</param></command_interface>
+                <command_interface name="Kp"><param name="min">0</param></command_interface>
+                <command_interface name="Kd"><param name="min">0</param></command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <sensor name="imu_sensor">
+                <frame_id name="imu_Link"/>
+                <state_interface name="orientation.x"/>
+                <state_interface name="orientation.y"/>
+                <state_interface name="orientation.z"/>
+                <state_interface name="orientation.w"/>
+                <state_interface name="angular_velocity.x"/>
+                <state_interface name="angular_velocity.y"/>
+                <state_interface name="angular_velocity.z"/>
+                <state_interface name="linear_acceleration.x"/>
+                <state_interface name="linear_acceleration.y"/>
+                <state_interface name="linear_acceleration.z"/>
+            </sensor>
+        </ros2_control>
+        
+        <gazebo>
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+                <ros><namespace>/tron1a</namespace></ros>
+                <robot_param>robot_description</robot_param>
+                <robot_param_node>/tron1a/robot_state_publisher</robot_param_node>
+                <robot_sim_type>pointfoot_gazebo/PointFootHWSim</robot_sim_type>
+                <parameters>/ros_ws/src/pointfoot_gazebo/config/pointfoot_gazebo.yaml</parameters>
+            </plugin>
+        </gazebo>
+    <gazebo>
+        <plugin filename="libgazebo_ros_p3d.so" name="p3d_base_controller">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>1000.0</updateRate>
+            <body_name>base_Link</body_name>
+            <topicName>ground_truth/state</topicName>
+            <gaussianNoise>0</gaussianNoise>
+            <frameName>world</frameName>
+            <xyzOffsets>0 0 0</xyzOffsets>
+            <rpyOffsets>0 0 0</rpyOffsets>
+        </plugin>
+    </gazebo>
+    <link
+            name="base_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.04576 0.00014 -0.16398"/>
+            <mass value="9.585"/>
+            <inertia ixx="140110.479E-06" ixy="534.939E-06" ixz="28184.116E-06"
+                     iyy="110641.449E-06" iyz="-27.278E-06" izz="98944.542E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/base_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.79216 0.81961 0.93333 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.033 0 -0.07" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.265 0.26 0.18"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="carry_tray_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.36 0.32 0.03"/>
+            </geometry>
+            <material name="carry_tray_material">
+                <color rgba="0.15 0.15 0.15 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.36 0.32 0.03"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="carry_tray_joint" type="fixed">
+        <parent link="base_Link"/>
+        <child link="carry_tray_link"/>
+        <origin xyz="0.06 0 0.10" rpy="0 0 0"/>
+    </joint>
+
+    <link name="carry_bottle_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.20"/>
+            </geometry>
+            <material name="carry_bottle_material">
+                <color rgba="0.2 0.5 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.20"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="carry_bottle_joint" type="fixed">
+        <parent link="carry_tray_link"/>
+        <child link="carry_bottle_link"/>
+        <origin xyz="0 0 0.115" rpy="0 0 0"/>
+    </joint>
+    <joint name="limx_imu_joint" type="fixed">
+        <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+        <parent link="base_Link"/>
+        <child link="limx_imu"/>
+    </joint>
+    <!-- Imu link -->
+    <link name="limx_imu">
+        <inertial>
+            <mass value="0.01"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.015 0.015 0.004"/>
+            </geometry>
+        </visual>
+        <material name="orange">
+            <color rgba="255 108 10 255"/>
+        </material>
+    </link>
+    <gazebo reference="limx_imu">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+    <gazebo reference="limx_imu_joint">
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+    <link
+            name="abad_L_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-69.77E-03 44.79E-03 0.57E-03"/>
+            <mass value="1.469"/>
+            <inertia ixx="1555.384E-06" ixy="397.78E-06" ixz="-13.10E-06"
+                     iyy="2359.25E-06" iyz="-0.98E-06" izz="2080.92E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/abad_L_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.79216 0.81961 0.93333 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.03 0 0" rpy="1.57 0 1.57"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="abad_L_Joint"
+            type="revolute">
+        <origin
+                xyz="55.56E-03 105E-03 -260.2E-03"
+                rpy="0 0 0"/>
+        <parent
+                link="base_Link"/>
+        <child
+                link="abad_L_Link"/>
+        <axis
+                xyz="1 0 0"/>
+        <limit effort="80.0" lower="-0.38397" upper="1.39626" velocity="15.0"/>
+    </joint>
+    <link
+            name="hip_L_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-28.69E-03 -47.7E-03 -39.92E-03"/>
+            <mass value="2.3"/>
+            <inertia ixx="16937.28E-06" ixy="1647.03E-06" ixz="-9232.53E-06"
+                     iyy="22853.28E-06" iyz="2202.40E-06" izz="9334.19E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/hip_L_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.10 -0.02 -0.14" rpy="0 0.53 0"/>
+            <geometry>
+                <cylinder length="0.18" radius="0.035"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="hip_L_Joint"
+            type="revolute">
+        <origin
+                xyz="-0.077 0.02050 0"
+                rpy="0 0 0"/>
+        <parent
+                link="abad_L_Link"/>
+        <child
+                link="hip_L_Link"/>
+        <axis
+                xyz="0 1 0"/>
+        <limit effort="80.0" lower="-1.012291" upper="1.396263" velocity="15.0"/>
+    </joint>
+    <link
+            name="knee_L_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="51.68E-03 1.52E-03 -81.48E-03"/>
+            <mass value="0.55"/>
+            <inertia ixx="2949.6E-06" ixy="-7.86E-06" ixz="1830.36E-06"
+                     iyy="4199.48E-06" iyz="9.14E-06" izz="1330.18E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/knee_L_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.79216 0.81961 0.93333 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.073 0 -0.12" rpy="0 -0.55 0"/>
+            <geometry>
+                <cylinder length="0.26" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="knee_L_Joint"
+            type="revolute">
+        <origin
+                xyz="-0.1500 -0.02050 -0.25981"
+                rpy="0 0 0"/>
+        <parent
+                link="hip_L_Link"/>
+        <child
+                link="knee_L_Link"/>
+        <axis
+                xyz="0 -1 0"/>
+        <limit effort="80" lower="-0.872665" upper="1.361357" velocity="15"/>
+    </joint>
+    <link
+            name="foot_L_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-1.29E-03 -0.01E-03 5.68E-03"/>
+            <mass value="0.18"/>
+            <inertia ixx="97.46E-06" ixy="-0.04E-06" ixz="5.67E-06"
+                     iyy="99.92E-06" iyz="-0.01E-06" izz="74.7E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/foot_L_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.26667 0.26667 0.26667 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.0"/>
+            <geometry>
+                <sphere radius="0.032"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="foot_L_Joint"
+            type="fixed"
+            dont_collapse="true">
+        <origin
+                xyz="0.150 0 -0.25981"
+                rpy="0 0 0"/>
+        <parent
+                link="knee_L_Link"/>
+        <child
+                link="foot_L_Link"/>
+        <axis
+                xyz="0 0 0"/>
+    </joint>
+
+    <link name="contact_L_Link">
+        <inertial>
+            <origin xyz="-6.4629E-05 5.464E-05 0.0011936" rpy="0 0 0"/>
+            <mass value="1e-6"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <joint name="contact_L_Joint" type="fixed">
+        <origin xyz="0 0 -0.032" rpy="0 0 0"/>
+        <parent link="foot_L_Link"/>
+        <child link="contact_L_Link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0" upper="0" effort="60" velocity="50"/>
+    </joint>
+    <gazebo reference="foot_L_Joint">
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+    <gazebo reference="hip_L_Link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="knee_L_Link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>0</self_collide>
+        <material>Gazebo/DarkGrey</material>
+        <kp value="1000000.0"/>
+        <kd value="100.0"/>
+    </gazebo>
+    <gazebo reference="foot_L_Link">
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+        <self_collide>1</self_collide>
+        <material>Gazebo/DarkGrey</material>
+        <kp value="1000000.0"/>
+        <kd value="100.0"/>
+    </gazebo>
+    <transmission name="abad_L_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="abad_L_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="abad_L_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="hip_L_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="hip_L_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="hip_L_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="knee_L_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="knee_L_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="knee_L_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+    <link
+            name="abad_R_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-69.77E-03 -44.79E-03 0.57E-03"/>
+            <mass value="1.469"/>
+            <inertia ixx="1555.384E-06" ixy="-397.78E-06" ixz="-13.10E-06"
+                     iyy="2359.25E-06" iyz="0.98E-06" izz="2080.92E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/abad_R_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.79216 0.81961 0.93333 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.03 0 0" rpy="1.57 0 1.57"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="abad_R_Joint"
+            type="revolute">
+        <origin
+                xyz="55.56E-03 -105E-03 -260.2E-03"
+                rpy="0 0 0"/>
+        <parent
+                link="base_Link"/>
+        <child
+                link="abad_R_Link"/>
+        <axis
+                xyz="1 0 0"/>
+        <limit effort="80.0" lower="-1.39626" upper="0.38397" velocity="15.0"/>
+    </joint>
+    <link
+            name="hip_R_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-28.69E-03 47.7E-03 -39.92E-03"/>
+            <mass value="2.3"/>
+            <inertia ixx="16937.28E-06" ixy="-1647.03E-06" ixz="-9232.53E-06"
+                     iyy="22853.28E-06" iyz="-2202.40E-06" izz="9334.19E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/hip_R_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="1 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.10 0.02 -0.14" rpy="0 0.53 0"/>
+            <geometry>
+                <cylinder length="0.18" radius="0.035"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="hip_R_Joint"
+            type="revolute">
+        <origin
+                xyz="-0.077 -0.02050 0"
+                rpy="0 0 0"/>
+        <parent
+                link="abad_R_Link"/>
+        <child
+                link="hip_R_Link"/>
+        <axis
+                xyz="0 -1 0"/>
+        <limit effort="80.0" lower="-1.396263" upper="1.012291" velocity="15.0"/>
+    </joint>
+    <link
+            name="knee_R_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="51.68E-03 -1.52E-03 -81.48E-03"/>
+            <mass value="0.55"/>
+            <inertia ixx="2949.6E-06" ixy="7.86E-06" ixz="1830.36E-06"
+                     iyy="4199.48E-06" iyz="-9.14E-06" izz="1330.18E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/knee_R_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.79216 0.81961 0.93333 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.078 0 -0.12" rpy="0 -0.55 0"/>
+            <geometry>
+                <cylinder length="0.26" radius="0.015"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="knee_R_Joint"
+            type="revolute">
+        <origin
+                xyz="-0.1500 0.02050 -0.25981"
+                rpy="0 0 0"/>
+        <parent
+                link="hip_R_Link"/>
+        <child
+                link="knee_R_Link"/>
+        <axis
+                xyz="0 1 0"/>
+        <limit effort="80" lower="-1.361357" upper="0.872665" velocity="15"/>
+    </joint>
+    <link
+            name="foot_R_Link">
+        <inertial>
+            <origin rpy="0 0 0" xyz="-1.29E-03 0.01E-03 5.68E-03"/>
+            <mass value="0.18"/>
+            <inertia ixx="97.46E-06" ixy="0.04E-06" ixz="5.67E-06"
+                     iyy="99.92E-06" iyz="0.01E-06" izz="74.7E-06"/>
+        </inertial>
+        <visual>
+            <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0"/>
+            <geometry>
+                <mesh
+                        filename="package://robot_description/pointfoot/PF_TRON1A/meshes/foot_R_Link.STL"/>
+            </geometry>
+            <material
+                    name="">
+                <color
+                        rgba="0.26667 0.26667 0.26667 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.0"/>
+            <geometry>
+                <sphere radius="0.032"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint
+            name="foot_R_Joint"
+            type="fixed"
+            dont_collapse="true">
+        <origin
+                xyz="0.150 0 -0.25981"
+                rpy="0 0 0"/>
+        <parent
+                link="knee_R_Link"/>
+        <child
+                link="foot_R_Link"/>
+        <axis
+                xyz="0 0 0"/>
+    </joint>
+
+    <link name="contact_R_Link">
+        <inertial>
+            <origin xyz="-6.4629E-05 5.464E-05 0.0011936" rpy="0 0 0"/>
+            <mass value="1e-6"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <joint name="contact_R_Joint" type="fixed">
+        <origin xyz="0 0 -0.032" rpy="0 0 0"/>
+        <parent link="foot_R_Link"/>
+        <child link="contact_R_Link"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0" upper="0" effort="60" velocity="50"/>
+    </joint>
+    <gazebo reference="foot_R_Joint">
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+    <gazebo reference="hip_R_Link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+    <gazebo reference="knee_R_Link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>0</self_collide>
+        <material>Gazebo/DarkGrey</material>
+        <kp value="1000000.0"/>
+        <kd value="100.0"/>
+    </gazebo>
+    <gazebo reference="foot_R_Link">
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+        <self_collide>1</self_collide>
+        <material>Gazebo/DarkGrey</material>
+        <kp value="1000000.0"/>
+        <kd value="100.0"/>
+    </gazebo>
+    <transmission name="abad_R_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="abad_R_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="abad_R_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="hip_R_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="hip_R_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="hip_R_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="knee_R_Joint_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="knee_R_Joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="knee_R_Joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!-- ****************************************** D435 Camera ******************************************************** -->
+    <!-- <joint name="d435_joint" type="fixed">
+        <origin rpy="0 1.063778179 0" xyz="0.13223 0.0222 -0.26826"/>
+        <parent link="base_Link"/>
+        <child link="d435_Link"/>
+    </joint>
+    <link name="d435_Link">
+        <visual>
+            <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0149 -0.0175 0"/>
+            <geometry>
+                <mesh filename="package://robot_description/pointfoot/meshes_camera/d435.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 -0.0175 0"/>
+            <geometry>
+                <box size="0.02505 0.09 0.025"/>
+            </geometry>
+        </collision>
+    </link> -->
+    <!-- ****************************************** D435 Camera END ******************************************************** -->
+
+
+    <!-- ============================================================
+         G13 — TRON1 Virtual RGB-D Camera
+         ============================================================ -->
+
+    <joint name="tron1_camera_joint" type="fixed">
+        <origin xyz="0.13223 0.0222 -0.26826"
+                rpy="0 1.063778179 0"/>
+        <parent link="base_Link"/>
+        <child link="tron1_camera_link"/>
+    </joint>
+
+    <link name="tron1_camera_link">
+        <visual>
+            <geometry>
+                <box size="0.025 0.09 0.025"/>
+            </geometry>
+            <material name="tron1_camera_material">
+                <color rgba="0.05 0.05 0.05 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.025 0.09 0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="tron1_camera_optical_joint" type="fixed">
+        <origin xyz="0 0 0"
+                rpy="-1.57079632679 0 -1.57079632679"/>
+        <parent link="tron1_camera_link"/>
+        <child link="tron1_camera_color_optical_frame"/>
+    </joint>
+
+    <link name="tron1_camera_color_optical_frame"/>
+
+    <gazebo reference="tron1_camera_link">
+        <sensor type="depth" name="tron1_rgbd_sensor">
+            <always_on>true</always_on>
+            <update_rate>15.0</update_rate>
+            <camera>
+                <horizontal_fov>1.0472</horizontal_fov>
+                <image>
+                    <format>B8G8R8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.1</near>
+                    <far>6.0</far>
+                </clip>
+            </camera>
+
+            <plugin name="tron1_camera_controller"
+                    filename="libgazebo_ros_openni_kinect.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>15.0</updateRate>
+                <cameraName>tron1_rgbd</cameraName>
+                <imageTopicName>rgb/image_raw</imageTopicName>
+                <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+                <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                <pointCloudTopicName>depth/points</pointCloudTopicName>
+                <frameName>tron1_camera_color_optical_frame</frameName>
+                <pointCloudCutoff>0.1</pointCloudCutoff>
+                <rangeMax>6.0</rangeMax>
+                <ros>
+                    <remapping>tron1_rgbd/image_raw:=/tron1/camera/rgb/image_raw</remapping>
+                    <remapping>tron1_rgbd/camera_info:=/tron1/camera/rgb/camera_info</remapping>
+                    <remapping>tron1_rgbd/depth/image_raw:=/tron1/camera/depth/image_raw</remapping>
+                    <remapping>tron1_rgbd/depth/camera_info:=/tron1/camera/depth/camera_info</remapping>
+                    <remapping>tron1_rgbd/points:=/tron1/camera/depth/points</remapping>
+                </ros>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="limx_imu">
+        <gravity>true</gravity>
+        <sensor name="imu_sensor" type="imu">
+            <always_on>true</always_on>
+            <update_rate>1000</update_rate>
+            <visualize>false</visualize>
+            <pose>0 0 0 0 0 0</pose>
+        </sensor>
+    </gazebo>
+</robot>

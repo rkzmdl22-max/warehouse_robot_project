@@ -1,0 +1,5 @@
+[GATE 13 -- GAZEBO RUNTIME]
+World: warehouse_v532_rebuild.world
+Layout: SSOT Bound [-10, 10]
+TRON1 Spawn: [1.2, -3.0, 0.82]
+Status: PASS

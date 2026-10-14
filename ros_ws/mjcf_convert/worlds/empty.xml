@@ -1,0 +1,31 @@
+<mujoco model="tiago_empty_world">
+
+    <size memory="512M"/>
+
+    <option
+        timestep="0.002"
+        gravity="0 0 -9.81"/>
+
+    <include file="../tiago.xml"/>
+    <option gravity="0 0 -9.81"/>
+
+    <visual>
+        <global azimuth="120" elevation="-20"/>
+    </visual>
+
+    <worldbody>
+
+        <light
+            name="main_light"
+            pos="0 0 5"
+            dir="0 0 -1"/>
+
+        <geom
+            name="floor"
+            type="plane"
+            size="5 5 0.1"
+            pos="0 0 0"/>
+
+    </worldbody>
+
+</mujoco>

@@ -1,0 +1,113 @@
+# ============================================================
+# UR5e Station ros2_control Controllers
+# Hardware: gazebo_ros2_control/GazeboSystem
+# Namespace: /ur5e
+# ============================================================
+
+/ur5e/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    ur5e_joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ur5e_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    ur5e_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+# ============================================================
+# Joint State Broadcaster — publishes all UR5e joint states
+# ============================================================
+ur5e_joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+      - left_finger_joint
+      - right_finger_joint
+
+
+# ============================================================
+# Arm Trajectory Controller — 6-DOF UR5e
+# Action: /ur5e_arm_controller/follow_joint_trajectory
+# ============================================================
+/ur5e/ur5e_arm_controller:
+  ros__parameters:
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    state_publish_rate: 100.0
+    action_monitor_rate: 20.0
+
+    allow_partial_joints_goal: false
+    open_loop_control: false
+    allow_integration_in_goal_trajectories: true
+
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.6
+      shoulder_pan_joint:
+        goal: 0.05
+      shoulder_lift_joint:
+        goal: 0.05
+      elbow_joint:
+        goal: 0.05
+      wrist_1_joint:
+        goal: 0.05
+      wrist_2_joint:
+        goal: 0.05
+      wrist_3_joint:
+        goal: 0.05
+
+
+# ============================================================
+# Gripper Controller — Robotiq 2F-140
+# Action: /ur5e_gripper_controller/follow_joint_trajectory
+# OPEN:  left=0.0, right=0.0
+# CLOSE: left=0.07, right=0.07
+# ============================================================
+/ur5e/ur5e_gripper_controller:
+  ros__parameters:
+    joints:
+      - left_finger_joint
+      - right_finger_joint
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+
+    allow_partial_joints_goal: false
+
+    constraints:
+      stopped_velocity_tolerance: 0.005
+      goal_time: 3.0
+      left_finger_joint:
+        goal: 0.01
+      right_finger_joint:
+        goal: 0.01

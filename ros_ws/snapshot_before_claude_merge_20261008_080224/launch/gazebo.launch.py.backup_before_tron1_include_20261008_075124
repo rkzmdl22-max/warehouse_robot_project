@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import os
+
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
+from ament_index_python.packages import get_package_share_directory
+
+
+def generate_launch_description():
+
+    warehouse_pkg = get_package_share_directory("warehouse_robot")
+    gazebo_pkg = get_package_share_directory("gazebo_ros")
+
+    world = os.path.join(
+        warehouse_pkg,
+        "worlds",
+        "warehouse_remodel.world"
+    )
+
+    gzserver = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                gazebo_pkg,
+                "launch",
+                "gzserver.launch.py"
+            )
+        ),
+        launch_arguments={
+            "world": world,
+            "verbose": "true",
+        }.items()
+    )
+
+    gzclient = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                gazebo_pkg,
+                "launch",
+                "gzclient.launch.py"
+            )
+        )
+    )
+
+    tb3_fleet = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                warehouse_pkg,
+                "launch",
+                "tb3_fleet.launch.py"
+            )
+        )
+    )
+
+    tiago_fleet = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                warehouse_pkg,
+                "launch",
+                "tiago_fleet.launch.py"
+            )
+        )
+    )
+
+    ur5e_station = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                warehouse_pkg,
+                "launch",
+                "ur5e_station.launch.py"
+            )
+        )
+    )
+
+    return LaunchDescription([
+        gzserver,
+        gzclient,
+
+        # Existing fleet launch files
+        tb3_fleet,
+        tiago_fleet,
+        ur5e_station,
+    ])

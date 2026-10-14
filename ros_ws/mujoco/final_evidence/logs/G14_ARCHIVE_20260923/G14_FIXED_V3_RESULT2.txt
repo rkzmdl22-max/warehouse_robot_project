@@ -1,0 +1,41 @@
+G14 TRON1-FIXED V3 -- wrist scan for stable bilateral contact
+XML MODIFIED = NO
+
+=== WRIST_3 SCAN ===
+  wrist_3 | G13 | contact_loss | drift   | lc  | rc
+  w3=-0.50 | OK | LOST@11 | 0.0000 | False | False  score=2
+  w3=-0.40 | OK | LOST@10 | 0.0000 | False | False  score=2
+  w3=-0.30 | OK | LOST@9 | 0.0000 | False | False  score=2
+  w3=-0.20 | OK | LOST@8 | 0.0000 | False | False  score=2
+  w3=-0.10 | OK | LOST@7 | 0.0000 | False | False  score=2
+  w3=0.00 | OK | LOST@6 | 0.0000 | False | False  score=2
+  w3=0.10 | OK | LOST@7 | 0.0000 | False | False  score=2
+  w3=0.20 | OK | LOST@8 | 0.0000 | False | False  score=2
+  w3=0.30 | OK | LOST@9 | 0.0000 | False | False  score=2
+  w3=0.40 | OK | LOST@10 | 0.0000 | False | False  score=2
+  w3=0.50 | OK | LOST@11 | 0.0000 | False | False  score=2
+
+Best score=2  best_w3=-0.5000
+
+=== WRIST_2 SCAN ===
+  w2=-1.20 | OK | LOST@149 | 0.0000 | False | False  score=2
+  w2=-1.10 | OK | LOST@13 | 0.0000 | False | False  score=2
+  w2=-1.00 | OK | LOST@13 | 0.0000 | False | False  score=2
+  w2=-0.90 | OK | LOST@5 | 0.0000 | False | False  score=2
+  w2=-0.80 | OK | LOST@9 | 0.0000 | False | False  score=2
+  w2=-0.70 | NO | OK | 999.0000 | False | False  score=2
+
+=== OFFICIAL G14 WITH BEST CONFIG ===
+Best Q = [-1.0356  1.3959  0.3225 -0.1977 -0.9749 -0.5   ]
+  G13 bilateral at step 0
+G13 PASS  bottle=[ 0.06  -3.     1.035]  lq=0.0699  rq=0.0706
+  t=1.00s  L=False R=False  lq=0.0103  rq=0.0697  drift=0.0000
+  t=2.00s  L=False R=False  lq=0.0101  rq=0.0702  drift=0.0000
+  t=3.00s  L=False R=False  lq=-0.0007  rq=0.0800  drift=0.0000
+  t=4.00s  L=False R=False  lq=0.0074  rq=0.0729  drift=0.0000
+  t=5.00s  L=False R=False  lq=0.0087  rq=0.0718  drift=0.0000
+
+G14 = FAIL
+  drift=0.000000  contact_loss=12  lc=False rc=False  hf=False
+XML MODIFIED = NO
+Exit: 0 

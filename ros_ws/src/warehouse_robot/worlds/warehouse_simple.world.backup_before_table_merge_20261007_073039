@@ -1,0 +1,324 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="warehouse_simple">
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <!-- ====================================================== -->
+    <!-- FLOOR                                                  -->
+    <!-- ====================================================== -->
+    <model name="warehouse_floor">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>16 12 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>16 12 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+      <pose>0 0 -0.05 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- WALLS                                                  -->
+    <!-- ====================================================== -->
+    <model name="wall_north">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>16 0.2 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>16 0.2 2</size></box></geometry></visual>
+      </link>
+      <pose>0 6 1 0 0 0</pose>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>16 0.2 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>16 0.2 2</size></box></geometry></visual>
+      </link>
+      <pose>0 -6 1 0 0 0</pose>
+    </model>
+
+    <model name="wall_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.2 12 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.2 12 2</size></box></geometry></visual>
+      </link>
+      <pose>8 0 1 0 0 0</pose>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>0.2 12 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>0.2 12 2</size></box></geometry></visual>
+      </link>
+      <pose>-8 0 1 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- RECEIVING                                              -->
+    <!-- ====================================================== -->
+    <model name="receiving_area">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>3.0 2.5 0.08</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-6.0 3.8 0.04 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- STORAGE RACK 1                                         -->
+    <!-- ====================================================== -->
+    <model name="storage_rack_1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-3.5 3.7 1.1 0 0 0</pose>
+    </model>
+
+    <!-- STORAGE RACK 2 -->
+    <model name="storage_rack_2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </visual>
+      </link>
+      <pose>0.5 3.7 1.1 0 0 0</pose>
+    </model>
+
+    <!-- STORAGE RACK 3 -->
+    <model name="storage_rack_3">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.8 0.45 2.2</size></box></geometry>
+        </visual>
+      </link>
+      <pose>4.5 3.7 1.1 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- PICKING STATION                                        -->
+    <!-- ====================================================== -->
+    <model name="picking_station">
+      <static>true</static>
+      <pose>-3.5 0.0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="top_col"><pose>0 0 0.875 0 0 0</pose><geometry><box><size>2.0 1.5 0.05</size></box></geometry></collision>
+        <visual name="top_vis"><pose>0 0 0.875 0 0 0</pose><geometry><box><size>2.0 1.5 0.05</size></box></geometry><material><ambient>0.0 0.3 0.9 1</ambient><diffuse>0.0 0.3 0.9 1</diffuse></material></visual>
+        <collision name="leg0_col"><pose>-0.910 -0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry></collision>
+        <visual name="leg0_vis"><pose>-0.910 -0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg1_col"><pose>-0.910 0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry></collision>
+        <visual name="leg1_vis"><pose>-0.910 0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg2_col"><pose>0.910 -0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry></collision>
+        <visual name="leg2_vis"><pose>0.910 -0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg3_col"><pose>0.910 0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry></collision>
+        <visual name="leg3_vis"><pose>0.910 0.660 0.425 0 0 0</pose><geometry><box><size>0.06 0.06 0.85</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- UR5e WORKCELL                                          -->
+    <!-- ====================================================== -->
+    <model name="ur5e_workcell">
+      <static>true</static>
+      <link name="base">
+        <collision name="collision">
+          <geometry><box><size>2.5 2.5 0.12</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.5 2.5 0.12</size></box></geometry>
+        </visual>
+      </link>
+      <pose>0 -1.8 0.06 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- HANDOVER TABLE                                         -->
+    <!-- ====================================================== -->
+    <model name="handover_table">
+      <static>true</static>
+      <pose>0.95 -1.8 0 0 0 0</pose>
+      <link name="link">
+        <collision name="top_col"><pose>0 0 0.825 0 0 0</pose><geometry><box><size>0.9 0.9 0.05</size></box></geometry></collision>
+        <visual name="top_vis"><pose>0 0 0.825 0 0 0</pose><geometry><box><size>0.9 0.9 0.05</size></box></geometry><material><ambient>0.0 0.3 0.9 1</ambient><diffuse>0.0 0.3 0.9 1</diffuse></material></visual>
+        <collision name="leg0_col"><pose>-0.360 -0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry></collision>
+        <visual name="leg0_vis"><pose>-0.360 -0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg1_col"><pose>-0.360 0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry></collision>
+        <visual name="leg1_vis"><pose>-0.360 0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg2_col"><pose>0.360 -0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry></collision>
+        <visual name="leg2_vis"><pose>0.360 -0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+        <collision name="leg3_col"><pose>0.360 0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry></collision>
+        <visual name="leg3_vis"><pose>0.360 0.360 0.39999999999999997 0 0 0</pose><geometry><box><size>0.06 0.06 0.7999999999999999</size></box></geometry><material><ambient>0.12 0.12 0.15 1</ambient><diffuse>0.12 0.12 0.15 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- SORTATION CONVEYOR                                     -->
+    <!-- ====================================================== -->
+    <model name="sortation_conveyor">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4.0 1.0 0.8</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.0 1.0 0.8</size></box></geometry>
+        </visual>
+      </link>
+      <pose>4.5 -1.8 0.4 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- PACKING / OUTBOUND                                     -->
+    <!-- ====================================================== -->
+    <model name="packing_outbound">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.0 2.0 0.8</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.0 2.0 0.8</size></box></geometry>
+        </visual>
+      </link>
+      <pose>5.8 2.0 0.4 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- CHARGING STATION                                       -->
+    <!-- ====================================================== -->
+    <model name="charging_station">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.2 1.5 0.15</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.2 1.5 0.15</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-5.8 -4.5 0.075 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- TRON1 START PLATFORM                                   -->
+    <!-- ====================================================== -->
+    <model name="tron1_start">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1.8 1.8 0.06</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-5.5 0.0 0.03 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- PALLETS                                                 -->
+    <!-- ====================================================== -->
+    <model name="pallet_receiving">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.2 1.0 0.12</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.2 1.0 0.12</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-6.0 3.8 0.1 0 0 0</pose>
+    </model>
+
+    <model name="pallet_outbound">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.2 1.0 0.12</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.2 1.0 0.12</size></box></geometry>
+        </visual>
+      </link>
+      <pose>6.0 2.0 0.1 0 0 0</pose>
+    </model>
+
+    <!-- ====================================================== -->
+    <!-- BASIC BOXES                                             -->
+    <!-- ====================================================== -->
+    <model name="box_1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-6.0 3.8 0.335 0 0 0</pose>
+    </model>
+
+    <model name="box_2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </visual>
+      </link>
+      <pose>-5.6 3.8 0.335 0 0 0</pose>
+    </model>
+
+    <model name="box_3">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.35 0.35 0.35</size></box></geometry>
+        </visual>
+      </link>
+      <pose>5.5 2.0 0.335 0 0 0</pose>
+    </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,45 @@
+[INFO] [1791872400.010433701] [claude_gz_walk]: t=0.0 walking=True
+[INFO] [1791872400.011797869] [claude_gz_walk]: t=0.1 walking=True
+[INFO] [1791872401.949894880] [claude_gz_walk]: t=2.0 walking=True
+[INFO] [1791872401.969778536] [claude_gz_walk]: t=2.0 walking=True
+[INFO] [1791872401.989870513] [claude_gz_walk]: t=2.1 walking=True
+[INFO] [1791872402.009623530] [claude_gz_walk]: t=2.1 walking=True
+[INFO] [1791872402.029568966] [claude_gz_walk]: t=2.1 walking=True
+[INFO] [1791872403.929987401] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791872403.951020543] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791872403.969617834] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791872403.989604260] [claude_gz_walk]: t=4.1 walking=True
+[INFO] [1791872404.009966345] [claude_gz_walk]: t=4.1 walking=True
+[INFO] [1791872404.030139221] [claude_gz_walk]: t=4.1 walking=True
+[INFO] [1791872405.929679599] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791872405.950158641] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791872405.970246059] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791872405.989856285] [claude_gz_walk]: t=6.1 walking=True
+[INFO] [1791872406.009941389] [claude_gz_walk]: t=6.1 walking=True
+[INFO] [1791872407.949780788] [claude_gz_walk]: t=8.0 walking=True
+[INFO] [1791872407.970581749] [claude_gz_walk]: t=8.0 walking=True
+[INFO] [1791872407.989945264] [claude_gz_walk]: t=8.1 walking=True
+[INFO] [1791872408.011003695] [claude_gz_walk]: t=8.1 walking=True
+[INFO] [1791872409.949910912] [claude_gz_walk]: t=10.0 walking=True
+[INFO] [1791872409.972640846] [claude_gz_walk]: t=10.0 walking=True
+[INFO] [1791872409.993002702] [claude_gz_walk]: t=10.1 walking=True
+[INFO] [1791872410.010978866] [claude_gz_walk]: t=10.1 walking=True
+[INFO] [1791872410.029840194] [claude_gz_walk]: t=10.1 walking=True
+[INFO] [1791872411.950911085] [claude_gz_walk]: t=12.0 walking=False
+[INFO] [1791872411.969611871] [claude_gz_walk]: t=12.0 walking=False
+[INFO] [1791872411.989629888] [claude_gz_walk]: t=12.1 walking=False
+[INFO] [1791872412.009637994] [claude_gz_walk]: t=12.1 walking=False
+Traceback (most recent call last):
+  File "/ros_ws/mujoco/claude_work/claude_gz_walk_node4.py", line 30, in <module>
+    rclpy.spin(n)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException

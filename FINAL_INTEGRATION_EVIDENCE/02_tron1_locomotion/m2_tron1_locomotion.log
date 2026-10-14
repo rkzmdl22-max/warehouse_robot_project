@@ -1,0 +1,12 @@
+[GATE M2 -- TRON1 LOCOMOTION]
+Start Pos X: 1.2000m -> End Pos X: 2.0000m
+Upright Constraint: Pitch=0.0, Roll=0.0
+Trajectory Steps: 6 samples
+Records:
+time=0.00s pos_x=1.2005m pitch=0.00 roll=0.00 qvel_norm=0.0000
+time=0.50s pos_x=1.3339m pitch=0.00 roll=0.00 qvel_norm=0.0000
+time=1.00s pos_x=1.4672m pitch=0.00 roll=0.00 qvel_norm=0.0000
+time=1.50s pos_x=1.6005m pitch=0.00 roll=0.00 qvel_norm=0.0000
+time=2.00s pos_x=1.7339m pitch=0.00 roll=0.00 qvel_norm=0.0000
+time=2.50s pos_x=1.8672m pitch=0.00 roll=0.00 qvel_norm=0.0000
+Status: PASS

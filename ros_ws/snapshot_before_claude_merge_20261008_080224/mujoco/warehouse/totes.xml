@@ -1,0 +1,19 @@
+<mujoco>
+  <worldbody>
+    <body name="tote_1" pos="-7.0 0.8 0.20">
+      <geom name="tote_1_body" type="box" size="0.35 0.25 0.10"
+            material="box_cardboard2_mat" mass="1.0"
+            friction="0.8 0.1 0.1" contype="1" conaffinity="1"/>
+    </body>
+    <body name="tote_2" pos="-7.0 -0.8 0.20">
+      <geom name="tote_2_body" type="box" size="0.35 0.25 0.10"
+            material="box_cardboard2_mat" mass="1.0"
+            friction="0.8 0.1 0.1" contype="1" conaffinity="1"/>
+    </body>
+    <body name="tote_3" pos="0.0 6.5 0.20">
+      <geom name="tote_3_body" type="box" size="0.35 0.25 0.10"
+            material="box_cardboard2_mat" mass="1.0"
+            friction="0.8 0.1 0.1" contype="1" conaffinity="1"/>
+    </body>
+  </worldbody>
+</mujoco>

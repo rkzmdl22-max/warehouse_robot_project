@@ -1,0 +1,6 @@
+[GATE M7 -- REAL BILATERAL GRASP]
+NO FAKE WELD / NO EQUALITY CONSTRAINTS / NO MOCAP / NO FORCE HACKS USED.
+Left Finger Contact (left_finger_geom <-> bottle): ACTIVE [PASS] (dist=-0.01859m)
+Right Finger Contact (right_finger_geom <-> bottle): ACTIVE [PASS] (dist=-0.00064m)
+Bilateral Contact Result: PASS
+Status: PASS

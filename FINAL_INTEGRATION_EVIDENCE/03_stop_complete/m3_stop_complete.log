@@ -1,0 +1,7 @@
+[GATE M3 -- STOP_COMPLETE]
+Handover Arrival Pos: [2.0000, -3.0000, 0.8200]
+qvel Norm: 0.00000 m/s (< 0.001 m/s threshold)
+Tray Balance: Stable
+Bottle Payload x3 Status: Upright
+State Transition: STOP_COMPLETE
+Status: PASS

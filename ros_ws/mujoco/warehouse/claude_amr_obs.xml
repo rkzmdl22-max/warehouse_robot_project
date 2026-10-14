@@ -1,0 +1,5 @@
+<mujoco><worldbody>
+<geom name="claude_obs1" type="box" pos="-1 2 0.25" size="0.25 0.25 0.25" rgba="0.65 0.5 0.3 1"/>
+<geom name="claude_obs2" type="box" pos="0.5 3.5 0.25" size="0.25 0.25 0.25" rgba="0.65 0.5 0.3 1"/>
+<geom name="claude_obs3" type="box" pos="2 0.5 0.25" size="0.25 0.25 0.25" rgba="0.65 0.5 0.3 1"/>
+</worldbody></mujoco>

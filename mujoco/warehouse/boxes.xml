@@ -1,0 +1,28 @@
+<mujoco model="boxes">
+  <!--
+    Warehouse Boxes / Pick Targets Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    Dynamic pick targets (Full size: 0.5m x 0.4m x 0.4m, Center Z=0.55m)
+  -->
+  <worldbody>
+    <body name="box_1" pos="-4.0 -2.0 0.55">
+      <freejoint/>
+      <geom name="box_1_geom" type="box" size="0.25 0.2 0.2" material="box_cardboard1_mat" mass="1.5" friction="0.8 0.1 0.1" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="box_2" pos="4.0 -2.0 0.55">
+      <freejoint/>
+      <geom name="box_2_geom" type="box" size="0.25 0.2 0.2" material="box_cardboard2_mat" mass="1.5" friction="0.8 0.1 0.1" contype="1" conaffinity="1"/>
+    </body>
+
+    <body name="box_shelf1_a" pos="-6.0 -5.0 0.62">
+      <freejoint/>
+      <geom name="box_shelf1_a_geom" type="box" size="0.2 0.15 0.15" material="box_small_mat" mass="1.0" friction="0.8 0.1 0.1"/>
+    </body>
+
+    <body name="box_shelf4_a" pos="-6.0 5.0 0.62">
+      <freejoint/>
+      <geom name="box_shelf4_a_geom" type="box" size="0.2 0.15 0.15" material="box_cardboard1_mat" mass="1.0" friction="0.8 0.1 0.1"/>
+    </body>
+  </worldbody>
+</mujoco>

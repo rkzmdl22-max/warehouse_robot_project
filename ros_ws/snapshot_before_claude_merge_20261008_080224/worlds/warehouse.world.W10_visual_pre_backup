@@ -1,0 +1,850 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <world name="warehouse">
+
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- ========================= -->
+    <!-- Industrial Warehouse Scene -->
+    <!-- ========================= -->
+    <scene>
+      <ambient>0.30 0.30 0.30 1</ambient>
+      <background>0.12 0.15 0.18 1</background>
+      <shadows>true</shadows>
+      <grid>false</grid>
+    </scene>
+
+
+    <!-- Left Wall -->
+    <model name="wall_left">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.30 0.32 1</ambient>
+            <diffuse>0.28 0.30 0.32 1</diffuse>
+          </material>
+        </visual>
+
+        <pose>
+          0 -10 1.25 0 0 0
+        </pose>
+
+      </link>
+
+    </model>
+
+    <!-- Right Wall -->
+    <model name="wall_right">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.30 0.32 1</ambient>
+            <diffuse>0.28 0.30 0.32 1</diffuse>
+          </material>
+        </visual>
+
+        <pose>
+          0 10 1.25 0 0 0
+        </pose>
+
+      </link>
+
+    </model>
+
+    <!-- Front Wall -->
+    <model name="wall_front">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 20 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 20 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.30 0.32 1</ambient>
+            <diffuse>0.28 0.30 0.32 1</diffuse>
+          </material>
+        </visual>
+
+        <pose>
+          10 0 1.25 0 0 0
+        </pose>
+
+      </link>
+
+    </model>
+
+    <!-- Back Wall -->
+    <model name="wall_back">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 20 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 20 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.30 0.32 1</ambient>
+            <diffuse>0.28 0.30 0.32 1</diffuse>
+          </material>
+        </visual>
+
+        <pose>
+          -10 0 1.25 0 0 0
+        </pose>
+
+      </link>
+
+    </model>
+
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>10 -10 8 0 0.5 2.3</pose>
+      </camera>
+    </gui>
+
+    <!-- ===================================================== -->
+    <!-- WAREHOUSE AISLES / FLOOR MARKINGS -->
+    <!-- ===================================================== -->
+
+    <!-- Main aisle -->
+    <model name="aisle_main">
+      <static>true</static>
+      <pose>0 0 0.012 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>14.0 1.2 0.02</size></box>
+          </geometry>
+          <material>
+            <ambient>0.12 0.12 0.12 1</ambient>
+            <diffuse>0.12 0.12 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Cross aisle -->
+    <model name="aisle_cross">
+      <static>true</static>
+      <pose>0 -3.0 0.013 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>14.0 0.8 0.02</size></box>
+          </geometry>
+          <material>
+            <ambient>0.18 0.18 0.18 1</ambient>
+            <diffuse>0.18 0.18 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Receiving aisle -->
+    <model name="aisle_receiving">
+      <static>true</static>
+      <pose>-7.0 -6.0 0.014 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>5.5 0.7 0.02</size></box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.20 0.20 1</ambient>
+            <diffuse>0.20 0.20 0.20 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 1  (-6, -5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 1 -->
+    <!-- ========================= -->
+    <model name="shelf_1">
+      <static>true</static>
+      <pose>-6 -5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 2  (0, -5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 2 -->
+    <!-- ========================= -->
+    <model name="shelf_2">
+      <static>true</static>
+      <pose>0 -5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 3  (6, -5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 3 -->
+    <!-- ========================= -->
+    <model name="shelf_3">
+      <static>true</static>
+      <pose>6 -5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 4  (-6, 5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 4 -->
+    <!-- ========================= -->
+    <model name="shelf_4">
+      <static>true</static>
+      <pose>-6 5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 5  (0, 5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 5 -->
+    <!-- ========================= -->
+    <model name="shelf_5">
+      <static>true</static>
+      <pose>0 5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Shelf 6  (6, 5) -->
+    <!-- ========================= -->
+    <!-- ========================= -->
+    <!-- Warehouse Rack 6 -->
+    <!-- ========================= -->
+    <model name="shelf_6">
+      <static>true</static>
+      <pose>6 5 0 0 0 0</pose>
+
+      <!-- Rack upright / frame -->
+      <link name="rack_frame">
+        <collision name="collision">
+          <geometry>
+            <box><size>3.0 0.8 2.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.12</size></box>
+          </geometry>
+          <pose>0 0 2.28 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Lower storage level -->
+      <link name="level_1">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 0.55 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Middle storage level -->
+      <link name="level_2">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 1.35 0 0 0</pose>
+        </visual>
+      </link>
+
+      <!-- Upper storage level -->
+      <link name="level_3">
+        <visual name="visual">
+          <geometry>
+            <box><size>3.0 0.8 0.10</size></box>
+          </geometry>
+          <pose>0 0 2.10 0 0 0</pose>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ===================================================== -->
+    <!-- WAREHOUSE RACK CARGO -->
+    <!-- ===================================================== -->
+
+    <!-- Rack 1 cargo -->
+    <model name="rack1_box_a">
+      <static>true</static>
+      <pose>-6.7 -5.0 0.82 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.65 0.42 0.18 1</ambient>
+            <diffuse>0.65 0.42 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack1_box_b">
+      <static>true</static>
+      <pose>-6.0 -5.0 1.62 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.20 0.45 0.75 1</ambient>
+            <diffuse>0.20 0.45 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rack 2 cargo -->
+    <model name="rack2_box_a">
+      <static>true</static>
+      <pose>-0.7 -5.0 0.82 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.72 0.48 0.18 1</ambient>
+            <diffuse>0.72 0.48 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack2_box_b">
+      <static>true</static>
+      <pose>0.0 -5.0 1.62 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.30 0.60 0.30 1</ambient>
+            <diffuse>0.30 0.60 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rack 3 cargo -->
+    <model name="rack3_box_a">
+      <static>true</static>
+      <pose>5.3 -5.0 0.82 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.72 0.30 0.20 1</ambient>
+            <diffuse>0.72 0.30 0.20 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack3_box_b">
+      <static>true</static>
+      <pose>6.0 -5.0 1.62 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.55 0.55 0.50</size></box></geometry>
+          <material>
+            <ambient>0.25 0.50 0.75 1</ambient>
+            <diffuse>0.25 0.50 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Pallet -->
+    <!-- ========================= -->
+
+    <model name="pallet_1">
+      <static>true</static>
+      <pose>-6 -2 0.075 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.2 0.8 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.2 0.8 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pallet_2">
+      <static>true</static>
+      <pose>6 2 0.075 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.2 0.8 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.2 0.8 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.35 0.15 1</ambient>
+            <diffuse>0.55 0.35 0.15 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================= -->
+    <!-- Cargo Boxes -->
+    <!-- ========================= -->
+
+    <model name="box_1">
+      <pose>-4 -2 0.55 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.6 0.2 1</ambient>
+            <diffuse>0.8 0.6 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="box_2">
+      <pose>4 -2 0.55 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.4 0.9 1</ambient>
+            <diffuse>0.2 0.4 0.9 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  
+    <!-- ===================================================== -->
+    <!-- LOGISTICS WAREHOUSE ZONES -->
+    <!-- ===================================================== -->
+
+    <!-- Receiving / Inbound -->
+    <model name="receiving_zone">
+      <static>true</static>
+      <pose>-7.0 -7.5 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>6.0 2.0 0.10</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Picking staging -->
+    <model name="picking_zone">
+      <static>true</static>
+      <pose>-7.0 0 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>2.0 3.0 0.10</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Packing -->
+    <model name="packing_zone">
+      <static>true</static>
+      <pose>0 7.5 0.18 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>2.0 0.8 0.25</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Delivery / Outbound -->
+    <model name="delivery_zone">
+      <static>true</static>
+      <pose>7.0 -7.5 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>4.0 2.0 0.10</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Robot charging station -->
+    <model name="charging_station">
+      <static>true</static>
+      <pose>-7.0 8.5 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>2.5 1.2 0.20</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>2.5 1.2 0.20</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Robot staging / waiting -->
+    <model name="robot_staging">
+      <static>true</static>
+      <pose>7.0 -7.5 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box><size>4.0 2.0 0.10</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+</world>
+</sdf>

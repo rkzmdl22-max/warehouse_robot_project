@@ -1,0 +1,394 @@
+<mujoco model="tron1_station">
+  <compiler angle="radian"/>
+  <!--
+    TRON1 & UR5e Handover Station Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    Actuators added 2026-09-03 for GATE 3 MuJoCo track validation.
+  -->
+  <asset>
+    <!-- Station Materials -->
+    <material name="station_table_mat" rgba="0.25 0.3 0.35 1" specular="0.3" shininess="0.4"/>
+    <material name="station_top_mat" rgba="0.8 0.82 0.85 1" specular="0.4" shininess="0.5"/>
+    <material name="bottle_mat" rgba="0.1 0.7 0.9 0.85" specular="0.8" shininess="0.9"/>
+    <material name="camera_mat" rgba="0.2 0.2 0.25 1" specular="0.5" shininess="0.6"/>
+    <material name="ur5e_mat" rgba="0.2 0.5 0.8 1" specular="0.4" shininess="0.4"/>
+    <material name="gripper_mat" rgba="0.1 0.1 0.12 1" specular="0.3" shininess="0.3"/>
+  
+    <!-- STEP 7C-8N-U2: ORIGINAL MENAGERIE UR5e VISUAL MESHES -->
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/base_0.obj" name="ur5e_base_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/base_1.obj" name="ur5e_base_1"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_0.obj" name="ur5e_shoulder_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_1.obj" name="ur5e_shoulder_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/shoulder_2.obj" name="ur5e_shoulder_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_0.obj" name="ur5e_upperarm_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_1.obj" name="ur5e_upperarm_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_2.obj" name="ur5e_upperarm_2"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/upperarm_3.obj" name="ur5e_upperarm_3"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_0.obj" name="ur5e_forearm_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_1.obj" name="ur5e_forearm_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_2.obj" name="ur5e_forearm_2"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/forearm_3.obj" name="ur5e_forearm_3"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_0.obj" name="ur5e_wrist1_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_1.obj" name="ur5e_wrist1_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist1_2.obj" name="ur5e_wrist1_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_0.obj" name="ur5e_wrist2_0"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_1.obj" name="ur5e_wrist2_1"/>
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist2_2.obj" name="ur5e_wrist2_2"/>
+
+    <mesh file="/ros_ws/mujoco_menagerie/universal_robots_ur5e/assets/wrist3.obj" name="ur5e_wrist3"/>
+</asset>
+
+  <worldbody>
+    <!-- Station Table (Center pos: [2.5, -3.0, 0.4], size half-extents: [0.6, 0.4, 0.4]) -->
+    <body name="station_table" pos="2.5 -3.0 0.4">
+      <geom name="station_table_base" type="box" size="0.6 0.4 0.38" material="station_table_mat" contype="1" conaffinity="1"/>
+      <geom name="station_table_top" type="box" pos="0 0 0.39" size="0.62 0.42 0.01" material="station_top_mat" contype="1" conaffinity="1"/>
+
+      <!-- ============================================================
+           UR5e Manipulator
+           Golden Reference: Gazebo ur5e_station.urdf
+           Geometry: primitive approximation matching Gazebo
+           ============================================================ -->
+
+      <!-- Gazebo base: world-mounted UR5e base -->
+      <body name="ur5e_base" pos="0.3 -0.2 0.4">
+
+        <geom name="ur5e_base_geom" mesh="ur5e_base_0"
+              type="cylinder"
+              size="0.075 0.065"
+              material="ur5e_mat"
+              contype="1"
+              conaffinity="1"/>
+      <geom name="ur5e_base_1_visual"
+            mesh="ur5e_base_1"
+            contype="0" conaffinity="0" group="2"/>
+
+
+        <!-- shoulder_pan_joint
+             Gazebo origin: 0 0 0.1625
+             axis: 0 0 1 -->
+        <body name="ur5e_base_link" pos="0 0 0.1625">
+          <joint name="shoulder_pan_joint"
+                 type="hinge"
+                 axis="0 0 1"
+                 limited="true"
+                 range="-6.2832 6.2832"
+                 damping="0.5"/>
+
+          <geom name="ur5e_shoulder_geom" mesh="ur5e_shoulder_0"
+                type="cylinder"
+                size="0.06 0.065"
+                euler="1.5708 0 0"
+                material="ur5e_mat"/>
+          <geom name="ur5e_shoulder_1_visual"
+                mesh="ur5e_shoulder_1"
+                contype="0" conaffinity="0" group="2"/>
+          <geom name="ur5e_shoulder_2_visual"
+                mesh="ur5e_shoulder_2"
+                contype="0" conaffinity="0" group="2"/>
+
+
+          <!-- shoulder_lift_joint
+               Gazebo origin: 0 0.138 0
+               Gazebo rpy: 1.5708 0 0
+               axis in joint frame: 0 0 1 -->
+          <body name="ur5e_shoulder_link"
+                pos="0 0.138 0"
+                euler="1.5708 0 0">
+
+            <joint name="shoulder_lift_joint"
+                   type="hinge"
+                   axis="0 0 1"
+                   limited="true"
+                   range="-6.2832 6.2832"
+                   damping="0.5"/>
+
+            <!-- Upper arm: Gazebo length 0.425, radius 0.054 -->
+            <geom name="ur5e_upper_arm_geom" mesh="ur5e_upperarm_0"
+                  type="cylinder"
+                  pos="0 0 0.2125"
+                  size="0.054 0.2125"
+                  material="ur5e_mat"/>
+            <geom name="ur5e_upperarm_1_visual"
+                  mesh="ur5e_upperarm_1"
+                  contype="0" conaffinity="0" group="2"/>
+            <geom name="ur5e_upperarm_2_visual"
+                  mesh="ur5e_upperarm_2"
+                  contype="0" conaffinity="0" group="2"/>
+            <geom name="ur5e_upperarm_3_visual"
+                  mesh="ur5e_upperarm_3"
+                  contype="0" conaffinity="0" group="2"/>
+
+
+            <!-- elbow_joint
+                 Gazebo origin: 0 0.425 0 -->
+            <body name="ur5e_upper_arm_link"
+                  pos="0 0.425 0">
+
+              <joint name="elbow_joint"
+                     type="hinge"
+                     axis="0 0 1"
+                     limited="true"
+                     range="-6.2832 6.2832"
+                     damping="0.5"/>
+
+              <!-- Forearm: Gazebo length 0.392, radius 0.040 -->
+              <geom name="ur5e_forearm_geom" mesh="ur5e_forearm_0"
+                    type="cylinder"
+                    pos="0 0 0.196"
+                    size="0.04 0.196"
+                    material="ur5e_mat"/>
+              <geom name="ur5e_forearm_1_visual"
+                    mesh="ur5e_forearm_1"
+                    contype="0" conaffinity="0" group="2"/>
+              <geom name="ur5e_forearm_2_visual"
+                    mesh="ur5e_forearm_2"
+                    contype="0" conaffinity="0" group="2"/>
+              <geom name="ur5e_forearm_3_visual"
+                    mesh="ur5e_forearm_3"
+                    contype="0" conaffinity="0" group="2"/>
+
+
+              <!-- wrist_1_joint
+                   Gazebo origin: 0 0.392 -0.1333
+                   Gazebo rpy: 1.5708 0 0 -->
+              <body name="ur5e_forearm_link"
+                    pos="0 0.392 -0.1333"
+                    euler="1.5708 0 0">
+
+                <joint name="wrist_1_joint"
+                       type="hinge"
+                       axis="0 0 1"
+                       limited="true"
+                       range="-6.2832 6.2832"
+                       damping="0.1"/>
+
+                <!-- Wrist 1: length 0.127, radius 0.033 -->
+                <geom name="ur5e_wrist_1_geom" mesh="ur5e_wrist1_0"
+                      type="cylinder"
+                      pos="0 0.0635 0"
+                      size="0.033 0.0635"
+                      euler="1.5708 0 0"
+                      material="ur5e_mat"/>
+                <geom name="ur5e_wrist1_1_visual"
+                      mesh="ur5e_wrist1_1"
+                      contype="0" conaffinity="0" group="2"/>
+                <geom name="ur5e_wrist1_2_visual"
+                      mesh="ur5e_wrist1_2"
+                      contype="0" conaffinity="0" group="2"/>
+
+
+                <!-- wrist_2_joint
+                     Gazebo origin: 0 0.127 0
+                     Gazebo rpy: 1.5708 0 0 -->
+                <body name="ur5e_wrist_1_link"
+                      pos="0 0.127 0"
+                      euler="1.5708 0 0">
+
+                  <joint name="wrist_2_joint"
+                         type="hinge"
+                         axis="0 0 1"
+                         limited="true"
+                         range="-6.2832 6.2832"
+                         damping="0.1"/>
+
+                  <!-- Wrist 2: length 0.100, radius 0.033 -->
+                  <geom name="ur5e_wrist_2_geom" mesh="ur5e_wrist2_0"
+                        type="cylinder"
+                        pos="0 0 0.05"
+                        size="0.033 0.05"
+                        material="ur5e_mat"/>
+                  <geom name="ur5e_wrist2_1_visual"
+                        mesh="ur5e_wrist2_1"
+                        contype="0" conaffinity="0" group="2"/>
+                  <geom name="ur5e_wrist2_2_visual"
+                        mesh="ur5e_wrist2_2"
+                        contype="0" conaffinity="0" group="2"/>
+
+
+                  <!-- wrist_3_joint
+                       Gazebo origin: 0 0 0.1
+                       Gazebo rpy: 1.5708 0 0 -->
+                  <body name="ur5e_wrist_2_link"
+                        pos="0 0 0.1"
+                        euler="1.5708 0 0">
+                    <body name="ur5e_wrist_3_link"
+                          pos="0 0 0">
+
+
+                    <joint name="wrist_3_joint"
+                           type="hinge"
+                           axis="0 0 1"
+                           limited="true"
+                           range="-6.2832 6.2832"
+                           damping="0.1"/>
+
+                    <!-- Wrist 3: length 0.0232, radius 0.033 -->
+                    <geom name="ur5e_wrist_3_geom" mesh="ur5e_wrist3"
+                          type="cylinder"
+                          pos="0 0 0.0116"
+                          size="0.033 0.0116"
+                          material="ur5e_mat"/>
+
+                    <!-- Gazebo fixed wrist_3_to_tool0
+                         origin: 0 0.0116 0
+                         rpy: 1.5708 -1.5708 0 -->
+                    <body name="tool0"
+                          pos="0 0.0116 0"
+                          euler="1.5708 -1.5708 0">
+
+                      <!-- Robotiq 2F-140 simplified -->
+                      <body name="gripper_base_link"
+                            pos="0 0 0">
+
+                        <geom name="gripper_body"
+                              type="box"
+                              pos="0 0 0.04"
+                              size="0.04 0.06 0.03"
+                              material="gripper_mat"
+                              contype="0"
+                              conaffinity="0"/>
+
+                        <!-- STEP 8-5: Gripper-mounted RGB-D virtual camera -->
+                        <camera name="gripper_rgbd_camera"
+                                pos="0 0 0.12"
+                                quat="-0.11686776 0.09400519 0.77035347 0.61972613"
+                                fovy="60"/>
+
+                        <!-- left_finger_joint:
+                             origin -0.03 0 0.08
+                             axis 1 0 0 -->
+                        <body name="left_finger_link"
+                              pos="-0.070 0 0.08">
+
+                          <joint name="left_finger_joint"
+                                 type="slide"
+                                 axis="1 0 0"
+                                 limited="true"
+                                 range="0 0.07"
+                                 damping="0.1"/>
+
+                          <geom name="left_finger_geom"
+                                type="box"
+                                pos="0 0 -0.08"
+                                size="0.008 0.015 0.03"
+                                material="gripper_mat"
+                                friction="1.2 0.1 0.1"/>
+
+                        </body>
+
+                        <!-- right_finger_joint:
+                             origin +0.03 0 0.08
+                             axis -1 0 0 -->
+                        <body name="right_finger_link"
+                              pos="0.070 0 0.08">
+
+                          <joint name="right_finger_joint"
+                                 type="slide"
+                                 axis="-1 0 0"
+                                 limited="true"
+                                 range="0 0.07"
+                                 damping="0.1"/>
+
+                          <geom name="right_finger_geom"
+                                type="box"
+                                pos="0 0 -0.08"
+                                size="0.008 0.015 0.03"
+                                material="gripper_mat"
+                                friction="1.2 0.1 0.1"/>
+
+                        </body>
+                      </body>
+                    </body>
+                  
+                    </body></body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- RGB-D Virtual Station Camera Mount (pos: [2.5, -3.0, 2.2]) -->
+    <body name="station_camera_stand" pos="2.5 -3.0 2.2">
+      <geom name="cam_box" type="box" size="0.06 0.12 0.04" material="camera_mat" contype="0" conaffinity="0"/>
+      <camera name="station_rgbd_camera" pos="0 0 0" euler="0.6 0 -1.57" fovy="60"/>
+    </body>
+
+    <!-- Target Handover Bottle (Diameter: 0.08m, Height: 0.24m) -->
+    <body name="bottle_target" pos="2.5 -3.0 0.92">
+      <freejoint/>
+      <geom name="bottle_geom" type="cylinder" size="0.04 0.12" material="bottle_mat" mass="0.35" friction="0.9 0.05 0.01" contype="1" conaffinity="1"/>
+      <site name="bottle_centroid_site" pos="0 0 0" size="0.015" rgba="1 0 0 1"/>
+    </body>
+  </worldbody>
+
+  <!-- STEP 7C-8N: disable wrist_1 ↔ wrist_3 self-collision -->
+  <contact>
+    <exclude body1="ur5e_forearm_link" body2="ur5e_wrist_2_link"/>
+  </contact>
+
+  <!--
+    ============================================================
+    ACTUATORS for UR5e + Robotiq 2F-140 Gripper
+    Added 2026-09-03 for GATE 3 MuJoCo track validation.
+
+    All joints use position actuators with kp gain.
+    Joint travel:  arm ±π rad,  finger 0~0.07m (slide)
+
+    Smoke test:
+      HOME  → all ctrl=0
+      REACH → shoulder_lift ctrl=-1.0, elbow ctrl=1.5
+      GRASP → left/right finger ctrl=0.064
+      OPEN  → left/right finger ctrl=0.0
+    ============================================================
+  -->
+  <actuator>
+    <position name="act_shoulder_pan"
+              joint="shoulder_pan_joint"
+              kp="200"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_shoulder_lift"
+              joint="shoulder_lift_joint"
+              kp="200"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_elbow"
+              joint="elbow_joint"
+              kp="150"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_1"
+              joint="wrist_1_joint"
+              kp="80"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_2"
+              joint="wrist_2_joint"
+              kp="80"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_wrist_3"
+              joint="wrist_3_joint"
+              kp="50"
+              ctrlrange="-6.2832 6.2832"/>
+
+    <position name="act_left_finger"
+              joint="left_finger_joint"
+              kp="100"
+              ctrlrange="0 0.07"/>
+
+    <position name="act_right_finger"
+              joint="right_finger_joint"
+              kp="100"
+              ctrlrange="0 0.07"/>
+  </actuator>
+
+</mujoco>

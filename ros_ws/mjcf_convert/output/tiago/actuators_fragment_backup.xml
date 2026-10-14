@@ -1,0 +1,148 @@
+
+  
+    
+  <motor name="wheel_right_joint" joint="wheel_right_joint" ctrllimited="true" ctrlrange="-6 6" gear="1"/>
+  
+    
+  <motor name="wheel_left_joint" joint="wheel_left_joint" ctrllimited="true" ctrlrange="-6 6" gear="1"/>
+  
+    
+  <motor name="torso_lift_joint" joint="torso_lift_joint" ctrllimited="true" ctrlrange="-2000 2000" gear="1"/>
+  
+    
+  <motor name="arm_1_joint" joint="arm_1_joint" ctrllimited="true" ctrlrange="-43 43" gear="1"/>
+  
+    
+  <motor name="arm_2_joint" joint="arm_2_joint" ctrllimited="true" ctrlrange="-43 43" gear="1"/>
+  
+    
+  <motor name="arm_3_joint" joint="arm_3_joint" ctrllimited="true" ctrlrange="-26 26" gear="1"/>
+  
+    
+  <motor name="arm_4_joint" joint="arm_4_joint" ctrllimited="true" ctrlrange="-26 26" gear="1"/>
+  
+    
+  <motor name="arm_5_joint" joint="arm_5_joint" ctrllimited="true" ctrlrange="-3 3" gear="1"/>
+  
+    
+  <motor name="arm_6_joint" joint="arm_6_joint" ctrllimited="true" ctrlrange="-6.6 6.6" gear="1"/>
+  
+    
+  <motor name="arm_7_joint" joint="arm_7_joint" ctrllimited="true" ctrlrange="-6.6 6.6" gear="1"/>
+  
+    
+  <motor name="hand_thumb_joint" joint="hand_thumb_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_joint" joint="hand_index_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_mrl_joint" joint="hand_mrl_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_thumb_abd_joint" joint="hand_thumb_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_thumb_virtual_1_joint" joint="hand_thumb_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_thumb_flex_1_joint" joint="hand_thumb_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_thumb_virtual_2_joint" joint="hand_thumb_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_thumb_flex_2_joint" joint="hand_thumb_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_abd_joint" joint="hand_index_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_virtual_1_joint" joint="hand_index_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_flex_1_joint" joint="hand_index_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_virtual_2_joint" joint="hand_index_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_flex_2_joint" joint="hand_index_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_virtual_3_joint" joint="hand_index_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_index_flex_3_joint" joint="hand_index_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_abd_joint" joint="hand_middle_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_virtual_1_joint" joint="hand_middle_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_flex_1_joint" joint="hand_middle_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_virtual_2_joint" joint="hand_middle_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_flex_2_joint" joint="hand_middle_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_virtual_3_joint" joint="hand_middle_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_middle_flex_3_joint" joint="hand_middle_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_abd_joint" joint="hand_ring_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_virtual_1_joint" joint="hand_ring_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_flex_1_joint" joint="hand_ring_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_virtual_2_joint" joint="hand_ring_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_flex_2_joint" joint="hand_ring_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_virtual_3_joint" joint="hand_ring_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_ring_flex_3_joint" joint="hand_ring_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_abd_joint" joint="hand_little_abd_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_virtual_1_joint" joint="hand_little_virtual_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_flex_1_joint" joint="hand_little_flex_1_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_virtual_2_joint" joint="hand_little_virtual_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_flex_2_joint" joint="hand_little_flex_2_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_virtual_3_joint" joint="hand_little_virtual_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="hand_little_flex_3_joint" joint="hand_little_flex_3_joint" ctrllimited="true" ctrlrange="-2 2" gear="1"/>
+  
+    
+  <motor name="head_1_joint" joint="head_1_joint" ctrllimited="true" ctrlrange="-5.197 5.197" gear="1"/>
+  
+    
+  <motor name="head_2_joint" joint="head_2_joint" ctrllimited="true" ctrlrange="-2.77 2.77" gear="1"/>
+  
+  
+

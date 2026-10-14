@@ -1,0 +1,30 @@
+[INFO] [1791871519.565729998] [claude_gz_walk]: t=0.0 walking=True
+[INFO] [1791871521.463624877] [claude_gz_walk]: t=2.0 walking=True
+[INFO] [1791871521.484001421] [claude_gz_walk]: t=2.0 walking=True
+[INFO] [1791871521.509928485] [claude_gz_walk]: t=2.0 walking=True
+[INFO] [1791871521.525979449] [claude_gz_walk]: t=2.1 walking=True
+[INFO] [1791871521.550296383] [claude_gz_walk]: t=2.1 walking=True
+[INFO] [1791871523.466978048] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791871523.481041618] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791871523.502080171] [claude_gz_walk]: t=4.0 walking=True
+[INFO] [1791871523.524980086] [claude_gz_walk]: t=4.1 walking=True
+[INFO] [1791871523.543310771] [claude_gz_walk]: t=4.1 walking=True
+[INFO] [1791871525.463417123] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791871525.483160688] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791871525.502233505] [claude_gz_walk]: t=6.0 walking=True
+[INFO] [1791871525.522947401] [claude_gz_walk]: t=6.1 walking=True
+[INFO] [1791871525.541863794] [claude_gz_walk]: t=6.1 walking=True
+Traceback (most recent call last):
+  File "/ros_ws/mujoco/claude_work/claude_gz_walk_node2.py", line 30, in <module>
+    rclpy.spin(n)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 797, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 780, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException

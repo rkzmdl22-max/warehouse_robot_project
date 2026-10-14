@@ -1,0 +1,43 @@
+== 0) 자체 검증: 공칭 중심(0.15,-3.00,1.037)으로 IK를 풀면 저장해와 같아야 함
+   IK above    목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.000 rad
+   IK pregrasp 목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.000 rad
+   IK grasp    목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.000 rad
+   IK lift     목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.000 rad
+== 1) 스테이션 카메라 감지, 병 정지 대기(3프레임 연속 2mm 이내)
+   frame 0 t=0.00s: 중심 (0.1442, -3.0017, 1.0381) 픽셀 956 | 직전 프레임 대비 변화 - | 안정 0/3
+   frame 1 t=0.25s: 중심 (0.1458, -3.0017, 1.0368) 픽셀 945 | 직전 프레임 대비 변화 1.58 mm | 안정 1/3
+   frame 2 t=0.50s: 중심 (0.1458, -3.0017, 1.0368) 픽셀 945 | 직전 프레임 대비 변화 0.01 mm | 안정 2/3
+   frame 3 t=0.75s: 중심 (0.1457, -3.0017, 1.0368) 픽셀 946 | 직전 프레임 대비 변화 0.11 mm | 안정 3/3
+   정지 확인. 스테이션 추정 중심 (0.1457, -3.0017, 1.0368) | 지름 69.9 mm | (평가용) 정답 대비 3D 오차 5.2 mm
+== 2) 감지 중심에서 above/pregrasp IK
+   IK above    목표 위치오차 0.03 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.009 rad
+   IK pregrasp 목표 위치오차 0.02 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.010 rad
+above     trk err 0.0088 rad | mid-finger→bottle 0.2957 | bottle z 1.034 | contacts L/R (False, False) | ext coll []
+pregrasp  trk err 0.0068 rad | mid-finger→bottle 0.1165 | bottle z 1.035 | contacts L/R (False, False) | ext coll []
+== 3) 그리퍼 카메라(pregrasp)로 x,y 정밀화
+   그리퍼 추정 xy (0.1490, -2.9992) | 스테이션 xy와 차이 4.1 mm | (평가용) 정답 xy 오차 1.5 mm | 픽셀 208736
+   IK grasp    목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.004 rad
+   IK lift     목표 위치오차 0.00 mm | 자세오차 0.0000 | 저장해 대비 최대 관절차 0.004 rad
+approach  trk err 0.0031 rad | mid-finger→bottle 0.0028 | bottle z 1.035 | contacts L/R (False, False) | ext coll []
+close     trk err 0.0001 rad | mid-finger→bottle 0.0025 | bottle z 1.035 | contacts L/R (True, True) | ext coll []
+bottle in tool frame: [ 0.    -0.002  0.079]
+지름 검증: 벌림(열림) 간격 0.0790 m | 닫힌 손가락 안쪽 간격 0.0683 m | 병 지름 0.0700 m | 차이 1.7 mm
+close 후 접촉 법선력(N) 좌/우: (7.99, 7.94)
+lift      trk err 0.0046 rad | mid-finger→bottle 0.0036 | bottle z 1.150 | contacts L/R (True, True) | ext coll []
+lift 후 접촉 법선력(N) 좌/우: (7.98, 7.95)
+lift hold 1.5s | bottle z 1.150 | slip 0.0021 m | contacts (True, True) | lifted 0.116 m
+감지 기반 파지·들어올림 판정(측정 기준): PASS
+선택된 놓기 위치: (0.90, -3.04), 병 중심 z 0.902
+transit   trk err 0.0074 rad | mid-finger→bottle 0.0066 | bottle z 1.193 | contacts L/R (True, True) | ext coll []
+above_pl  trk err 0.0219 rad | mid-finger→bottle 0.0081 | bottle z 0.959 | contacts L/R (True, True) | ext coll []
+lower     trk err 0.0236 rad | mid-finger→bottle 0.0089 | bottle z 0.908 | contacts L/R (True, True) | ext coll []
+release   trk err 0.1278 rad | mid-finger→bottle 0.0134 | bottle z 0.903 | contacts L/R (True, False) | ext coll []
+   release+0.2s: bottle z 0.9038 | tilt 12.3 deg | contacts (True, False) | force (19.34, 0.0)
+   release+0.4s: bottle z 0.9040 | tilt 13.0 deg | contacts (True, False) | force (18.64, 0.0)
+   release+0.6s: bottle z 0.9041 | tilt 13.4 deg | contacts (True, False) | force (17.95, 0.0)
+   release+0.8s: bottle z 0.9042 | tilt 13.9 deg | contacts (True, False) | force (17.29, 0.0)
+   release+1.0s: bottle z 0.9043 | tilt 14.3 deg | contacts (True, False) | force (16.65, 0.0)
+   release+1.2s: bottle z 0.9044 | tilt 14.7 deg | contacts (True, False) | force (16.03, 0.0)
+ret_back  trk err 0.0066 rad | mid-finger→bottle 0.0832 | bottle z 0.900 | contacts L/R (False, False) | ext coll []
+최종 병 위치 [ 0.865 -3.061  0.9  ] | 기울기 0.0 deg | 속도 0.0015 m/s | 외부 충돌 기록 []
+놓기 안정 판정(측정 기준): PASS

@@ -1,0 +1,13 @@
+{
+  "test_id": "E-7-15",
+  "test_name": "gripper/finger joint convergence",
+  "target_position": [0.04, 0.04],
+  "measured_position": [0.03999909090514642, 0.04000007048230143],
+  "position_error": [9.09e-07, 7.05e-08],
+  "position_tolerance_rad": 1e-3,
+  "measured_velocity": [9.790017325775015e-17, 4.400552027206237e-16],
+  "velocity_tolerance_rad_s": 1e-3,
+  "measured_effort": [4.545474267898809e-05, 0.0],
+  "source_topic": "/fr3/joint_states",
+  "result": "PASS"
+}

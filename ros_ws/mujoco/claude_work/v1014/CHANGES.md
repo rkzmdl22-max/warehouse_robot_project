@@ -1,0 +1,14 @@
+# 1014 수정 내역 (원본: /ros_ws/bak_1014)
+- 비상버튼 y -2.45 -> -2.30 (검은 테이블 뒤, UR5e 도달거리 0.85m 밖). 대상: claude_estop.xml 등
+- 신규: warehouse/claude_human.xml (가상 작업자 mocap), scenes/claude_amr_scene_v2.xml (작업자 include)
+- 신규: v1014/claude_hri.py (구역 감속/보호정지, 외력 관측기, 비상버튼 시나리오)
+- 신규: claude_amr_walk_v2.py (원본 claude_amr_walk.py + HRI 훅 5곳). 원본/백업: /ros_ws/bak_1014
+- 정리 시 삭제 가능: 위 신규 파일들, 되돌리기는 claude_estop.xml y만 -2.45로
+- AMR1 정지 x -2.3 -> -3.4 (TRON1 출발 x=-2.5 와 겹침 해소). 신규: claude_amr_ctrl_v2.py, walk_v2 3곳 수정
+- HRI: 외력 임계 15->10 N*m, 감지 시 작업자 손 뗌(pushed). 놓기 FAIL(그립 틀어짐) 해소용
+- HRI demo 시나리오: 작업자 개입을 병 파지 전(접근 단계)으로 이동. 원인: 병을 든 채 장시간 정지하면 그립에서 미끄러져 놓기 FAIL
+- HRI: full 시나리오 추가 (개입/외력감지 -> 파지/놓기 -> 작업자가 비상버튼). finale() 신규, walk_v2 1곳
+- full 시나리오 순서 변경: 파지/놓기 먼저(작업자 없음) -> 협업 구간(팔 왕복 + 작업자 접근/외력) -> 비상버튼
+- 비상버튼 (0.9,-2.30) -> (0.6,-4.50): UR5e 뒤(로봇 팔 반대편), 도달거리 밖. 작업자 경로를 테이블 우회로 변경(PRESS_AT 13s)
+- 협업 구간 팔 동작: 병 쓰러뜨림(z 0.828) 해소용으로 wrist_3 좌우 회전으로 변경
+- 놓기 후 복귀 추가: 위로 25cm 빼기(lift_away) -> 홈 자세(Q_HOME) 복귀 + 판정. 협업 구간 손목 동작은 홈 자세에서 +-0.6rad

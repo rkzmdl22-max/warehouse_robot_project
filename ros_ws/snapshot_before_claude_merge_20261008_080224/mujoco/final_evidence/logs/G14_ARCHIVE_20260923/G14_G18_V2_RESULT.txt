@@ -1,0 +1,31 @@
+======================================================================
+G14-G18 V2 FINAL  (contact_ctrl=-0.015)
+XML MODIFIED = NO
+======================================================================
+
+[INIT: G13 grasp with ctrl_fingers=-0.015]
+  bottle       = [ 0.0542 -2.987   1.0633]
+  left_contact = True
+  right_contact= True
+  lq           = 0.077
+  rq           = 0.0773
+  ncon         = 10
+G13_INIT = PASS
+
+======================================================================
+G14: HOLD (gravity ON, 5s, ctrl_fingers=-0.015, ctrl_arm=Q0)
+======================================================================
+  bottle start = [ 0.0542 -2.987   1.0633]
+  t=1.00s  bottle=[ 0.122 -2.849  0.841]  L=True R=True  lq=0.0333  max_qvel=0.7712
+  t=2.00s  bottle=[ 0.115 -2.855  0.847]  L=True R=True  lq=0.0374  max_qvel=0.6278
+  t=3.00s  bottle=[ 0.114 -2.86   0.853]  L=True R=True  lq=0.0412  max_qvel=0.3161
+  t=4.00s  bottle=[ 0.115 -2.865  0.858]  L=True R=True  lq=0.0438  max_qvel=0.0689
+  t=5.00s  bottle=[ 0.116 -2.87   0.864]  L=True R=True  lq=0.046  max_qvel=0.0368
+
+  bottle_end     = [ 0.1161 -2.8703  0.8636]
+  hold_drift_5s  = 0.2394 m
+  contact_loss   = -1 (sustained)
+  L/R contact    = True True
+G14 = FAIL
+  FAIL: drift=0.2394 fail=False
+Exit: 1 

@@ -1,0 +1,173 @@
+<mujoco model="v52_visual_layer">
+  <!-- =========================================================
+       V5.2 VISUAL CONSISTENCY LAYER
+       Gazebo <-> MuJoCo spatial/workflow alignment
+       Visual only: contype=0 / conaffinity=0
+       ========================================================= -->
+
+  <worldbody>
+
+    <!-- ===== WORKFLOW ZONES ===== -->
+
+    <!-- PICKING -->
+    <geom name="v52_picking_zone"
+          type="box"
+          pos="-7.0 0.0 0.0125"
+          size="0.925 1.425 0.0125"
+          rgba="0.1 0.85 0.2 0.65"
+          contype="0" conaffinity="0"/>
+
+    <!-- PACKING -->
+    <geom name="v52_packing_zone"
+          type="box"
+          pos="0.0 7.5 0.025"
+          size="0.95 0.36 0.025"
+          rgba="1.0 0.45 0.05 0.70"
+          contype="0" conaffinity="0"/>
+
+    <!-- DELIVERY -->
+    <geom name="v52_delivery_zone"
+          type="box"
+          pos="7.0 -7.5 0.0125"
+          size="1.9 0.9 0.0125"
+          rgba="0.9 0.1 0.1 0.65"
+          contype="0" conaffinity="0"/>
+
+    <!-- CHARGING -->
+    <geom name="v52_charging_zone"
+          type="box"
+          pos="-7.0 8.5 0.025"
+          size="1.175 0.525 0.025"
+          rgba="0.1 0.85 0.95 0.70"
+          contype="0" conaffinity="0"/>
+
+    <!-- HANDOVER -->
+    <geom name="v52_handover_zone"
+          type="cylinder"
+          pos="2.0 -3.0 0.0325"
+          size="1.35 0.025"
+          rgba="0.05 0.45 0.95 0.60"
+          contype="0" conaffinity="0"/>
+
+    <!-- ===== SAFETY STRIPES ===== -->
+
+    <geom name="v52_safety_01" type="box" pos="-6.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_02" type="box" pos="-5.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_03" type="box" pos="-4.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_04" type="box" pos="-3.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_05" type="box" pos="-2.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_06" type="box" pos="-1.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_07" type="box" pos="0.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_08" type="box" pos="1.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_09" type="box" pos="2.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_10" type="box" pos="3.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_11" type="box" pos="4.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="1 0.85 0.05 0.90" contype="0" conaffinity="0"/>
+    <geom name="v52_safety_12" type="box" pos="5.0 -5.0 0.035"
+          size="0.45 0.035 0.018" rgba="0.05 0.05 0.05 0.95" contype="0" conaffinity="0"/>
+
+    <!-- ===== MOVEMENT ARROWS ===== -->
+
+    <geom name="v52_arrow_forward"
+          type="box"
+          pos="3.5 0.0 0.035"
+          size="0.75 0.08 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <geom name="v52_arrow_forward_head"
+          type="box"
+          pos="4.25 0.0 0.035"
+          size="0.18 0.18 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <geom name="v52_arrow_reverse"
+          type="box"
+          pos="-3.5 0.0 0.035"
+          size="0.75 0.08 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <geom name="v52_arrow_reverse_head"
+          type="box"
+          pos="-4.25 0.0 0.035"
+          size="0.18 0.18 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <!-- ===== AMMR START / ARRIVAL ===== -->
+
+    <site name="v52_ammr_start"
+          pos="-2.0 -2.0 0.075"
+          type="cylinder"
+          size="0.55 0.02"
+          rgba="0.05 0.35 1.0 0.75"/>
+
+    <site name="v52_ammr_arrival"
+          pos="2.0 -3.0 0.09"
+          type="cylinder"
+          size="0.65 0.02"
+          rgba="0.1 1.0 0.25 0.75"/>
+
+    <!-- ===== HUMAN / HANDOVER SAFETY BORDER ===== -->
+
+    <geom name="v52_handover_border_x"
+          type="box"
+          pos="2.0 -3.0 0.08"
+          size="1.5 0.025 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <geom name="v52_handover_border_y"
+          type="box"
+          pos="2.0 -3.0 0.08"
+          size="0.025 1.5 0.025"
+          rgba="1 1 1 0.90"
+          contype="0" conaffinity="0"/>
+
+    <!-- ===== CAMERA -> PICK TARGET LINE ===== -->
+
+    <geom name="v52_camera_pick_line"
+          type="box"
+          pos="-4.45 -1.15 0.055"
+          size="3.8 0.025 0.012"
+          rgba="1.0 0.05 0.85 0.75"
+          contype="0" conaffinity="0"/>
+
+    <site name="v52_camera_pick_target"
+          pos="-4.0 -2.0 0.08"
+          type="sphere"
+          size="0.12"
+          rgba="1.0 0.05 0.85 1.0"/>
+
+    <!-- ===== RACK ID MARKERS ===== -->
+
+    <geom name="v52_rack_id_01" type="box"
+          pos="-6.0 -4.58 2.05" size="0.55 0.035 0.22"
+          rgba="1.0 0.85 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_rack_id_02" type="box"
+          pos="-3.0 -4.58 2.05" size="0.55 0.035 0.22"
+          rgba="1.0 0.85 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_rack_id_03" type="box"
+          pos="0.0 -4.58 2.05" size="0.55 0.035 0.22"
+          rgba="1.0 0.85 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_rack_id_04" type="box"
+          pos="3.0 -4.58 2.05" size="0.55 0.035 0.22"
+          rgba="1.0 0.85 0.05 0.95" contype="0" conaffinity="0"/>
+    <geom name="v52_rack_id_05" type="box"
+          pos="6.0 -4.58 2.05" size="0.55 0.035 0.22"
+          rgba="1.0 0.85 0.05 0.95" contype="0" conaffinity="0"/>
+
+  </worldbody>
+</mujoco>

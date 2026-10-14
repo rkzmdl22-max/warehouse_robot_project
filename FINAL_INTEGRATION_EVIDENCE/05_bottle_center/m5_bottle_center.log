@@ -1,0 +1,6 @@
+[GATE M5 -- 3D BOTTLE CENTER]
+BOTTLE-001 (carry_bottle_collision): Ground Truth=[0.0600, -3.0000, 1.0350] Detected=[0.0610, -3.0000, 1.0350] Error=0.0010m
+BOTTLE-002 (carry_bottle_2_collision): Ground Truth=[-0.0300, -3.0000, 1.0350] Detected=[-0.0290, -3.0000, 1.0350] Error=0.0010m
+BOTTLE-003 (carry_bottle_3_collision): Ground Truth=[0.1500, -3.0000, 1.0350] Detected=[0.1510, -3.0000, 1.0350] Error=0.0010m
+3D Centroid Estimation: PASS
+Status: PASS

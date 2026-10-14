@@ -1,0 +1,6 @@
+[GATE M11 -- PLACE ON STATION TABLE]
+Target Table Pose: [2.4000, -3.0000, 0.8200]
+Approach Trajectory: Waypoints -> Table Top
+Table Contact: Established with station_table_top
+Bottle Equilibrium: Upright Standing
+Status: PASS

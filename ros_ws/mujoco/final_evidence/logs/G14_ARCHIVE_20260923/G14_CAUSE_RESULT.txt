@@ -1,0 +1,110 @@
+G14 CAUSE ANALYSIS
+XML MODIFIED = NO
+
+[G13 state]
+  bottle= [ 0.0542 -2.987   1.0633]  lc=True rc=True
+G13 PASS
+
+=== ANALYSIS 1: ARM ACTUATOR FORCE vs GRAVITY (gravity ON, step-by-step) ===
+step, t, shoulder_lift_q, shoulder_lift_qd, actuator_force, gravity_force, bottle_z, lc, rc
+    0  t=0.000  sl_q=1.3600  sl_qd=0.04975  af=7.1925  gf=-0.0473  cf=-9.0334  bz=1.0633  L=True R=True
+    1  t=0.002  sl_q=1.3601  sl_qd=0.04550  af=7.1726  gf=-0.0488  cf=-9.4617  bz=1.0630  L=True R=True
+    2  t=0.004  sl_q=1.3602  sl_qd=0.04148  af=7.1544  gf=-0.0500  cf=-9.3559  bz=1.0627  L=True R=True
+    3  t=0.006  sl_q=1.3603  sl_qd=0.03772  af=7.1378  gf=-0.0511  cf=-8.7800  bz=1.0625  L=True R=True
+    4  t=0.008  sl_q=1.3604  sl_qd=0.03422  af=7.1227  gf=-0.0524  cf=-9.1874  bz=1.0622  L=True R=True
+    5  t=0.010  sl_q=1.3604  sl_qd=0.03098  af=7.1091  gf=-0.0533  cf=-9.0736  bz=1.0619  L=True R=True
+    6  t=0.012  sl_q=1.3605  sl_qd=0.02801  af=7.0967  gf=-0.0542  cf=-8.5008  bz=1.0616  L=True R=True
+    7  t=0.014  sl_q=1.3605  sl_qd=0.02533  af=7.0855  gf=-0.0552  cf=-8.8846  bz=1.0614  L=True R=True
+    8  t=0.016  sl_q=1.3606  sl_qd=0.02293  af=7.0753  gf=-0.0559  cf=-8.7621  bz=1.0611  L=True R=True
+    9  t=0.018  sl_q=1.3606  sl_qd=0.02082  af=7.0661  gf=-0.0565  cf=-8.1963  bz=1.0608  L=True R=True
+   10  t=0.020  sl_q=1.3606  sl_qd=0.01900  af=7.0578  gf=-0.0571  cf=-8.5548  bz=1.0605  L=True R=True
+   11  t=0.022  sl_q=1.3607  sl_qd=0.01748  af=7.0502  gf=-0.0575  cf=-8.4248  bz=1.0602  L=True R=True
+   12  t=0.024  sl_q=1.3607  sl_qd=0.01625  af=7.0432  gf=-0.0578  cf=-7.8689  bz=1.0599  L=True R=True
+   13  t=0.026  sl_q=1.3607  sl_qd=0.01533  af=7.0367  gf=-0.0582  cf=-8.2011  bz=1.0596  L=True R=True
+   14  t=0.028  sl_q=1.3608  sl_qd=0.01471  af=7.0306  gf=-0.0583  cf=-8.0649  bz=1.0593  L=True R=True
+   15  t=0.030  sl_q=1.3608  sl_qd=0.01440  af=7.0247  gf=-0.0583  cf=-7.9284  bz=1.0590  L=True R=True
+   16  t=0.032  sl_q=1.3608  sl_qd=0.01438  af=7.0190  gf=-0.0582  cf=-7.3926  bz=1.0587  L=True R=True
+   17  t=0.034  sl_q=1.3609  sl_qd=0.01467  af=7.0132  gf=-0.0581  cf=-7.6877  bz=1.0584  L=True R=True
+   18  t=0.036  sl_q=1.3609  sl_qd=0.01526  af=7.0073  gf=-0.0578  cf=-7.5459  bz=1.0582  L=True R=True
+   19  t=0.038  sl_q=1.3609  sl_qd=0.01615  af=7.0012  gf=-0.0574  cf=-7.0254  bz=1.0579  L=True R=True
+   29  t=0.058  sl_q=1.3615  sl_qd=0.04087  af=6.9013  gf=-0.0481  cf=-6.0566  bz=1.0548  L=True R=True
+   39  t=0.078  sl_q=1.3628  sl_qd=0.08986  af=6.6563  gf=-0.0305  cf=-4.7189  bz=1.0518  L=True R=True
+   49  t=0.098  sl_q=1.3653  sl_qd=0.15346  af=6.1852  gf=-0.0086  cf=-3.6039  bz=1.0487  L=True R=True
+   59  t=0.118  sl_q=1.3691  sl_qd=0.21629  af=5.4530  gf=0.0107  cf=-0.2484  bz=1.0458  L=True R=True
+   69  t=0.138  sl_q=1.3740  sl_qd=0.26591  af=4.4950  gf=0.0227  cf=-3.1703  bz=1.0428  L=True R=True
+   79  t=0.158  sl_q=1.3797  sl_qd=0.29885  af=3.3648  gf=0.0332  cf=-3.7274  bz=1.0400  L=True R=True
+   89  t=0.178  sl_q=1.3858  sl_qd=0.30622  af=2.1468  gf=0.0361  cf=-3.7719  bz=1.0375  L=True R=True
+   99  t=0.198  sl_q=1.3917  sl_qd=0.28477  af=0.9511  gf=0.0304  cf=-3.9458  bz=1.0352  L=True R=True
+
+  bottle after 0.2s: [ 0.0585 -2.9862  1.035 ]
+  drift 0.2s: 0.0286 m
+
+=== ANALYSIS 2: BOTTLE-TOOL0 RELATIVE POSITION (finger slip check) ===
+  Initial bottle-tool0 relative: [-0.128  -0.3538 -0.0765]
+
+  step, t, bottle_z, rel_change, arm_drift, lc, rc
+   250  t=0.50  bz=0.9810  rel_chg=0.04417  arm_drft=0.1080  tot_drft=0.0882  L=False R=False
+   500  t=1.00  bz=0.9948  rel_chg=0.17756  arm_drft=0.0427  tot_drft=0.1664  L=False R=False
+   750  t=1.50  bz=1.0073  rel_chg=0.17846  arm_drft=0.1073  tot_drft=0.2359  L=False R=False
+  1000  t=2.00  bz=1.0197  rel_chg=0.30755  arm_drft=0.0686  tot_drft=0.2980  L=False R=False
+  1250  t=2.50  bz=1.0328  rel_chg=0.29326  arm_drft=0.1051  tot_drft=0.3535  L=False R=False
+  1500  t=3.00  bz=1.0473  rel_chg=0.40837  arm_drft=0.0449  tot_drft=0.4039  L=False R=False
+  1750  t=3.50  bz=1.0636  rel_chg=0.39693  arm_drft=0.1097  tot_drft=0.4504  L=False R=False
+  2000  t=4.00  bz=1.0818  rel_chg=0.48130  arm_drft=0.0622  tot_drft=0.4943  L=False R=False
+  2250  t=4.50  bz=1.1022  rel_chg=0.50551  arm_drft=0.0695  tot_drft=0.5370  L=False R=False
+  2500  t=5.00  bz=1.1246  rel_chg=0.54338  arm_drft=0.0971  tot_drft=0.5795  L=False R=False
+
+  total_drift 5s: 0.5795 m
+
+=== ANALYSIS 3: Q0 TARGET vs ACTUAL QPOS (why arm sags) ===
+  Q0 target vs actual after G13+gravity steps:
+  joint                | Q0 target | actual   | error
+  shoulder_pan_joint   |   -1.0356 |  -1.0010 | +0.0346
+  shoulder_lift_joint  |    1.3959 |   1.3857 | -0.0102
+  elbow_joint          |    0.3225 |   0.3468 | +0.0243
+  wrist_1_joint        |   -0.1977 |  -0.1670 | +0.0307
+  wrist_2_joint        |   -0.9749 |  -1.1009 | -0.1260
+  wrist_3_joint        |    0.0000 |  -0.0244 | -0.0244
+
+  After 5s gravity ON:
+  joint                | Q0 target | actual   | error   | kp*err (actuator force approx)
+  shoulder_pan_joint   |   -1.0356 |  -1.0767 | -0.0411  | kp*err=  -82.24  af=    8.20  gf=    0.12
+  shoulder_lift_joint  |    1.3959 |   1.4492 | +0.0533  | kp*err=  106.61  af=  -10.54  gf=   -0.51
+  elbow_joint          |    0.3225 |   0.3199 | -0.0026  | kp*err=   -5.13  af=    0.03  gf=   -0.05
+  wrist_1_joint        |   -0.1977 |  -0.3095 | -0.1118  | kp*err=  -55.88  af=    8.90  gf=    0.09
+  wrist_2_joint        |   -0.9749 |  -1.0299 | -0.0550  | kp*err=  -27.48  af=    4.44  gf=   -0.01
+  wrist_3_joint        |    0.0000 |   0.0075 | +0.0075  | kp*err=    3.75  af=   -0.40  gf=   -0.00
+
+=== ANALYSIS 4: CTRL VALUES BEING SET ===
+  Confirming ctrl is actually Q0 during step:
+  ctrl values at start of gravity phase:
+  [0] shoulder_pan_joint   ctrl=-1.0356  Q0=-1.0356  match=True
+  [1] shoulder_lift_joint  ctrl=1.3959  Q0=1.3959  match=True
+  [2] elbow_joint          ctrl=0.3225  Q0=0.3225  match=True
+  [3] wrist_1_joint        ctrl=-0.1977  Q0=-0.1977  match=True
+  [4] wrist_2_joint        ctrl=-0.9749  Q0=-0.9749  match=True
+  [5] wrist_3_joint        ctrl=0.0000  Q0=0.0000  match=True
+  left_finger ctrl=-0.0150  right_finger ctrl=-0.0150
+
+=== DIAGNOSIS CONCLUSION ===
+
+물리 시스템:
+  position servo: force = kp*(target-qpos) - kd*qvel
+  kp(arm) = 2000 (size3) or 500 (size1)
+  kd(arm) = 400 (size3) or 100 (size1)  (from biasprm[2])
+
+만약 arm이 처진다면:
+  - kp*(Q0-qpos) < gravity_torque 인 경우
+  - 즉 Q0로의 restoring force가 gravity를 이기지 못하는 경우
+
+해결 방향:
+  A. ctrl을 Q0보다 높게 설정 (over-drive) → arm이 gravity 대비 더 강하게 유지
+  B. G13 완료 후 current qpos를 ctrl로 사용 (gravity 포함 평형점 타겟팅)
+  C. arm damping 증가 (진동 감소, settling 속도 증가)
+  D. kp 증가는 XML 수정 필요 → 먼저 A/B/C runtime 방법 시도
+
+이 스크립트 결과에서:
+  - rel_change가 작으면 → arm만 처지고 bottle은 arm과 함께 이동 (slip 아님)
+  - rel_change가 크면 → bottle이 finger에서 미끄러짐 (slip)
+
+Exit: 0 

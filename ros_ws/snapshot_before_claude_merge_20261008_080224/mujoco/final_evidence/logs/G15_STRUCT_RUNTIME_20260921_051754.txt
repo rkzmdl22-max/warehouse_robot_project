@@ -1,0 +1,16 @@
+G15 STRUCTURAL RUNTIME
+XML = /ros_ws/mujoco/scenes/warehouse_tron1_final_visual.xml
+gravity = [ 0.    0.   -9.81]
+carry_tray body id = 29
+carry_bottle body id = 30
+carry_bottle parent body id = 29
+parent_is_carry_tray = True
+equality_count = 0
+bottle_start = [ 0.06  -3.     1.035]
+tool0_start = [ 0.06486677 -2.92024624  1.03828279]
+vertical_offset_tool_to_bottle = -0.003282790014241588
+phase1: bottle=[ 0.06  -3.     1.035] tool0=[ 0.06091933 -2.91358859  1.09751662] bottle_dz=0.000000 tool_dz=0.059234
+phase2: bottle=[ 0.06  -3.     1.035] tool0=[ 0.05942651 -2.91107084  1.16650289] bottle_dz=0.000000 tool_dz=0.128220
+phase3: bottle=[ 0.06  -3.     1.035] tool0=[ 0.06176474 -2.91501444  1.2448496 ] bottle_dz=0.000000 tool_dz=0.206567
+phase4: bottle=[ 0.06  -3.     1.035] tool0=[ 0.06846023 -2.92630687  1.32262831] bottle_dz=0.000000 tool_dz=0.284346
+RESULT: bottle is structurally attached to carry_tray = True

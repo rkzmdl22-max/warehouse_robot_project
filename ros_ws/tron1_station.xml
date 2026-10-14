@@ -1,0 +1,151 @@
+<mujoco model="tron1_station">
+  <!--
+    TRON1 & UR5e Handover Station Module
+    Coordinates SSOT: config/warehouse_layout.yaml
+    Actuators added 2026-09-03 for GATE 3 MuJoCo track validation.
+  -->
+  <asset>
+    <!-- Station Materials -->
+    <material name="station_table_mat" rgba="0.25 0.3 0.35 1" specular="0.3" shininess="0.4"/>
+    <material name="station_top_mat" rgba="0.8 0.82 0.85 1" specular="0.4" shininess="0.5"/>
+    <material name="bottle_mat" rgba="0.1 0.7 0.9 0.85" specular="0.8" shininess="0.9"/>
+    <material name="camera_mat" rgba="0.2 0.2 0.25 1" specular="0.5" shininess="0.6"/>
+    <material name="ur5e_mat" rgba="0.2 0.5 0.8 1" specular="0.4" shininess="0.4"/>
+    <material name="gripper_mat" rgba="0.1 0.1 0.12 1" specular="0.3" shininess="0.3"/>
+  </asset>
+
+  <worldbody>
+    <!-- Station Table (Center pos: [2.5, -3.0, 0.4], size half-extents: [0.6, 0.4, 0.4]) -->
+    <body name="station_table" pos="2.5 -3.0 0.4">
+      <geom name="station_table_base" type="box" size="0.6 0.4 0.38" material="station_table_mat" contype="1" conaffinity="1"/>
+      <geom name="station_table_top" type="box" pos="0 0 0.39" size="0.62 0.42 0.01" material="station_top_mat" contype="1" conaffinity="1"/>
+
+      <!-- UR5e Manipulator Base mounted on table -->
+      <body name="ur5e_base" pos="0.3 -0.2 0.4">
+        <geom name="ur5e_base_geom" type="cylinder" size="0.08 0.05" material="ur5e_mat" contype="1" conaffinity="1"/>
+
+        <!-- UR5e Shoulder & Arm Chain -->
+        <body name="ur5e_shoulder" pos="0 0 0.08">
+          <joint name="ur5e_shoulder_pan" type="hinge" axis="0 0 1" limited="true" range="-3.14 3.14"/>
+          <geom name="ur5e_shoulder_geom" type="cylinder" size="0.065 0.06" material="ur5e_mat"/>
+
+          <body name="ur5e_upperarm" pos="0 0.1 0.06" euler="1.57 0 0">
+            <joint name="ur5e_shoulder_lift" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>
+            <geom name="ur5e_upperarm_geom" type="capsule" fromto="0 0 0 0 0 0.4" size="0.05" material="ur5e_mat"/>
+
+            <body name="ur5e_forearm" pos="0 0 0.4">
+              <joint name="ur5e_elbow" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>
+              <geom name="ur5e_forearm_geom" type="capsule" fromto="0 0 0 0 0 0.35" size="0.04" material="ur5e_mat"/>
+
+              <body name="ur5e_wrist_1" pos="0 0 0.35">
+                <joint name="ur5e_wrist_1_joint" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>
+                <geom name="ur5e_w1_geom" type="cylinder" size="0.035 0.04" material="ur5e_mat"/>
+
+                <body name="ur5e_wrist_2" pos="0 0.04 0">
+                  <joint name="ur5e_wrist_2_joint" type="hinge" axis="0 0 1" limited="true" range="-3.14 3.14"/>
+                  <geom name="ur5e_w2_geom" type="cylinder" size="0.035 0.04" material="ur5e_mat"/>
+
+                  <body name="ur5e_wrist_3" pos="0 0 0.04">
+                    <joint name="ur5e_wrist_3_joint" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>
+                    <geom name="ur5e_w3_geom" type="cylinder" size="0.03 0.02" material="ur5e_mat"/>
+
+                    <!-- Robotiq 2F-140 Gripper End Effector -->
+                    <body name="robotiq_gripper_base" pos="0 0 0.03">
+                      <geom name="gripper_body" type="box" size="0.04 0.06 0.03" material="gripper_mat"/>
+
+                      <!-- Left Finger -->
+                      <body name="left_finger" pos="-0.03 0 0.04">
+                        <joint name="left_finger_joint" type="slide" axis="1 0 0" limited="true" range="0 0.07"/>
+                        <geom name="left_finger_geom" type="box" size="0.008 0.015 0.03" material="gripper_mat" friction="1.2 0.1 0.1"/>
+                      </body>
+
+                      <!-- Right Finger -->
+                      <body name="right_finger" pos="0.03 0 0.04">
+                        <joint name="right_finger_joint" type="slide" axis="-1 0 0" limited="true" range="0 0.07"/>
+                        <geom name="right_finger_geom" type="box" size="0.008 0.015 0.03" material="gripper_mat" friction="1.2 0.1 0.1"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- RGB-D Virtual Station Camera Mount (pos: [2.5, -3.0, 2.2]) -->
+    <body name="station_camera_stand" pos="2.5 -3.0 2.2">
+      <geom name="cam_box" type="box" size="0.06 0.12 0.04" material="camera_mat" contype="0" conaffinity="0"/>
+      <camera name="station_rgbd_camera" pos="0 0 0" euler="0.6 0 -1.57" fovy="60"/>
+    </body>
+
+    <!-- Target Handover Bottle (Diameter: 0.08m, Height: 0.24m) -->
+    <body name="bottle_target" pos="2.0 -3.0 0.82">
+      <freejoint/>
+      <geom name="bottle_geom" type="cylinder" size="0.04 0.12" material="bottle_mat" mass="0.35" friction="0.9 0.05 0.01" contype="1" conaffinity="1"/>
+      <site name="bottle_centroid_site" pos="0 0 0" size="0.015" rgba="1 0 0 1"/>
+    </body>
+  </worldbody>
+
+  <!--
+    ============================================================
+    ACTUATORS for UR5e + Robotiq 2F-140 Gripper
+    Added 2026-09-03 for GATE 3 MuJoCo track validation.
+
+    All joints use position actuators with kp gain.
+    Joint travel:  arm ±π rad,  finger 0~0.07m (slide)
+
+    Smoke test:
+      HOME  → all ctrl=0
+      REACH → shoulder_lift ctrl=-1.0, elbow ctrl=1.5
+      GRASP → left/right finger ctrl=0.064
+      OPEN  → left/right finger ctrl=0.0
+    ============================================================
+  -->
+  <actuator>
+    <!-- 6-DOF UR5e arm — position servos -->
+    <position name="act_shoulder_pan"
+              joint="ur5e_shoulder_pan"
+              kp="200"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <position name="act_shoulder_lift"
+              joint="ur5e_shoulder_lift"
+              kp="200"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <position name="act_elbow"
+              joint="ur5e_elbow"
+              kp="150"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <position name="act_wrist_1"
+              joint="ur5e_wrist_1_joint"
+              kp="80"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <position name="act_wrist_2"
+              joint="ur5e_wrist_2_joint"
+              kp="80"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <position name="act_wrist_3"
+              joint="ur5e_wrist_3_joint"
+              kp="50"
+              ctrlrange="-3.14159 3.14159"/>
+
+    <!-- Robotiq 2F-140 gripper fingers — position servos
+         OPEN:  ctrl=0.0    CLOSE: ctrl=0.064              -->
+    <position name="act_left_finger"
+              joint="left_finger_joint"
+              kp="100"
+              ctrlrange="0.0 0.07"/>
+
+    <position name="act_right_finger"
+              joint="right_finger_joint"
+              kp="100"
+              ctrlrange="0.0 0.07"/>
+  </actuator>
+
+</mujoco>

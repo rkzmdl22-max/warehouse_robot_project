@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="tiago">
+ <size memory="512M" />
+ <compiler angle="radian" meshdir="meshes" autolimits="true" />
+ <option timestep="0.001" gravity="0 0 -9.81" iterations="50" />
+ <default>
+  <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+  <geom condim="4" contype="1" conaffinity="15" />
+  <motor ctrllimited="true" />
+  <default class="visualgeom">
+   <geom contype="0" conaffinity="0" />
+  </default>
+ </default>
+ <asset>
+  <mesh name="base_collision" file="base_collision.stl" />
+  <mesh name="base_dock_link" file="base_dock_link.stl" />
+  <mesh name="torso_lift_collision_core" file="torso_lift_collision_core.stl" />
+  <mesh name="torso_lift_collision_shoulder" file="torso_lift_collision_shoulder.stl" />
+  <mesh name="torso_lift_collision_neck" file="torso_lift_collision_neck.stl" />
+  <mesh name="arm_1_collision" file="arm_1_collision.stl" />
+  <mesh name="arm_2_collision" file="arm_2_collision.stl" />
+  <mesh name="arm_3_collision" file="arm_3_collision.stl" />
+  <mesh name="arm_4_collision" file="arm_4_collision.stl" />
+  <mesh name="arm_5_collision-wrist-2017" file="arm_5_collision-wrist-2017.stl" />
+  <mesh name="arm_6_collision-wrist-2017" file="arm_6_collision-wrist-2017.stl" />
+  <mesh name="palm_collision" file="palm_collision.stl" />
+  <mesh name="thumb_abd_collision" file="thumb_abd_collision.stl" />
+  <mesh name="finger_flex_collision" file="finger_flex_collision.stl" />
+  <mesh name="finger_flex_tip_collision" file="finger_flex_tip_collision.stl" />
+  <mesh name="finger_abd_collision" file="finger_abd_collision.stl" />
+  <mesh name="head_1_collision" file="head_1_collision.stl" />
+  <mesh name="head_2_collision" file="head_2_collision.stl" />
+  <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+  <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+  <material name="visualgeom" rgba="0.5 0.9 0.2 1" />
+  <mesh name="fr3_link0_mesh" file="fr3/link0.stl" />
+  <mesh name="fr3_link1_mesh" file="fr3/link1.stl" />
+  <mesh name="fr3_link2_mesh" file="fr3/link2.stl" />
+  <mesh name="fr3_link3_mesh" file="fr3/link3.stl" />
+  <mesh name="fr3_link4_mesh" file="fr3/link4.stl" />
+  <mesh name="fr3_link5_mesh" file="fr3/link5.stl" />
+  <mesh name="fr3_link6_mesh" file="fr3/link6.stl" />
+  <mesh name="fr3_link7_mesh" file="fr3/link7.stl" />
+  <mesh name="fr3_hand_mesh" file="fr3/hand.stl" />
+ </asset>
+ <worldbody>
+  <include file="../output/tiago/bodies.xml" />
+  <body name="fr3_base" pos="0.3 0.3 0.0">
+   <body name="fr3_link0" pos="0 0 0" quat="1 0 0 0">
+    <inertial mass="2.3966" pos="-0.0172 0.0004 0.0745" fullinertia="0.009 0.0115 0.0085 0 0.002 0" />
+    <geom name="fr3_link0_collision_0" type="mesh" mesh="fr3_link0_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+    <body name="fr3_link1" pos="0 0 0.333" quat="1 0 0 0">
+     <inertial mass="2.9274653454" pos="4.128e-07 -0.0181251324 -0.038603597" fullinertia="0.0239273164851 0.0224821613276 0.00635009825853 1.33179034557e-05 -0.000114047749186 -0.00199503206282" />
+     <geom name="fr3_link1_collision_0" type="mesh" mesh="fr3_link1_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+     <joint name="fr3_joint1" type="hinge" axis="0 0 1" range="-2.9007 2.9007" limited="true" damping="1.0" />
+     <body name="fr3_link2" pos="0 0 0" quat="0.707106781187 -0.707106781187 0 0">
+      <inertial mass="2.9355370338" pos="0.0031828864 -0.0743221644 0.0088146084" fullinertia="0.0419389462576 0.0251451488501 0.0617021447289 0.000202573315211 0.00407778422718 -0.00422521580066" />
+      <geom name="fr3_link2_collision_0" type="mesh" mesh="fr3_link2_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+      <joint name="fr3_joint2" type="hinge" axis="0 0 1" range="-1.8361 1.8361" limited="true" damping="1.0" />
+      <body name="fr3_link3" pos="0 -0.316 0" quat="0.707106781187 0.707106781187 0 0">
+       <inertial mass="2.2449013699" pos="0.0407015686 -0.0048200565 -0.0289730823" fullinertia="0.0241014254724 0.0197405326671 0.0190444944822 0.00240469455904 -0.00285626927011 -0.00210421268389" />
+       <geom name="fr3_link3_collision_0" type="mesh" mesh="fr3_link3_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+       <joint name="fr3_joint3" type="hinge" axis="0 0 1" range="-2.9007 2.9007" limited="true" damping="1.0" />
+       <body name="fr3_link4" pos="0.0825 0 0" quat="0.707106781187 0.707106781187 0 0">
+        <inertial mass="2.6155955791" pos="-0.0459100965 0.063049296 -0.0085187868" fullinertia="0.0345299832191 0.028881621933 0.0412547117115 0.0132255226598 0.0101514299848 -0.00097628338707" />
+        <geom name="fr3_link4_collision_0" type="mesh" mesh="fr3_link4_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+        <joint name="fr3_joint4" type="hinge" axis="0 0 1" range="-3.077 -0.1169" limited="true" damping="1.0" />
+        <body name="fr3_link5" pos="-0.0825 0.384 0" quat="0.707106781187 -0.707106781187 0 0">
+         <inertial mass="2.3271207594" pos="-0.0016039605 0.0292536262 -0.097296599" fullinertia="0.0516102784637 0.0478772971337 0.0164236255794 -0.00571517338778 -0.00356731676259 0.0106739851085" />
+         <geom name="fr3_link5_collision_0" type="mesh" mesh="fr3_link5_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+         <joint name="fr3_joint5" type="hinge" axis="0 0 1" range="-2.8763 2.8763" limited="true" damping="1.0" />
+         <body name="fr3_link6" pos="0 0 0" quat="0.707106781187 0.707106781187 0 0">
+          <inertial mass="1.8170376524" pos="0.0597131221 -0.0410294666 -0.0101692726" fullinertia="0.00541233359438 0.0140583295455 0.0160808179242 0.00619345636029 0.00142192893061 -0.00131407537411" />
+          <geom name="fr3_link6_collision_0" type="mesh" mesh="fr3_link6_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+          <joint name="fr3_joint6" type="hinge" axis="0 0 1" range="0.4398 4.6216" limited="true" damping="1.0" />
+          <body name="fr3_link7" pos="0.088 0 0" quat="0.707106781187 0.707106781187 0 0">
+           <inertial mass="0.6271432862" pos="0.0045225817 0.0086261921 -0.0161633251" fullinertia="0.000210923891501 0.000177185680024 5.99319059966e-05 -2.43329911446e-05 4.56448039378e-05 8.74407022323e-05" />
+           <geom name="fr3_link7_collision_0" type="mesh" mesh="fr3_link7_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+           <joint name="fr3_joint7" type="hinge" axis="0 0 1" range="-3.0508 3.0508" limited="true" damping="1.0" />
+           <body name="fr3_link8" pos="0 0 0.107" quat="1 0 0 0">
+            <body name="fr3_hand" pos="0 0 0" quat="0.923879532511 0 0 -0.382683432365">
+             <inertial mass="0.6544" pos="-3.76e-05 0.0119128 0.020726" fullinertia="0.00186 0.0003 0.00174 0 0 -2e-05" />
+             <geom name="fr3_hand_collision_0" type="mesh" mesh="fr3_hand_mesh" contype="1" conaffinity="1" friction="0.8 0.1 0.1" density="0" />
+             <body name="fr3_hand_tcp" pos="0 0 0.1034" quat="1 0 0 0" />
+             <body name="fr3_leftfinger" pos="0 0 0.0584" quat="1 0 0 0">
+              <inertial mass="0.0291" pos="0 0.015285 0.0219675" fullinertia="8.49e-06 8.53e-06 1.77e-06 0 0 -1.06e-06" />
+              <geom name="fr3_leftfinger_collision_0" type="box" size="0.011 0.0075 0.01" density="0" pos="0 18.5e-3 11e-3" quat="1 0 0 0" />
+              <geom name="fr3_leftfinger_collision_1" type="box" size="0.011 0.0044 0.0019" density="0" pos="0 6.8e-3 2.2e-3" quat="1 0 0 0" />
+              <geom name="fr3_leftfinger_collision_2" type="box" size="0.00875 0.0035 0.01175" density="0" pos="0 15.9e-3 28.35e-3" quat="0.965925826289 0.258819045103 0 0" />
+              <geom name="fr3_leftfinger_collision_3" type="box" size="0.00875 0.0076 0.00925" density="0" pos="0 7.58e-3 45.25e-3" quat="1 0 0 0" />
+              <joint name="fr3_finger_joint1" type="slide" axis="0 1 0" range="0.0 0.04" limited="true" damping="5.0" />
+             </body>
+             <body name="fr3_rightfinger" pos="0 0 0.0584" quat="6.12323399574e-17 0 0 1">
+              <inertial mass="0.0291" pos="0 0.015285 0.0219675" fullinertia="8.49e-06 8.53e-06 1.77e-06 0 0 -1.06e-06" />
+              <geom name="fr3_rightfinger_collision_0" type="box" size="0.011 0.0075 0.01" density="0" pos="0 18.5e-3 11e-3" quat="1 0 0 0" />
+              <geom name="fr3_rightfinger_collision_1" type="box" size="0.011 0.0044 0.0019" density="0" pos="0 6.8e-3 2.2e-3" quat="1 0 0 0" />
+              <geom name="fr3_rightfinger_collision_2" type="box" size="0.00875 0.0035 0.01175" density="0" pos="0 15.9e-3 28.35e-3" quat="5.91458985689e-17 -1.58480957572e-17 -0.258819045103 0.965925826289" />
+              <geom name="fr3_rightfinger_collision_3" type="box" size="0.00875 0.0076 0.00925" density="0" pos="0 7.58e-3 45.25e-3" quat="1 0 0 0" />
+              <joint name="fr3_finger_joint2" type="slide" axis="0 1 0" range="0.0 0.04" limited="true" damping="5.0" />
+             </body>
+            </body>
+           </body>
+          </body>
+         </body>
+        </body>
+       </body>
+      </body>
+     </body>
+    </body>
+   </body>
+  </body>
+ </worldbody>
+ <actuator>
+  <include file="../output/tiago/actuators.xml" />
+  <motor name="fr3_joint1_motor" joint="fr3_joint1" ctrlrange="-87.0 87.0" gear="1" />
+  <motor name="fr3_joint2_motor" joint="fr3_joint2" ctrlrange="-87.0 87.0" gear="1" />
+  <motor name="fr3_joint3_motor" joint="fr3_joint3" ctrlrange="-87.0 87.0" gear="1" />
+  <motor name="fr3_joint4_motor" joint="fr3_joint4" ctrlrange="-87.0 87.0" gear="1" />
+  <motor name="fr3_joint5_motor" joint="fr3_joint5" ctrlrange="-12.0 12.0" gear="1" />
+  <motor name="fr3_joint6_motor" joint="fr3_joint6" ctrlrange="-12.0 12.0" gear="1" />
+  <motor name="fr3_joint7_motor" joint="fr3_joint7" ctrlrange="-12.0 12.0" gear="1" />
+  <motor name="fr3_gripper" joint="fr3_finger_joint1" ctrlrange="-100 100" gear="1" />
+ </actuator>
+ <equality>
+  <joint name="fr3_finger_mimic" joint1="fr3_finger_joint2" joint2="fr3_finger_joint1" polycoef="0 1 0 0 0" solref="0.002 1" solimp="0.99 0.999 0.001" />
+ </equality>
+ <sensor>
+  <jointpos name="fr3_joint1_position" joint="fr3_joint1" />
+  <jointpos name="fr3_joint2_position" joint="fr3_joint2" />
+  <jointpos name="fr3_joint3_position" joint="fr3_joint3" />
+  <jointpos name="fr3_joint4_position" joint="fr3_joint4" />
+  <jointpos name="fr3_joint5_position" joint="fr3_joint5" />
+  <jointpos name="fr3_joint6_position" joint="fr3_joint6" />
+  <jointpos name="fr3_joint7_position" joint="fr3_joint7" />
+  <jointpos name="fr3_finger_joint1_position" joint="fr3_finger_joint1" />
+ </sensor>
+<contact><exclude body1="fr3_leftfinger" body2="fr3_rightfinger" /></contact></mujoco>

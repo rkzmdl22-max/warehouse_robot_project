@@ -1,0 +1,63 @@
+G14 TRON1-FIXED V2
+XML MODIFIED = NO
+
+[STEP 1: IK VALIDATION WITH TRON1 FIXED]
+  bottle      = [ 0.06  -3.     1.035]
+  tool0       = [ 0.0649 -2.9202  1.0383]
+  finger_ctr  = [ 0.06  -3.     1.035]
+  fc¡æbottle   = 0.0001 m
+  lf_x=0.0974  rf_x=0.0226  bottle_x=0.0600
+  inner gap   = 0.0588 m  (bottle diameter=0.07m)
+
+[STEP 2: G13 GRASP REPRODUCTION]
+  step= 200  lc=True rc=False  lq=0.0458  rq=0.0634
+  step= 400  lc=True rc=False  lq=0.0433  rq=0.0694
+  step= 600  lc=True rc=False  lq=0.0422  rq=0.0706
+  step= 800  lc=True rc=False  lq=0.0439  rq=0.0690
+  step=1000  lc=True rc=False  lq=0.0423  rq=0.0697
+  step=1200  lc=True rc=False  lq=0.0431  rq=0.0693
+  step=1400  lc=True rc=True  lq=0.0431  rq=0.0682
+  -> Bilateral contact at step 1400
+G13 PASS  bottle=[ 0.06  -3.     1.035]  lq=0.0431
+
+========================================
+G14: OFFICIAL 5-second HOLD (TRON1 fixed)
+========================================
+  bottle start = [ 0.06  -3.     1.035]
+  t=1.00s  bz=1.0350  L=True R=True  lq=0.0451  mv=5.5383  drift=0.0000
+  t=2.00s  bz=1.0350  L=True R=True  lq=0.0397  mv=3.5713  drift=0.0000
+  t=3.00s  bz=1.0350  L=True R=True  lq=0.0491  mv=1.9807  drift=0.0000
+  t=4.00s  bz=1.0350  L=True R=False  lq=0.0438  mv=0.4411  drift=0.0000
+  CONTACT LOSS at step=2000
+  t=5.00s  bz=1.0350  L=True R=False  lq=0.0408  mv=0.5914  drift=0.0000
+
+  bottle_end   = [ 0.06  -3.     1.035]
+  drift (5s)   = 0.0 m
+  contact_loss = 2000 (LOST)
+  lc=True rc=False  hold_fail=False
+
+G14 = FAIL
+  finite=True  no_fail=True  contact_sustained=False  lc=True  rc=False  drift<0.025=True
+
+FAIL analysis:
+  Contact lost at step=2000 t=4.00s
+
+  bottle_start = [ 0.06  -3.     1.035]
+  bottle_end   = [ 0.06  -3.     1.035]
+  delta        = [0. 0. 0.]
+
+========================================
+G13 REGRESSION
+========================================
+  lc=True rc=False
+G13 REGRESSION = FAIL
+
+========================================
+FINAL REPORT
+========================================
+G13 REGRESSION = FAIL
+G14 HOLD       = FAIL
+  drift=0.000000m  contact_loss=2000  lc=True rc=False
+XML MODIFIED   = NO
+Method: TRON1 root fixed every step (scenario: STOP_COMPLETE state)
+Exit: 0 

@@ -1,0 +1,4 @@
+[GATE 18 -- WMS INTEGRATION]
+WMS Order: ITEM-001 / PRODUCT-001 / STATION-01
+State Updates: Inventory Reserved -> Dispatched -> Delivered -> Complete
+Status: PASS

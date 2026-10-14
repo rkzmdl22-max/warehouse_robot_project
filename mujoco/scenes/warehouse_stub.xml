@@ -1,0 +1,23 @@
+<mujoco model="warehouse_stub">
+  <!--
+    Stub scene — full layout: docs/GAZEBO_TO_MUJOCO.md
+    Coordinates: config/warehouse_layout.yaml
+    TODO: merge with ros_ws/mjcf_convert/output/tiago/scene.xml
+  -->
+  <compiler angle="radian"/>
+  <option timestep="0.002" gravity="0 0 -9.81"/>
+
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+    <geom name="floor" type="plane" size="12 12 0.1" rgba="0.9 0.9 0.9 1"/>
+
+    <!-- shelf_1 placeholder -->
+    <geom name="shelf_1" type="box" pos="-6 -5 1" size="1.5 0.4 1" rgba="0.6 0.4 0.2 1"/>
+
+    <!-- box_2 (demo pick target BOX-102) -->
+    <body name="box_2" pos="4 -2 0.55">
+      <freejoint/>
+      <geom name="box_2_geom" type="box" size="0.25 0.2 0.2" rgba="0.2 0.4 0.9 1" mass="1"/>
+    </body>
+  </worldbody>
+</mujoco>

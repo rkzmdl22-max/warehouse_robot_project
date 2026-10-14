@@ -1,0 +1,79 @@
+<mujoco model="warehouse_realistic_scene">
+  
+  <compiler angle="radian" autolimits="true" />
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50" />
+
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" />
+  </default>
+
+  <asset>
+    
+    <texture name="texfloor" type="2d" builtin="flat" rgb1="0.38 0.40 0.42" width="512" height="512" />
+    <material name="matfloor" rgba="0.38 0.40 0.42 1" reflectance="0.1" specular="0.2" shininess="0.3" />
+    <material name="matwall" rgba="0.85 0.88 0.92 1" specular="0.1" shininess="0.1" />
+
+    
+    <material name="shelf_frame_mat" rgba="0.15 0.2 0.25 1" specular="0.4" shininess="0.5" />
+    <material name="shelf_plate_mat" rgba="0.4 0.42 0.45 1" specular="0.3" shininess="0.3" />
+
+    
+    <material name="wood_pallet_mat" rgba="0.65 0.45 0.25 1" specular="0.1" shininess="0.1" />
+    <material name="pallet_runner_mat" rgba="0.5 0.35 0.2 1" specular="0.1" shininess="0.1" />
+
+    
+    <material name="box_cardboard1_mat" rgba="0.78 0.58 0.35 1" specular="0.2" shininess="0.2" />
+    <material name="box_cardboard2_mat" rgba="0.3 0.55 0.85 1" specular="0.3" shininess="0.4" />
+    <material name="box_small_mat" rgba="0.85 0.7 0.3 1" specular="0.2" shininess="0.2" />
+
+    
+    <material name="loading_zone_mat" rgba="0.1 0.8 0.2 0.35" />
+    <material name="shipping_zone_mat" rgba="0.9 0.2 0.1 0.35" />
+    <material name="hazard_stripe_mat" rgba="0.9 0.8 0.1 0.6" />
+    <material name="dock_mat" rgba="0.3 0.3 0.35 1" />
+  
+
+    
+    <mesh name="tron1_base_Link" file="base_Link.STL" />
+    <mesh name="tron1_abad_L_Link" file="abad_L_Link.STL" />
+    <mesh name="tron1_hip_L_Link" file="hip_L_Link.STL" />
+    <mesh name="tron1_knee_L_Link" file="knee_L_Link.STL" />
+    <mesh name="tron1_foot_L_Link" file="foot_L_Link.STL" />
+    <mesh name="tron1_abad_R_Link" file="abad_R_Link.STL" />
+    <mesh name="tron1_hip_R_Link" file="hip_R_Link.STL" />
+    <mesh name="tron1_knee_R_Link" file="knee_R_Link.STL" />
+    <mesh name="tron1_foot_R_Link" file="foot_R_Link.STL" />
+</asset>
+
+  <worldbody>
+    
+    <light name="light_overhead_center" pos="0 0 7.5" dir="0 0 -1" diffuse="0.8 0.8 0.85" specular="0.3 0.3 0.3" castshadow="true" />
+    <light name="light_overhead_nw" pos="-6 5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1" />
+    <light name="light_overhead_se" pos="6 -5 6.0" dir="0 0 -1" diffuse="0.5 0.5 0.55" specular="0.1 0.1 0.1" />
+    <light name="light_spot_picking" pos="-4 -2 4.0" dir="0 0 -1" diffuse="0.6 0.6 0.7" specular="0.4 0.4 0.4" />
+
+    
+    <geom name="floor" type="plane" pos="0 0 0" size="10 10 0.1" material="matfloor" contype="1" conaffinity="1" friction="0.8 0.1 0.1" />
+
+    
+    <geom name="wall_left" type="box" pos="0.0 -10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_right" type="box" pos="0.0 10.0 1.25" size="10.0 0.1 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_front" type="box" pos="10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1" />
+    <geom name="wall_back" type="box" pos="-10.0 0.0 1.25" size="0.1 10.0 1.25" material="matwall" contype="1" conaffinity="1" />
+  
+
+    
+</worldbody>
+
+  
+  <include file="../warehouse/shelves_realistic_test.xml" />
+  <include file="../warehouse/pallets.xml" />
+  <include file="../warehouse/boxes.xml" />
+  <include file="../warehouse/totes.xml" />
+  <include file="../warehouse/zones_final.xml" />
+  <include file="../warehouse/conveyor.xml" />
+  <include file="../warehouse/tron1_station_g14_test.xml" />
+  
+  <include file="../warehouse/v52_visual_final.xml" />
+</mujoco>

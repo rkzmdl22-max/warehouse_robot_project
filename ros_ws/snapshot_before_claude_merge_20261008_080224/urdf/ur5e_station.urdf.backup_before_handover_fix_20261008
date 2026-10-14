@@ -1,0 +1,1180 @@
+<?xml version="1.0"?>
+<!--
+  UR5e Station URDF — Visual Realism Enhancement (2026-09-03)
+  =============================================================
+  FUNCTIONAL LOCK — All joint names, link names, joint types,
+  joint limits, ros2_control, controllers, TF, topics UNCHANGED.
+
+  VISUAL CHANGES ONLY —
+    P1 — UR5e arm — multi-part geometry, UR industrial grey+blue palette,
+         joint caps, flange detail, cable routing visual
+    P2 — Station workcell — steel worktable, mounting plate, E-stop,
+         electrical cabinet, safety fence, floor fixture
+    P3 — Camera — aluminium extrusion bracket, mounting arm,
+         cable conduit visual
+
+  Functional sections (ros2_control, Gazebo plugins, joints,
+  inertial, collision) are byte-for-byte identical to original.
+-->
+<robot name="ur5e_station">
+
+  <!-- ============================================================
+       MATERIALS  (visual only — referenced by name below)
+  ============================================================ -->
+  <material name="ur5e_body_grey">
+    <!-- UR industrial light grey — matte, low specular -->
+    <color rgba="0.792 0.820 0.831 1"/>
+  </material>
+  <material name="ur5e_joint_blue">
+    <!-- UR signature deep blue joint caps -->
+    <color rgba="0.102 0.322 0.588 1"/>
+  </material>
+  <material name="ur5e_joint_dark">
+    <!-- Dark metallic shaft rings -->
+    <color rgba="0.180 0.192 0.204 1"/>
+  </material>
+  <material name="ur5e_flange_grey">
+    <!-- Tool-side flange — slightly darker than body -->
+    <color rgba="0.640 0.660 0.672 1"/>
+  </material>
+  <material name="gripper_body_dark">
+    <!-- Robotiq 2F-140 — near-black housing -->
+    <color rgba="0.120 0.125 0.132 1"/>
+  </material>
+  <material name="gripper_finger_rubber">
+    <!-- Finger pads — dark grey rubber feel -->
+    <color rgba="0.200 0.200 0.210 1"/>
+  </material>
+  <material name="steel_brushed">
+    <!-- Brushed stainless — worktable top -->
+    <color rgba="0.720 0.730 0.742 1"/>
+  </material>
+  <material name="steel_dark">
+    <!-- Dark steel frame / legs -->
+    <color rgba="0.240 0.252 0.264 1"/>
+  </material>
+  <material name="aluminium_extrusion">
+    <!-- 8020-style extrusion — warm aluminium -->
+    <color rgba="0.830 0.836 0.842 1"/>
+  </material>
+  <material name="mounting_plate_black">
+    <!-- Robot base mounting plate — anodised black -->
+    <color rgba="0.080 0.088 0.096 1"/>
+  </material>
+  <material name="cabinet_grey">
+    <!-- Electrical cabinet — RAL 7035 light grey -->
+    <color rgba="0.835 0.843 0.851 1"/>
+  </material>
+  <material name="estop_red">
+    <!-- Emergency-stop housing — safety red -->
+    <color rgba="0.820 0.050 0.040 1"/>
+  </material>
+  <material name="estop_yellow">
+    <!-- E-stop button surround -->
+    <color rgba="0.940 0.780 0.000 1"/>
+  </material>
+  <material name="safety_fence_yellow">
+    <!-- Safety fence / guard rail — industrial yellow -->
+    <color rgba="0.980 0.800 0.000 1"/>
+  </material>
+  <material name="cable_black">
+    <!-- Cable conduit / drag chain — matte black -->
+    <color rgba="0.100 0.100 0.108 1"/>
+  </material>
+  <material name="camera_housing_dark">
+    <!-- Camera housing — near-black -->
+    <color rgba="0.150 0.152 0.160 1"/>
+  </material>
+  <material name="camera_lens_blue">
+    <!-- Camera lens cover — deep blue tint -->
+    <color rgba="0.060 0.120 0.340 0.9"/>
+  </material>
+  <material name="floor_concrete">
+    <!-- Warehouse concrete floor patches -->
+    <color rgba="0.580 0.588 0.600 1"/>
+  </material>
+
+  <!-- ============================================================
+       WORLD → BASE  (FUNCTIONAL — UNCHANGED)
+  ============================================================ -->
+  <link name="world"/>
+
+  <joint name="ur5e_base_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="ur5e_base_link"/>
+    <origin xyz="-4.65 0.0 0.77" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ============================================================
+       P1 — UR5e ARM VISUAL ENHANCEMENT
+       Strategy — each link gets multiple <visual> elements —
+         1. main body cylinder (UR grey)
+         2. joint cap disc at proximal end (UR blue)
+         3. shaft ring at distal end (dark metallic)
+         4. logo / label strip (slightly darker grey)
+       Collision geometry is UNCHANGED from original.
+  ============================================================ -->
+
+  <!-- ── BASE LINK ─────────────────────────────────────────── -->
+  <link name="ur5e_base_link">
+    <inertial>
+      <mass value="4.0"/>
+      <origin xyz="0 0 0.065" rpy="0 0 0"/>
+      <inertia ixx="0.00443" ixy="0" ixz="0"
+               iyy="0.00443" iyz="0" izz="0.00726"/>
+    </inertial>
+
+    <!-- Main base cylinder — UR grey -->
+    <visual name="base_body">
+      <origin xyz="0 0 0.065" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.075" length="0.115"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Blue top cap ring -->
+    <visual name="base_cap_top">
+      <origin xyz="0 0 0.123" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.077" length="0.010"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Bottom mounting flange / base plate -->
+    <visual name="base_flange">
+      <origin xyz="0 0 0.006" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.095" length="0.012"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+    <!-- Four mounting bolt visual dots -->
+    <visual name="bolt_0">
+      <origin xyz=" 0.072  0.000 0.006" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.007" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="bolt_1">
+      <origin xyz="-0.072  0.000 0.006" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.007" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="bolt_2">
+      <origin xyz=" 0.000  0.072 0.006" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.007" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="bolt_3">
+      <origin xyz=" 0.000 -0.072 0.006" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.007" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.065" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.075" length="0.13"/></geometry>
+    </collision>
+  </link>
+
+  <!-- shoulder_pan — FUNCTIONAL UNCHANGED -->
+  <joint name="shoulder_pan_joint" type="revolute">
+    <parent link="ur5e_base_link"/>
+    <child  link="ur5e_shoulder_link"/>
+    <origin xyz="0 0 0.1625" rpy="0 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="150.0" velocity="3.1416"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <!-- ── SHOULDER LINK ──────────────────────────────────────── -->
+  <link name="ur5e_shoulder_link">
+    <inertial>
+      <mass value="3.7"/>
+      <origin xyz="0 0.065 0" rpy="0 0 0"/>
+      <inertia ixx="0.01041" ixy="0" ixz="0"
+               iyy="0.00667" iyz="0" izz="0.01041"/>
+    </inertial>
+
+    <!-- Blue joint housing cap — proximal (faces base) -->
+    <visual name="shoulder_cap_prox">
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.066" length="0.038"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Main shoulder housing — UR grey -->
+    <visual name="shoulder_body">
+      <origin xyz="0 0.050 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.058" length="0.060"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Dark shaft ring at output side -->
+    <visual name="shoulder_ring">
+      <origin xyz="0 0.118 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.060" length="0.016"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.06" length="0.13"/></geometry>
+    </collision>
+  </link>
+
+  <!-- shoulder_lift — FUNCTIONAL UNCHANGED -->
+  <joint name="shoulder_lift_joint" type="revolute">
+    <parent link="ur5e_shoulder_link"/>
+    <child  link="ur5e_upper_arm_link"/>
+    <origin xyz="0 0.138 0" rpy="1.5708 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="150.0" velocity="3.1416"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <!-- ── UPPER ARM LINK ─────────────────────────────────────── -->
+  <link name="ur5e_upper_arm_link">
+    <inertial>
+      <mass value="8.393"/>
+      <origin xyz="0 0 0.212" rpy="0 0 0"/>
+      <inertia ixx="0.1338" ixy="0" ixz="0"
+               iyy="0.1338" iyz="0" izz="0.00951"/>
+    </inertial>
+
+    <!-- Blue elbow joint cap at base of upper arm -->
+    <visual name="upper_arm_prox_cap">
+      <origin xyz="0 0 0.016" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.058" length="0.032"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Main arm tube — UR grey -->
+    <visual name="upper_arm_tube">
+      <origin xyz="0 0 0.225" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.048" length="0.366"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Distal elbow cap -->
+    <visual name="upper_arm_distal_cap">
+      <origin xyz="0 0 0.410" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.056" length="0.026"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Dark ring at elbow output -->
+    <visual name="upper_arm_ring">
+      <origin xyz="0 0 0.424" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.058" length="0.010"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <!-- Cable routing channel strip (visual only) -->
+    <visual name="upper_arm_cable_strip">
+      <origin xyz="0.049 0 0.212" rpy="0 0 0"/>
+      <geometry><box size="0.008 0.012 0.310"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.212" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.054" length="0.425"/></geometry>
+    </collision>
+  </link>
+
+  <!-- elbow — FUNCTIONAL UNCHANGED -->
+  <joint name="elbow_joint" type="revolute">
+    <parent link="ur5e_upper_arm_link"/>
+    <child  link="ur5e_forearm_link"/>
+    <origin xyz="0 0.425 0" rpy="0 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="150.0" velocity="3.1416"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <!-- ── FOREARM LINK ───────────────────────────────────────── -->
+  <link name="ur5e_forearm_link">
+    <inertial>
+      <mass value="2.275"/>
+      <origin xyz="0 0 0.193" rpy="0 0 0"/>
+      <inertia ixx="0.03163" ixy="0" ixz="0"
+               iyy="0.03163" iyz="0" izz="0.00412"/>
+    </inertial>
+
+    <!-- Blue elbow cap -->
+    <visual name="forearm_prox_cap">
+      <origin xyz="0 0 0.014" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.048" length="0.028"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Tapered forearm tube — slightly slimmer than upper arm -->
+    <visual name="forearm_tube">
+      <origin xyz="0 0 0.200" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.036" length="0.330"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Wrist connection cap -->
+    <visual name="forearm_distal_cap">
+      <origin xyz="0 0 0.375" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.044" length="0.024"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Cable strip on forearm -->
+    <visual name="forearm_cable_strip">
+      <origin xyz="0.038 0 0.193" rpy="0 0 0"/>
+      <geometry><box size="0.007 0.010 0.280"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.193" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.040" length="0.392"/></geometry>
+    </collision>
+  </link>
+
+  <!-- wrist_1 — FUNCTIONAL UNCHANGED -->
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="ur5e_forearm_link"/>
+    <child  link="ur5e_wrist_1_link"/>
+    <origin xyz="0 0.392 -0.1333" rpy="1.5708 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="28.0" velocity="3.1416"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+
+  <!-- ── WRIST 1 ────────────────────────────────────────────── -->
+  <link name="ur5e_wrist_1_link">
+    <inertial>
+      <mass value="1.219"/>
+      <origin xyz="0 0.127 0" rpy="0 0 0"/>
+      <inertia ixx="0.00496" ixy="0" ixz="0"
+               iyy="0.00272" iyz="0" izz="0.00496"/>
+    </inertial>
+
+    <!-- Wrist 1 blue cap -->
+    <visual name="wrist1_cap_prox">
+      <origin xyz="0 -0.008 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.038" length="0.016"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Wrist 1 body -->
+    <visual name="wrist1_body">
+      <origin xyz="0 0.060 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.030" length="0.102"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Dark shaft ring distal -->
+    <visual name="wrist1_ring">
+      <origin xyz="0 0.118 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.033" length="0.010"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.033" length="0.127"/></geometry>
+    </collision>
+  </link>
+
+  <!-- wrist_2 — FUNCTIONAL UNCHANGED -->
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="ur5e_wrist_1_link"/>
+    <child  link="ur5e_wrist_2_link"/>
+    <origin xyz="0 0.127 0" rpy="1.5708 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="28.0" velocity="3.1416"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+
+  <!-- ── WRIST 2 ────────────────────────────────────────────── -->
+  <link name="ur5e_wrist_2_link">
+    <inertial>
+      <mass value="1.219"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <inertia ixx="0.00496" ixy="0" ixz="0"
+               iyy="0.00496" iyz="0" izz="0.00272"/>
+    </inertial>
+
+    <!-- Wrist 2 blue cap -->
+    <visual name="wrist2_cap_prox">
+      <origin xyz="0 0 0.004" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.034" length="0.008"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Wrist 2 body -->
+    <visual name="wrist2_body">
+      <origin xyz="0 0 0.054" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.028" length="0.086"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Ring at top -->
+    <visual name="wrist2_ring">
+      <origin xyz="0 0 0.097" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.033" length="0.008"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.033" length="0.1"/></geometry>
+    </collision>
+  </link>
+
+  <!-- wrist_3 — FUNCTIONAL UNCHANGED -->
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="ur5e_wrist_2_link"/>
+    <child  link="ur5e_wrist_3_link"/>
+    <origin xyz="0 0 0.1" rpy="1.5708 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit lower="-6.2832" upper="6.2832" effort="28.0" velocity="3.1416"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+
+  <!-- ── WRIST 3 / FLANGE ───────────────────────────────────── -->
+  <link name="ur5e_wrist_3_link">
+    <inertial>
+      <mass value="0.1879"/>
+      <origin xyz="0 0.0116 0" rpy="0 0 0"/>
+      <inertia ixx="0.000135" ixy="0" ixz="0"
+               iyy="0.0000762" iyz="0" izz="0.000135"/>
+    </inertial>
+
+    <!-- Wrist 3 blue cap -->
+    <visual name="wrist3_cap">
+      <origin xyz="0 -0.002 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.034" length="0.008"/></geometry>
+      <material name="ur5e_joint_blue"/>
+    </visual>
+    <!-- Wrist 3 short body -->
+    <visual name="wrist3_body">
+      <origin xyz="0 0.008 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.028" length="0.018"/></geometry>
+      <material name="ur5e_body_grey"/>
+    </visual>
+    <!-- Tool flange disc — slightly darker grey -->
+    <visual name="flange_disc">
+      <origin xyz="0 0.022 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.040" length="0.012"/></geometry>
+      <material name="ur5e_flange_grey"/>
+    </visual>
+    <!-- Four flange bolt dots -->
+    <visual name="flange_bolt_0">
+      <origin xyz=" 0.030  0.000 0.022" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.004" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="flange_bolt_1">
+      <origin xyz="-0.030  0.000 0.022" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.004" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="flange_bolt_2">
+      <origin xyz=" 0.000  0.030 0.022" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.004" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="flange_bolt_3">
+      <origin xyz=" 0.000 -0.030 0.022" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.004" length="0.014"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.033" length="0.0232"/></geometry>
+    </collision>
+  </link>
+
+  <!-- tool0 — FUNCTIONAL UNCHANGED -->
+  <joint name="wrist_3_to_tool0" type="fixed">
+    <parent link="ur5e_wrist_3_link"/>
+    <child  link="tool0"/>
+    <origin xyz="0 0.0116 0" rpy="1.5708 -1.5708 0"/>
+  </joint>
+  <link name="tool0"/>
+
+  <!-- ============================================================
+       G14 — GRIPPER RGB-D CAMERA
+       Attached to tool0. Existing gripper geometry/joints unchanged.
+  ============================================================ -->
+
+  <joint name="gripper_camera_joint" type="fixed">
+    <parent link="tool0"/>
+    <child  link="gripper_camera_link"/>
+    <origin xyz="0 0 0.12" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gripper_camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.035 0.025"/>
+      </geometry>
+      <material name="camera_housing_dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.035 0.025"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="gripper_camera_optical_joint" type="fixed">
+    <parent link="gripper_camera_link"/>
+    <child  link="gripper_camera_color_optical_frame"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+  </joint>
+
+  <link name="gripper_camera_color_optical_frame"/>
+
+  <gazebo reference="gripper_camera_link">
+    <sensor type="depth" name="gripper_rgbd_sensor">
+      <always_on>true</always_on>
+      <update_rate>15.0</update_rate>
+      <camera>
+        <horizontal_fov>1.0472</horizontal_fov>
+        <image>
+          <format>B8G8R8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>3.0</far>
+        </clip>
+      </camera>
+      <plugin name="gripper_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>15.0</updateRate>
+        <cameraName>gripper_rgbd</cameraName>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
+        <frameName>gripper_camera_color_optical_frame</frameName>
+        <pointCloudCutoff>0.05</pointCloudCutoff>
+        <rangeMax>3.0</rangeMax>
+        <ros>
+          <remapping>gripper_rgbd/image_raw:=/gripper_rgbd/rgb/image_raw</remapping>
+          <remapping>gripper_rgbd/camera_info:=/gripper_rgbd/rgb/camera_info</remapping>
+          <remapping>gripper_rgbd/depth/image_raw:=/gripper_rgbd/depth/image_raw</remapping>
+          <remapping>gripper_rgbd/depth/camera_info:=/gripper_rgbd/depth/camera_info</remapping>
+          <remapping>gripper_rgbd/points:=/gripper_rgbd/depth/points</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- ============================================================
+       P1 — GRIPPER VISUAL  (Robotiq 2F-140 enhanced)
+       Collision geometry and joint names UNCHANGED.
+  ============================================================ -->
+
+  <joint name="gripper_base_joint" type="fixed">
+    <parent link="tool0"/>
+    <child  link="gripper_base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gripper_base_link">
+    <inertial>
+      <mass value="0.8"/>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <inertia ixx="0.003" ixy="0" ixz="0"
+               iyy="0.003" iyz="0" izz="0.001"/>
+    </inertial>
+
+    <!-- Main housing body -->
+    <visual name="gripper_housing">
+      <origin xyz="0 0 0.038" rpy="0 0 0"/>
+      <geometry><box size="0.076 0.116 0.055"/></geometry>
+      <material name="gripper_body_dark"/>
+    </visual>
+    <!-- Side grip ridges -->
+    <visual name="gripper_ridge_l">
+      <origin xyz="-0.040 0 0.038" rpy="0 0 0"/>
+      <geometry><box size="0.006 0.100 0.040"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <visual name="gripper_ridge_r">
+      <origin xyz=" 0.040 0 0.038" rpy="0 0 0"/>
+      <geometry><box size="0.006 0.100 0.040"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <!-- Robotiq logo plate (lighter strip) -->
+    <visual name="gripper_logo_plate">
+      <origin xyz="0 -0.059 0.038" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.002 0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <!-- Cable exit port at top -->
+    <visual name="gripper_cable_port">
+      <origin xyz="0 0.040 0.068" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.006" length="0.012"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry><box size="0.08 0.12 0.06"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Left finger — FUNCTIONAL UNCHANGED -->
+  <joint name="left_finger_joint" type="prismatic">
+    <parent link="gripper_base_link"/>
+    <child  link="left_finger_link"/>
+    <origin xyz="-0.03 0 0.08" rpy="0 0 0"/>
+    <axis   xyz="1 0 0"/>
+    <limit lower="0.0" upper="0.07" effort="20.0" velocity="0.1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="left_finger_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0"
+               iyy="0.0001" iyz="0" izz="0.00002"/>
+    </inertial>
+    <!-- Finger body -->
+    <visual name="left_finger_body">
+      <origin xyz="0 0 0.030" rpy="0 0 0"/>
+      <geometry><box size="0.014 0.028 0.056"/></geometry>
+      <material name="gripper_body_dark"/>
+    </visual>
+    <!-- Rubber tip pad -->
+    <visual name="left_finger_tip">
+      <origin xyz="0 0 0.058" rpy="0 0 0"/>
+      <geometry><box size="0.016 0.028 0.006"/></geometry>
+      <material name="gripper_finger_rubber"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <geometry><box size="0.016 0.030 0.06"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Right finger — FUNCTIONAL UNCHANGED -->
+  <joint name="right_finger_joint" type="prismatic">
+    <parent link="gripper_base_link"/>
+    <child  link="right_finger_link"/>
+    <origin xyz="0.03 0 0.08" rpy="0 0 0"/>
+    <axis   xyz="-1 0 0"/>
+    <limit lower="0.0" upper="0.07" effort="20.0" velocity="0.1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="right_finger_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0"
+               iyy="0.0001" iyz="0" izz="0.00002"/>
+    </inertial>
+    <visual name="right_finger_body">
+      <origin xyz="0 0 0.030" rpy="0 0 0"/>
+      <geometry><box size="0.014 0.028 0.056"/></geometry>
+      <material name="gripper_body_dark"/>
+    </visual>
+    <visual name="right_finger_tip">
+      <origin xyz="0 0 0.058" rpy="0 0 0"/>
+      <geometry><box size="0.016 0.028 0.006"/></geometry>
+      <material name="gripper_finger_rubber"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <geometry><box size="0.016 0.030 0.06"/></geometry>
+    </collision>
+  </link>
+
+  <!-- ============================================================
+       P2 — STATION WORKCELL VISUAL (visual-only links, no joints)
+       All <collision> omitted → Nav2 / robot motion unaffected.
+       Attached to world via fixed joints.
+  ============================================================ -->
+
+  <!-- ── Steel Worktable ────────────────────────────────────── -->
+  <joint name="worktable_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="worktable_link"/>
+    <origin xyz="-4.65 0.0 0.365" rpy="0 0 0"/>
+  </joint>
+  <link name="worktable_link">
+    <!-- Tabletop — brushed stainless -->
+    <visual name="tabletop">
+      <origin xyz="0 0 0.365" rpy="0 0 0"/>
+      <geometry><box size="1.40 0.90 0.035"/></geometry>
+      <material name="steel_brushed"/>
+    </visual>
+    <!-- Table apron front -->
+    <visual name="apron_front">
+      <origin xyz="0 -0.432 0.180" rpy="0 0 0"/>
+      <geometry><box size="1.36 0.025 0.370"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Table apron back -->
+    <visual name="apron_back">
+      <origin xyz="0  0.432 0.180" rpy="0 0 0"/>
+      <geometry><box size="1.36 0.025 0.370"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Table apron left -->
+    <visual name="apron_left">
+      <origin xyz="-0.687 0 0.180" rpy="0 0 0"/>
+      <geometry><box size="0.025 0.86 0.370"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Table apron right -->
+    <visual name="apron_right">
+      <origin xyz=" 0.687 0 0.180" rpy="0 0 0"/>
+      <geometry><box size="0.025 0.86 0.370"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Four table legs -->
+    <visual name="leg_fl">
+      <origin xyz="-0.640 -0.390 -0.145" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.060 0.730"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <visual name="leg_fr">
+      <origin xyz=" 0.640 -0.390 -0.145" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.060 0.730"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <visual name="leg_rl">
+      <origin xyz="-0.640  0.390 -0.145" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.060 0.730"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <visual name="leg_rr">
+      <origin xyz=" 0.640  0.390 -0.145" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.060 0.730"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Lower stretcher rail front-back -->
+    <visual name="stretcher_lr">
+      <origin xyz="0 0 -0.370" rpy="0 0 0"/>
+      <geometry><box size="1.28 0.040 0.030"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Stretcher rail left-right -->
+    <visual name="stretcher_fb">
+      <origin xyz="0 0 -0.370" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.82 0.030"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+  </link>
+
+  <!-- ── Robot Base Mounting Plate ─────────────────────────── -->
+  <joint name="mount_plate_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="mount_plate_link"/>
+    <origin xyz="-4.65 0.0 0.742" rpy="0 0 0"/>
+  </joint>
+  <link name="mount_plate_link">
+    <!-- Square mounting plate (anodised black) -->
+    <visual name="mount_plate">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.260 0.260 0.024"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+    <!-- Six mounting bolts around robot base -->
+    <visual name="mplate_bolt_0">
+      <origin xyz=" 0.110  0.000 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <visual name="mplate_bolt_1">
+      <origin xyz="-0.110  0.000 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <visual name="mplate_bolt_2">
+      <origin xyz=" 0.055  0.095 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <visual name="mplate_bolt_3">
+      <origin xyz="-0.055  0.095 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <visual name="mplate_bolt_4">
+      <origin xyz=" 0.055 -0.095 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <visual name="mplate_bolt_5">
+      <origin xyz="-0.055 -0.095 0.018" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.008" length="0.020"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+  </link>
+
+  <!-- ── Electrical Cabinet ────────────────────────────────── -->
+  <joint name="elec_cabinet_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="elec_cabinet_link"/>
+    <origin xyz="-3.50 0.65 0.750" rpy="0 0 0"/>
+  </joint>
+  <link name="elec_cabinet_link">
+    <!-- Cabinet body -->
+    <visual name="cabinet_body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.50 0.25 1.50"/></geometry>
+      <material name="cabinet_grey"/>
+    </visual>
+    <!-- Door seam line -->
+    <visual name="cabinet_door_seam">
+      <origin xyz="0.252 0 0.100" rpy="0 0 0"/>
+      <geometry><box size="0.004 0.240 1.280"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+    <!-- Handle -->
+    <visual name="cabinet_handle">
+      <origin xyz="0.258 0.060 0.050" rpy="0 0 0"/>
+      <geometry><box size="0.014 0.014 0.120"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- Ventilation grille (lower) -->
+    <visual name="cabinet_vent">
+      <origin xyz="0.252 0 -0.580" rpy="0 0 0"/>
+      <geometry><box size="0.004 0.200 0.120"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+  </link>
+
+  <!-- ── E-Stop Visual Housing ─────────────────────────────── -->
+  <joint name="estop_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="estop_link"/>
+    <origin xyz="-3.50 0.25 1.650" rpy="0 0 0"/>
+  </joint>
+  <link name="estop_link">
+    <!-- E-stop post -->
+    <visual name="estop_post">
+      <origin xyz="0 0 -0.150" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.020" length="0.300"/></geometry>
+      <material name="steel_dark"/>
+    </visual>
+    <!-- E-stop housing box -->
+    <visual name="estop_box">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.120 0.090 0.080"/></geometry>
+      <material name="estop_red"/>
+    </visual>
+    <!-- E-stop button (yellow surround) -->
+    <visual name="estop_button_ring">
+      <origin xyz="0.062 0 0.008" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.022" length="0.010"/></geometry>
+      <material name="estop_yellow"/>
+    </visual>
+    <!-- E-stop button mushroom cap -->
+    <visual name="estop_button_cap">
+      <origin xyz="0.068 0 0.008" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.018" length="0.012"/></geometry>
+      <material name="estop_red"/>
+    </visual>
+  </link>
+
+  <!-- ── Safety Fence Panel (back of workcell) ─────────────── -->
+  <joint name="safety_fence_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="safety_fence_link"/>
+    <origin xyz="-4.65 1.10 0.800" rpy="0 0 0"/>
+  </joint>
+  <link name="safety_fence_link">
+    <!-- Top rail -->
+    <visual name="fence_top_rail">
+      <origin xyz="0 0 0.500" rpy="0 0 0"/>
+      <geometry><box size="2.00 0.040 0.040"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <!-- Bottom rail -->
+    <visual name="fence_bot_rail">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="2.00 0.040 0.040"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <!-- Vertical posts ×5 -->
+    <visual name="fence_post_0">
+      <origin xyz="-0.90 0 0.250" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.540"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <visual name="fence_post_1">
+      <origin xyz="-0.45 0 0.250" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.540"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <visual name="fence_post_2">
+      <origin xyz=" 0.00 0 0.250" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.540"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <visual name="fence_post_3">
+      <origin xyz=" 0.45 0 0.250" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.540"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <visual name="fence_post_4">
+      <origin xyz=" 0.90 0 0.250" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.540"/></geometry>
+      <material name="safety_fence_yellow"/>
+    </visual>
+    <!-- Wire mesh infill (thin flat panel approximation) -->
+    <visual name="fence_mesh">
+      <origin xyz="0 0.010 0.250" rpy="0 0 0"/>
+      <geometry><box size="1.94 0.008 0.500"/></geometry>
+      <material name="ur5e_joint_dark"/>
+    </visual>
+  </link>
+
+  <!-- ── Cable Drag Chain (visual only) ───────────────────── -->
+  <joint name="cable_chain_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="cable_chain_link"/>
+    <origin xyz="-4.65 -0.55 0.780" rpy="0 0 0"/>
+  </joint>
+  <link name="cable_chain_link">
+    <!-- Horizontal cable chain on worktable edge -->
+    <visual name="cable_chain_h">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.600 0.050 0.040"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+    <!-- Vertical drop section -->
+    <visual name="cable_chain_v">
+      <origin xyz="0.280 0 -0.200" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.050 0.400"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+  </link>
+
+  <!-- ── Floor Mounting Anchors ────────────────────────────── -->
+  <joint name="floor_anchor_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="floor_anchor_link"/>
+    <origin xyz="-4.65 0.0 0.010" rpy="0 0 0"/>
+  </joint>
+  <link name="floor_anchor_link">
+    <!-- Four floor anchor plates around robot base -->
+    <visual name="anchor_0">
+      <origin xyz=" 0.200  0.000 0" rpy="0 0 0"/>
+      <geometry><box size="0.120 0.080 0.020"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+    <visual name="anchor_1">
+      <origin xyz="-0.200  0.000 0" rpy="0 0 0"/>
+      <geometry><box size="0.120 0.080 0.020"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+    <visual name="anchor_2">
+      <origin xyz=" 0.000  0.200 0" rpy="0 0 0"/>
+      <geometry><box size="0.080 0.120 0.020"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+    <visual name="anchor_3">
+      <origin xyz=" 0.000 -0.200 0" rpy="0 0 0"/>
+      <geometry><box size="0.080 0.120 0.020"/></geometry>
+      <material name="mounting_plate_black"/>
+    </visual>
+  </link>
+
+  <!-- ============================================================
+       P3 — CAMERA VISUAL ENHANCEMENT
+       Position/orientation of station_camera_link UNCHANGED.
+       Only visual geometry is enhanced.
+       Functional links (station_camera_link, optical_frame) LOCKED.
+  ============================================================ -->
+
+  <joint name="station_camera_stand_joint" type="fixed">
+    <parent link="world"/>
+    <child  link="station_camera_link"/>
+    <!-- POSITION UNCHANGED from original -->
+    <origin xyz="-4.65 0.6 2.2" rpy="0 0.6 -1.5708"/>
+  </joint>
+
+  <link name="station_camera_link">
+    <inertial>
+      <mass value="0.15"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0"
+               iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+
+    <!-- Camera housing body -->
+    <visual name="cam_housing">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.128 0.040 0.040"/></geometry>
+      <material name="camera_housing_dark"/>
+    </visual>
+    <!-- Lens window — slightly blue tinted -->
+    <visual name="cam_lens">
+      <origin xyz="0.052 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.014" length="0.008"/></geometry>
+      <material name="camera_lens_blue"/>
+    </visual>
+    <!-- Depth IR projector dot (left of lens) -->
+    <visual name="cam_ir_dot">
+      <origin xyz="0.052 0.025 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.007" length="0.006"/></geometry>
+      <material name="camera_housing_dark"/>
+    </visual>
+    <!-- Mounting bracket back plate -->
+    <visual name="cam_bracket_plate">
+      <origin xyz="-0.010 0 0.048" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.040 0.060"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <!-- Aluminium extrusion vertical arm -->
+    <visual name="cam_arm_v">
+      <origin xyz="-0.010 0 0.148" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.200"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <!-- Horizontal arm to ceiling mount -->
+    <visual name="cam_arm_h">
+      <origin xyz="-0.010 0 0.248" rpy="0 0 0"/>
+      <geometry><box size="0.040 0.040 0.040"/></geometry>
+      <material name="aluminium_extrusion"/>
+    </visual>
+    <!-- Cable exit from camera back -->
+    <visual name="cam_cable">
+      <origin xyz="-0.075 0.010 0.020" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.005" length="0.100"/></geometry>
+      <material name="cable_black"/>
+    </visual>
+
+    <collision>
+      <!-- Collision kept same as original -->
+      <geometry><box size="0.12 0.08 0.04"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Optical frame — FUNCTIONAL UNCHANGED -->
+  <joint name="station_camera_optical_joint" type="fixed">
+    <parent link="station_camera_link"/>
+    <child  link="station_camera_color_optical_frame"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+  </joint>
+  <link name="station_camera_color_optical_frame"/>
+
+  <!-- ============================================================
+       ROS2_CONTROL — BYTE-FOR-BYTE IDENTICAL TO ORIGINAL
+  ============================================================ -->
+  <ros2_control name="ur5e_station_system" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="shoulder_pan_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="shoulder_lift_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="elbow_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist_1_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist_2_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist_3_joint">
+      <command_interface name="position">
+        <param name="min">-6.2832</param>
+        <param name="max"> 6.2832</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_finger_joint">
+      <command_interface name="position">
+        <param name="min">0.0</param>
+        <param name="max">0.07</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_finger_joint">
+      <command_interface name="position">
+        <param name="min">0.0</param>
+        <param name="max">0.07</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <!-- ============================================================
+       GAZEBO PLUGINS — BYTE-FOR-BYTE IDENTICAL TO ORIGINAL
+  ============================================================ -->
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>/ros_ws/src/warehouse_robot/config/ur5e_controllers.yaml</parameters>
+      <ros>
+        <namespace>/ur5e</namespace>
+        <remapping>~/joint_states:=/ur5e/joint_states</remapping>
+      </ros>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="station_camera_link">
+    <sensor type="depth" name="station_rgbd_sensor">
+      <always_on>true</always_on>
+      <update_rate>15.0</update_rate>
+      <camera>
+        <horizontal_fov>1.0472</horizontal_fov>
+        <image>
+          <format>B8G8R8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.3</near>
+          <far>6.0</far>
+        </clip>
+      </camera>
+      <plugin name="station_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>15.0</updateRate>
+        <cameraName>station_rgbd</cameraName>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
+        <frameName>station_camera_color_optical_frame</frameName>
+        <pointCloudCutoff>0.3</pointCloudCutoff>
+        <rangeMax>6.0</rangeMax>
+        <ros>
+          <remapping>station_rgbd/image_raw:=/station_rgbd/rgb/image_raw</remapping>
+          <remapping>station_rgbd/camera_info:=/station_rgbd/rgb/camera_info</remapping>
+          <remapping>station_rgbd/depth/image_raw:=/station_rgbd/depth/image_raw</remapping>
+          <remapping>station_rgbd/depth/camera_info:=/station_rgbd/depth/camera_info</remapping>
+          <remapping>station_rgbd/points:=/station_rgbd/depth/points</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>

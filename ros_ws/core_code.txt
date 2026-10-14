@@ -1,0 +1,34 @@
+=== [병 파지·들어올림] grasp_sim5.py ===
+
+=== [놓기·홈 복귀] claude_grasp_place.py ===
+197-ok = abs(d.xpos[bt][2]-PLACE_Z) < 0.006 and tilt < 5 and spd < 0.01
+198:print("놓기 안정 판정(측정 기준):", "PASS" if ok else "FAIL")
+199-if vw: wait(3.0)
+
+=== [거리 기반 협업] claude_hri.py ===
+7-
+8:WARN_R = float(os.environ.get("HRI_WARN_R", "2.5"))   # 감속 구역 반경 (UR5e 베이스 기준, m)
+9:STOP_R = float(os.environ.get("HRI_STOP_R", "1.7"))   # 보호정지 구역 반경 (m)
+10-SLOW = 0.5                                             # 감속 구역 속도 비율
+--
+39-        self.hxy = np.array(HOME, float); self.r = 9.9; self.tau = 0.0
+40:        self.hi = 0; self.contact = False; self.low_since = None; self.resume_at = 0.0
+41-        self.estop_pressed = False; self.n = 0; self.free_max = 0.0; self.push_on = False; self.pushed = False
+--
+94-        new = "CONTACT_STOP" if self.contact else ("STOP_ZONE" if r < sr else ("SLOW" if r < wr else "NORMAL"))
+95:        if new in STOPS: self.resume_at = now + 1.0
+96:        elif in_stop and now < self.resume_at: new = self.state   # 사람이 빠진 뒤 1초 유지 후 재개
+97-        if new != self.state:
+
+=== [외력 감지] claude_hri.py ===
+2-구역: WARN_R 안 -> 감속 / STOP_R 안 -> 보호정지 / 비상버튼 -> 완전정지
+3:외력: 관절 토크 관측기(mj_inverse 잔차) > TAU_TH -> 접촉 보호정지, 사람이 빠지면 자동 재개
+4-"""
+--
+18-}
+19:PUSH_WIN = {"demo": (7.0, 10.0)}   # 이 구간에 작업자가 팔을 민다
+20-PRESS_AT = {"estop": 13.0}           # 이 시각에 비상버튼을 누른다
+--
+106-        D.mocap_pos[:] = self.d.mocap_pos
+107:        mujoco.mj_inverse(self.m, D)
+108-        self.tau = float(np.linalg.norm((D.qfrc_inverse - self.d.qfrc_actuator)[self.vadr]))

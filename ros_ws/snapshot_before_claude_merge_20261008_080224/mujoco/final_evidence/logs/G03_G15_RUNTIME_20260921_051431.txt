@@ -1,0 +1,5 @@
+
+======================================================================
+G03 — FINAL XML COMPILE
+======================================================================
+G03 = FAIL: ParseXML: Error opening file 'c:/work/warehouse_robot_project/ros_ws/mujoco/scenes/warehouse_tron1_final_visual.xml'

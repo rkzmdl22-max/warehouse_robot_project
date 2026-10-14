@@ -1,0 +1,31 @@
+amcl:
+  ros__parameters:
+    use_sim_time: true
+
+    base_frame_id: tb3_2/base_footprint
+    odom_frame_id: tb3_2/odom
+    global_frame_id: map
+
+    scan_topic: /tb3_2/scan
+
+    min_particles: 500
+    max_particles: 2000
+
+    update_min_d: 0.20
+    update_min_a: 0.20
+
+    transform_tolerance: 1.0
+
+    set_initial_pose: true
+
+    initial_pose:
+      x: 6.0
+      y: -6.0
+      z: 0.0
+      yaw: 0.0
+
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    alpha5: 0.2

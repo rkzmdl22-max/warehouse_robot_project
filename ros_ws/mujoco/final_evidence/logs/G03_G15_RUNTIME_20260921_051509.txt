@@ -1,0 +1,20 @@
+
+======================================================================
+G03 — FINAL XML COMPILE
+======================================================================
+COMPILE          = PASS
+nbody            = 54
+ngeom            = 176
+njnt             = 20
+nsite            = 14
+ncam             = 2
+nu               = 8
+nq               = 56
+nv               = 50
+NaN in qpos      = 0
+
+Actuators:
+G03 = FAIL: mj_name2id(): incompatible function arguments. The following argument types are supported:
+    1. (m: mujoco._structs.MjModel, type: typing.SupportsInt, name: str) -> int
+
+Invoked with: <mujoco._structs.MjModel object at 0x736dd9c3b8f0>, <mjtObj.mjOBJ_ACTUATOR: 19>, 0

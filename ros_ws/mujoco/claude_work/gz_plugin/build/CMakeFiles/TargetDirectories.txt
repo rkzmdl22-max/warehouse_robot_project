@@ -1,0 +1,3 @@
+/ros_ws/mujoco/claude_work/gz_plugin/build/CMakeFiles/claude_gait.dir
+/ros_ws/mujoco/claude_work/gz_plugin/build/CMakeFiles/edit_cache.dir
+/ros_ws/mujoco/claude_work/gz_plugin/build/CMakeFiles/rebuild_cache.dir

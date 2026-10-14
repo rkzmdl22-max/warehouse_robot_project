@@ -1,0 +1,3 @@
+# Placeholder for src/tiago_harness (Stage 03)
+# Copy Harness code from ChatGPT/local project here.
+# Expected interface: get_robot_state, send_base_command, emergency_stop, ...

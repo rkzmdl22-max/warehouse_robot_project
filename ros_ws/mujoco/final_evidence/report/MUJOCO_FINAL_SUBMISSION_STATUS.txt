@@ -1,0 +1,46 @@
+MUJOCO FINAL SUBMISSION STATUS — V5.2
+DATE: 2026-09-10
+
+MuJoCo Version: 3.6.0
+Scene: warehouse_tron1_final_visual.xml
+
+FINAL VIRTUAL CAMERA:
+gripper_rgbd_camera
+
+TRON1:
+Runtime = PASS
+Approach = PASS
+
+UR5e:
+Runtime = PASS
+Gripper = PASS
+
+PHYSICAL GRASP:
+Left Finger-Bottle Contact = PASS
+Right Finger-Bottle Contact = PASS
+Bilateral Grasp = PASS
+
+PHYSICAL LIFT:
+Z0 = 1.4999729838614595
+Z1 = 1.535476462695405
+Delta Z = +0.035503478833945445 m
+Contact after lift = Left 1 / Right 1
+Physical Grasp + Lift = PASS
+
+PHYSICAL TABLE PLACEMENT:
+Target = [2.5, -3.0, 0.92]
+Final Bottle = [2.49999808, -3.00000130, 0.91948433]
+XY Error = 0.0000023 m
+Z Error = 0.000516 m
+Bottle-Table Contact = PASS
+Release = PASS
+Table Placement = PASS
+
+FINAL SCENARIO:
+APPROACH -> GRASP -> LIFT -> TABLE -> RELEASE = PASS
+
+FINAL VIDEO:
+TRON1_FINAL_GRASP_LIFT_PLACE.mp4
+Recording = PASS
+
+OVERALL = PASS

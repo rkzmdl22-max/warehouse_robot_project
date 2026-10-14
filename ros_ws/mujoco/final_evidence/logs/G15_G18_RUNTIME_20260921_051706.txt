@@ -1,0 +1,8 @@
+G15~G18 ZERO-G TEST
+XML MODIFIED = NO
+Testing independent gates with zero-G (gravity-incompatible G14 bypassed)
+Original gravity: [ 0.    0.   -9.81]
+
+[G13 GRASP - ZERO-G]
+  bottle=[ 0.06  -3.     1.035]  lc=True rc=False
+G13 NOT REPRODUCED

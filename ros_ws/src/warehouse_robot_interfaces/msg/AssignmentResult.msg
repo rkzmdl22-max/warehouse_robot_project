@@ -1,0 +1,9 @@
+string mission_id
+string task_id
+bool success
+string robot_id
+string[] matched_capabilities
+float32 estimated_distance
+string status
+string error_code
+string error_message

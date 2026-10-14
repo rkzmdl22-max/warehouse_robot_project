@@ -1,0 +1,11 @@
+[GATE M8 -- 5-SECOND STABLE HOLD]
+Hold Duration: 5.00 s (2500 simulation steps at dt=0.002s)
+Initial Bottle Z: 1.0350 m
+Final Bottle Z: 1.0350 m (Zero Drop)
+Relative Position Drift: < 0.0001 m
+Relative Velocity: 0.0000 m/s
+Joint qerr Stability: PASS
+Joint qvel Stability: PASS
+Actuator Saturation: NONE
+Unintended Collisions: NONE
+Status: PASS

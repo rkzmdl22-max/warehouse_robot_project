@@ -1,0 +1,87 @@
+============================================================
+COMMON DIGITAL TWIN LAYOUT MASTER
+PROJECT MASTER v5.3.2
+============================================================
+
+COORDINATE SYSTEM
+X = warehouse longitudinal axis
+Y = warehouse cross axis
+Z = vertical
+WAREHOUSE BOUNDARY = X/Y +/-10 m
+
+PRIMARY TRAFFIC
+MAIN AISLE       = (0, 0)
+CROSS/HANDOVER   = y = -3
+RECEIVING AISLE  = (-7, -6)
+
+STORAGE
+SHELF_1 = (-6, -5)
+SHELF_2 = ( 0, -5)
+SHELF_3 = ( 6, -5)
+SHELF_4 = (-6,  5)
+SHELF_5 = ( 0,  5)
+SHELF_6 = ( 6,  5)
+
+PALLET
+PALLET_1 = (-6, -2)
+PALLET_2 = ( 6,  2)
+PALLET_3 = (-8, -7.5)
+PALLET_4 = ( 8, -7.5)
+
+LOGISTICS ZONES
+RECEIVING = (-7, -7.5)
+PICKING   = (-7,  0)
+PACKING   = ( 0,  7.5)
+DELIVERY  = ( 7, -7.5)
+CHARGING  = (-7,  8.5)
+STAGING   = ( 7,  7.5)
+
+CONVEYOR
+CONVEYOR_W19 = (2, 7.5)
+
+WORKCELLS
+PANDA_MOUNT       = (-6.35, 0)
+PANDA_TABLE       = (-6.35, 0)
+PANDA_SAFETY      = (-6.35, 1.05)
+UR5E_MOUNT        = (-4.65, 0)
+HUMAN_COLLAB      = (-5.5, 1.45)
+WORKCELL_BOUNDARY = (-5.5, 0)
+
+TRON1 HANDOVER
+HANDOVER_MARKER = (2.0, -3.0)
+HANDOVER_BORDER = (2.0, -3.0)
+AMMR_START      = (-2.0, -2.0)
+AMMR_ARRIVAL    = (2.0, -3.0)
+
+TRON1 / UR5E STATION
+TRON1_STATION_TABLE  = (2.5, -3.0, 0.4)
+TRON1_STATION_CAMERA = (2.5, -3.0, 2.2)
+
+MUJOCO
+TRON1_BASE_REFERENCE = (0, -3.0, 0.82)
+BOTTLE_PLACE_TABLE    = (0.85, -3.0, 0.4)
+
+DIGITAL TWIN RULE
+Gazebo and MuJoCo use the same warehouse coordinate system.
+Do not independently redesign coordinates.
+Layout changes must be reflected consistently in both environments.
+
+VISUAL RULE
+MuJoCo viewer checkerboard floor = REMOVE.
+Keep physical floor collision.
+Use a single logistics-warehouse floor appearance.
+Do not remove the physical floor geom.
+
+PRESERVATION RULE
+Original warehouse.world = NEVER MODIFY.
+Current rebuild workcopy = remodeling target.
+Existing robot/manipulation assets = PRESERVE.
+Project B manufacturing architecture = EXCLUDED.
+
+============================================================
+STATUS
+P2-0 CROSS AUDIT = COMPLETE
+P2-1 EXTRACTION = COMPLETE
+P2-2 COMMON AXIS/COORDINATE BASELINE = COMPLETE
+P2-3 MASTER DOCUMENT = CREATED
+============================================================

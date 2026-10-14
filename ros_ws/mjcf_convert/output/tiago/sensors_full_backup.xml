@@ -1,0 +1,447 @@
+<sensor>
+
+
+  
+    
+  <actuatorpos name="wheel_right_joint_p" actuator="wheel_right_joint"/>
+  
+    
+  <actuatorvel name="wheel_right_joint_v" actuator="wheel_right_joint"/>
+  
+    
+  <actuatorfrc name="wheel_right_joint_f" actuator="wheel_right_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="wheel_left_joint_p" actuator="wheel_left_joint"/>
+  
+    
+  <actuatorvel name="wheel_left_joint_v" actuator="wheel_left_joint"/>
+  
+    
+  <actuatorfrc name="wheel_left_joint_f" actuator="wheel_left_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="torso_lift_joint_p" actuator="torso_lift_joint"/>
+  
+    
+  <actuatorvel name="torso_lift_joint_v" actuator="torso_lift_joint"/>
+  
+    
+  <actuatorfrc name="torso_lift_joint_f" actuator="torso_lift_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_1_joint_p" actuator="arm_1_joint"/>
+  
+    
+  <actuatorvel name="arm_1_joint_v" actuator="arm_1_joint"/>
+  
+    
+  <actuatorfrc name="arm_1_joint_f" actuator="arm_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_2_joint_p" actuator="arm_2_joint"/>
+  
+    
+  <actuatorvel name="arm_2_joint_v" actuator="arm_2_joint"/>
+  
+    
+  <actuatorfrc name="arm_2_joint_f" actuator="arm_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_3_joint_p" actuator="arm_3_joint"/>
+  
+    
+  <actuatorvel name="arm_3_joint_v" actuator="arm_3_joint"/>
+  
+    
+  <actuatorfrc name="arm_3_joint_f" actuator="arm_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_4_joint_p" actuator="arm_4_joint"/>
+  
+    
+  <actuatorvel name="arm_4_joint_v" actuator="arm_4_joint"/>
+  
+    
+  <actuatorfrc name="arm_4_joint_f" actuator="arm_4_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_5_joint_p" actuator="arm_5_joint"/>
+  
+    
+  <actuatorvel name="arm_5_joint_v" actuator="arm_5_joint"/>
+  
+    
+  <actuatorfrc name="arm_5_joint_f" actuator="arm_5_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_6_joint_p" actuator="arm_6_joint"/>
+  
+    
+  <actuatorvel name="arm_6_joint_v" actuator="arm_6_joint"/>
+  
+    
+  <actuatorfrc name="arm_6_joint_f" actuator="arm_6_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="arm_7_joint_p" actuator="arm_7_joint"/>
+  
+    
+  <actuatorvel name="arm_7_joint_v" actuator="arm_7_joint"/>
+  
+    
+  <actuatorfrc name="arm_7_joint_f" actuator="arm_7_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_joint_p" actuator="hand_thumb_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_joint_v" actuator="hand_thumb_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_joint_f" actuator="hand_thumb_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_joint_p" actuator="hand_index_joint"/>
+  
+    
+  <actuatorvel name="hand_index_joint_v" actuator="hand_index_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_joint_f" actuator="hand_index_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_mrl_joint_p" actuator="hand_mrl_joint"/>
+  
+    
+  <actuatorvel name="hand_mrl_joint_v" actuator="hand_mrl_joint"/>
+  
+    
+  <actuatorfrc name="hand_mrl_joint_f" actuator="hand_mrl_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_abd_joint_p" actuator="hand_thumb_abd_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_abd_joint_v" actuator="hand_thumb_abd_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_abd_joint_f" actuator="hand_thumb_abd_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_virtual_1_joint_p" actuator="hand_thumb_virtual_1_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_virtual_1_joint_v" actuator="hand_thumb_virtual_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_virtual_1_joint_f" actuator="hand_thumb_virtual_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_flex_1_joint_p" actuator="hand_thumb_flex_1_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_flex_1_joint_v" actuator="hand_thumb_flex_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_flex_1_joint_f" actuator="hand_thumb_flex_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_virtual_2_joint_p" actuator="hand_thumb_virtual_2_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_virtual_2_joint_v" actuator="hand_thumb_virtual_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_virtual_2_joint_f" actuator="hand_thumb_virtual_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_thumb_flex_2_joint_p" actuator="hand_thumb_flex_2_joint"/>
+  
+    
+  <actuatorvel name="hand_thumb_flex_2_joint_v" actuator="hand_thumb_flex_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_thumb_flex_2_joint_f" actuator="hand_thumb_flex_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_abd_joint_p" actuator="hand_index_abd_joint"/>
+  
+    
+  <actuatorvel name="hand_index_abd_joint_v" actuator="hand_index_abd_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_abd_joint_f" actuator="hand_index_abd_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_virtual_1_joint_p" actuator="hand_index_virtual_1_joint"/>
+  
+    
+  <actuatorvel name="hand_index_virtual_1_joint_v" actuator="hand_index_virtual_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_virtual_1_joint_f" actuator="hand_index_virtual_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_flex_1_joint_p" actuator="hand_index_flex_1_joint"/>
+  
+    
+  <actuatorvel name="hand_index_flex_1_joint_v" actuator="hand_index_flex_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_flex_1_joint_f" actuator="hand_index_flex_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_virtual_2_joint_p" actuator="hand_index_virtual_2_joint"/>
+  
+    
+  <actuatorvel name="hand_index_virtual_2_joint_v" actuator="hand_index_virtual_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_virtual_2_joint_f" actuator="hand_index_virtual_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_flex_2_joint_p" actuator="hand_index_flex_2_joint"/>
+  
+    
+  <actuatorvel name="hand_index_flex_2_joint_v" actuator="hand_index_flex_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_flex_2_joint_f" actuator="hand_index_flex_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_virtual_3_joint_p" actuator="hand_index_virtual_3_joint"/>
+  
+    
+  <actuatorvel name="hand_index_virtual_3_joint_v" actuator="hand_index_virtual_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_virtual_3_joint_f" actuator="hand_index_virtual_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_index_flex_3_joint_p" actuator="hand_index_flex_3_joint"/>
+  
+    
+  <actuatorvel name="hand_index_flex_3_joint_v" actuator="hand_index_flex_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_index_flex_3_joint_f" actuator="hand_index_flex_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_abd_joint_p" actuator="hand_middle_abd_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_abd_joint_v" actuator="hand_middle_abd_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_abd_joint_f" actuator="hand_middle_abd_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_virtual_1_joint_p" actuator="hand_middle_virtual_1_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_virtual_1_joint_v" actuator="hand_middle_virtual_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_virtual_1_joint_f" actuator="hand_middle_virtual_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_flex_1_joint_p" actuator="hand_middle_flex_1_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_flex_1_joint_v" actuator="hand_middle_flex_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_flex_1_joint_f" actuator="hand_middle_flex_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_virtual_2_joint_p" actuator="hand_middle_virtual_2_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_virtual_2_joint_v" actuator="hand_middle_virtual_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_virtual_2_joint_f" actuator="hand_middle_virtual_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_flex_2_joint_p" actuator="hand_middle_flex_2_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_flex_2_joint_v" actuator="hand_middle_flex_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_flex_2_joint_f" actuator="hand_middle_flex_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_virtual_3_joint_p" actuator="hand_middle_virtual_3_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_virtual_3_joint_v" actuator="hand_middle_virtual_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_virtual_3_joint_f" actuator="hand_middle_virtual_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_middle_flex_3_joint_p" actuator="hand_middle_flex_3_joint"/>
+  
+    
+  <actuatorvel name="hand_middle_flex_3_joint_v" actuator="hand_middle_flex_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_middle_flex_3_joint_f" actuator="hand_middle_flex_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_abd_joint_p" actuator="hand_ring_abd_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_abd_joint_v" actuator="hand_ring_abd_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_abd_joint_f" actuator="hand_ring_abd_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_virtual_1_joint_p" actuator="hand_ring_virtual_1_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_virtual_1_joint_v" actuator="hand_ring_virtual_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_virtual_1_joint_f" actuator="hand_ring_virtual_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_flex_1_joint_p" actuator="hand_ring_flex_1_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_flex_1_joint_v" actuator="hand_ring_flex_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_flex_1_joint_f" actuator="hand_ring_flex_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_virtual_2_joint_p" actuator="hand_ring_virtual_2_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_virtual_2_joint_v" actuator="hand_ring_virtual_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_virtual_2_joint_f" actuator="hand_ring_virtual_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_flex_2_joint_p" actuator="hand_ring_flex_2_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_flex_2_joint_v" actuator="hand_ring_flex_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_flex_2_joint_f" actuator="hand_ring_flex_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_virtual_3_joint_p" actuator="hand_ring_virtual_3_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_virtual_3_joint_v" actuator="hand_ring_virtual_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_virtual_3_joint_f" actuator="hand_ring_virtual_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_ring_flex_3_joint_p" actuator="hand_ring_flex_3_joint"/>
+  
+    
+  <actuatorvel name="hand_ring_flex_3_joint_v" actuator="hand_ring_flex_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_ring_flex_3_joint_f" actuator="hand_ring_flex_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_abd_joint_p" actuator="hand_little_abd_joint"/>
+  
+    
+  <actuatorvel name="hand_little_abd_joint_v" actuator="hand_little_abd_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_abd_joint_f" actuator="hand_little_abd_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_virtual_1_joint_p" actuator="hand_little_virtual_1_joint"/>
+  
+    
+  <actuatorvel name="hand_little_virtual_1_joint_v" actuator="hand_little_virtual_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_virtual_1_joint_f" actuator="hand_little_virtual_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_flex_1_joint_p" actuator="hand_little_flex_1_joint"/>
+  
+    
+  <actuatorvel name="hand_little_flex_1_joint_v" actuator="hand_little_flex_1_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_flex_1_joint_f" actuator="hand_little_flex_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_virtual_2_joint_p" actuator="hand_little_virtual_2_joint"/>
+  
+    
+  <actuatorvel name="hand_little_virtual_2_joint_v" actuator="hand_little_virtual_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_virtual_2_joint_f" actuator="hand_little_virtual_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_flex_2_joint_p" actuator="hand_little_flex_2_joint"/>
+  
+    
+  <actuatorvel name="hand_little_flex_2_joint_v" actuator="hand_little_flex_2_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_flex_2_joint_f" actuator="hand_little_flex_2_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_virtual_3_joint_p" actuator="hand_little_virtual_3_joint"/>
+  
+    
+  <actuatorvel name="hand_little_virtual_3_joint_v" actuator="hand_little_virtual_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_virtual_3_joint_f" actuator="hand_little_virtual_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="hand_little_flex_3_joint_p" actuator="hand_little_flex_3_joint"/>
+  
+    
+  <actuatorvel name="hand_little_flex_3_joint_v" actuator="hand_little_flex_3_joint"/>
+  
+    
+  <actuatorfrc name="hand_little_flex_3_joint_f" actuator="hand_little_flex_3_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="head_1_joint_p" actuator="head_1_joint"/>
+  
+    
+  <actuatorvel name="head_1_joint_v" actuator="head_1_joint"/>
+  
+    
+  <actuatorfrc name="head_1_joint_f" actuator="head_1_joint" noise="0.001"/>
+  
+    
+  <actuatorpos name="head_2_joint_p" actuator="head_2_joint"/>
+  
+    
+  <actuatorvel name="head_2_joint_v" actuator="head_2_joint"/>
+  
+    
+  <actuatorfrc name="head_2_joint_f" actuator="head_2_joint" noise="0.001"/>
+  
+    
+  <framequat name="orientation" objtype="site" noise="0.001" objname="imu"/>
+  
+    
+  <gyro name="angular-velocity" site="imu" noise="0.005" cutoff="34.9"/>
+  
+  
+
+
+
+</sensor>

@@ -1,0 +1,27 @@
+# ROS 2 / colcon
+build/
+install/
+log/
+
+# Python
+.pytest_cache/
+**/__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+
+# Local environment
+.env
+.venv/
+
+# External repositories downloaded by bootstrap scripts
+src/vendor/
+
+# MuJoCo compiled models and temporary output
+*.mjb
+
+# OS and editor temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
