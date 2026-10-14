@@ -1,6 +1,5 @@
 # AI Multi-Robot Smart Warehouse
 
-**한국IT교육원 기업연계 프로젝트**
 
 ## 폴더 구역 (파일 꼬임 방지)
 
@@ -29,7 +28,6 @@ ros2 launch warehouse_bringup warehouse_jazzy.launch.py
 
 ## 필수 문서
 
-- `docs/CHATGPT_WORKFLOW.md` — ChatGPT 병행 규칙
 - `docs/REORGANIZATION_PLAN.md` — 폴더 재배치 계획
 - `docs/GAP_ANALYSIS.md` — 스펙 대비 현황
 - `docs/GAZEBO_TO_MUJOCO.md` — 좌표 이식 체크리스트
